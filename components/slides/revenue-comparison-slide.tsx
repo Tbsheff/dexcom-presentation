@@ -1,7 +1,7 @@
 "use client"
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts"
-import { revenueData, COLORS } from "@/lib/presentation-data"
+import { revenueData, COMPANY_COLORS } from "@/lib/presentation-data"
 
 export function RevenueComparisonSlide() {
   return (
@@ -44,31 +44,36 @@ export function RevenueComparisonSlide() {
             <Legend
               wrapperStyle={{ paddingTop: "15px" }}
               formatter={(value) => <span style={{ color: "#374151", fontSize: 12 }}>{value}</span>}
+              payload={[
+                { value: "Dexcom", type: "rect", color: COMPANY_COLORS.dexcom },
+                { value: "Abbott", type: "rect", color: COMPANY_COLORS.abbott },
+                { value: "Medtronic", type: "rect", color: COMPANY_COLORS.medtronic },
+              ]}
             />
-            <Bar dataKey="Dexcom" fill={COLORS.amber} radius={[4, 4, 0, 0]} name="Dexcom" />
-            <Bar dataKey="Abbott" fill={COLORS.blue} radius={[4, 4, 0, 0]} name="Abbott" />
-            <Bar dataKey="Medtronic" fill={COLORS.slate} radius={[4, 4, 0, 0]} name="Medtronic" />
+            <Bar dataKey="Dexcom" fill={COMPANY_COLORS.dexcom} radius={[4, 4, 0, 0]} name="Dexcom" />
+            <Bar dataKey="Abbott" fill={COMPANY_COLORS.abbott} radius={[4, 4, 0, 0]} name="Abbott" />
+            <Bar dataKey="Medtronic" fill={COMPANY_COLORS.medtronic} radius={[4, 4, 0, 0]} name="Medtronic" />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
       <div className="animate-fade-up stagger-1 mt-6 grid grid-cols-3 gap-4">
         <div className="p-4 rounded-lg bg-card border border-border text-center">
-          <p className="text-3xl font-bold" style={{ color: COLORS.amber }}>
+          <p className="text-3xl font-bold" style={{ color: COMPANY_COLORS.dexcom }}>
             $4.03B
           </p>
           <p className="text-sm text-muted-foreground">Dexcom 2024</p>
           <p className="text-xs text-muted-foreground/70">100% diabetes-focused</p>
         </div>
         <div className="p-4 rounded-lg bg-card border border-border text-center">
-          <p className="text-3xl font-bold" style={{ color: COLORS.blue }}>
+          <p className="text-3xl font-bold" style={{ color: COMPANY_COLORS.abbott }}>
             $6.8B
           </p>
           <p className="text-sm text-muted-foreground">Abbott 2024</p>
           <p className="text-xs text-muted-foreground/70">Diabetes segment only</p>
         </div>
         <div className="p-4 rounded-lg bg-card border border-border text-center">
-          <p className="text-3xl font-bold" style={{ color: COLORS.slate }}>
+          <p className="text-3xl font-bold" style={{ color: COMPANY_COLORS.medtronic }}>
             $2.49B
           </p>
           <p className="text-sm text-muted-foreground">Medtronic 2024</p>

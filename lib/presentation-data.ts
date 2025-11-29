@@ -1,3 +1,10 @@
+export const COMPANY_COLORS = {
+  dexcom: "#58A618", // Dexcom green - primary brand
+  abbott: "#5B8FB9", // Steel blue
+  medtronic: "#E07A5F", // Coral/terracotta
+  senseonics: "#6B9080", // Sage green
+} as const
+
 export const revenueData = [
   { year: "2020", Dexcom: 1.93, Abbott: 3.7, Medtronic: 2.36 },
   { year: "2021", Dexcom: 2.45, Abbott: 4.3, Medtronic: 2.41 },
@@ -39,9 +46,13 @@ export const differentiationRadar = [
 ]
 
 export const COLORS = {
-  dexcom: "#58A618",
+  dexcom: COMPANY_COLORS.dexcom,
   dexcomLight: "#6fc02e",
   dexcomDark: "#458012",
+  abbott: COMPANY_COLORS.abbott,
+  medtronic: COMPANY_COLORS.medtronic,
+  senseonics: COMPANY_COLORS.senseonics,
+  // Legacy colors for other chart elements
   blue: "#5b8fb9",
   sage: "#7a9e7e",
   coral: "#c97b63",

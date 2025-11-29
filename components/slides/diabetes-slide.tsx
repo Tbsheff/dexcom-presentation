@@ -9,8 +9,8 @@ export function DiabetesSlide() {
       </div>
 
       <div className="grid grid-cols-12 gap-10">
-        <div className="col-span-5 animate-fade-up">
-          <div className="p-8 card-clean">
+        <div className="col-span-5 animate-fade-up h-full">
+          <div className="p-8 card-clean h-full">
             <Activity className="w-8 h-8 text-primary mb-4" />
             <h3 className="text-2xl font-bold mb-3 text-foreground">The Core Problem</h3>
             <p className="text-muted-foreground leading-relaxed">

@@ -40,6 +40,12 @@
   --input: oklch(0.96 0 0);
   --ring: oklch(0.58 0.17 130);
 
+  /* Company brand colors for consistent usage */
+  --color-dexcom: #58a618;
+  --color-abbott: #5b8fb9;
+  --color-medtronic: #e07a5f;
+  --color-senseonics: #6b9080;
+
   /* Chart colors - restrained palette */
   --chart-1: oklch(0.58 0.17 130); /* Dexcom green */
   --chart-2: oklch(0.45 0.12 250); /* Deep blue-gray */
