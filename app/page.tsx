@@ -28,6 +28,35 @@ import {
   Issue1Slide,
   Issue2Slide,
   ThanksSlide,
+  AnalysisSectionDivider,
+  ProfitabilityAnalysisSlide,
+  OperatingEfficiencyAnalysisSlide,
+  FinancialRiskAnalysisSlide,
+  FinancialTrendsAnalysisSlide,
+  ExpenseAnalysisSlide,
+  RevenueSourcesAnalysisSlide,
+  // Section 02: Industry Analysis
+  IndustryDefinitionIntroSlide,
+  IndustryDefinitionFramework1Slide,
+  IndustryDefinitionFramework2Slide,
+  VrioValueSlide,
+  VrioRaritySlide,
+  VrioInimitableSlide,
+  VrioOrganizedSlide,
+  KeyCompetitorsOverviewSlide,
+  StrategicGroupMapVisualSlide,
+  StrategicGroupMapPositioningSlide,
+  StrategicGroupMapDataSlide,
+  FinancialComparisonRevenueSlide,
+  FinancialComparisonMarginsSlide,
+  FiveForcesRivalrySlide,
+  FiveForcesSupplierSlide,
+  FiveForcesBuyerSlide,
+  FiveForcesSubstitutionSlide,
+  FiveForcesNewEntrySlide,
+  FiveForcesInsightsSlide,
+  EpicPestAnalysisSlide,
+  MarketSummarySlide,
 } from "@/components/slides"
 
 export default function DexcomPresentation() {
@@ -107,6 +136,66 @@ export default function DexcomPresentation() {
         return <Issue2Slide />
       case "thanks":
         return <ThanksSlide />
+      // Analysis Section - Section 01
+      case "analysis-divider-01":
+        return <AnalysisSectionDivider sectionNumber="01" title="Company Overview Analysis" />
+      case "profitability-analysis":
+        return <ProfitabilityAnalysisSlide />
+      case "operating-efficiency-analysis":
+        return <OperatingEfficiencyAnalysisSlide />
+      case "financial-risk-analysis":
+        return <FinancialRiskAnalysisSlide />
+      case "financial-trends-analysis":
+        return <FinancialTrendsAnalysisSlide />
+      case "expense-analysis":
+        return <ExpenseAnalysisSlide />
+      case "revenue-sources-analysis":
+        return <RevenueSourcesAnalysisSlide />
+      // Analysis Section - Section 02: Industry Analysis
+      case "analysis-divider-02":
+        return <AnalysisSectionDivider sectionNumber="02" title="Industry Analysis" />
+      case "industry-definition-intro":
+        return <IndustryDefinitionIntroSlide />
+      case "industry-definition-framework-1":
+        return <IndustryDefinitionFramework1Slide />
+      case "industry-definition-framework-2":
+        return <IndustryDefinitionFramework2Slide />
+      case "vrio-value":
+        return <VrioValueSlide />
+      case "vrio-rarity":
+        return <VrioRaritySlide />
+      case "vrio-inimitable":
+        return <VrioInimitableSlide />
+      case "vrio-organized":
+        return <VrioOrganizedSlide />
+      case "key-competitors-overview":
+        return <KeyCompetitorsOverviewSlide />
+      case "strategic-group-map-visual":
+        return <StrategicGroupMapVisualSlide />
+      case "strategic-group-map-positioning":
+        return <StrategicGroupMapPositioningSlide />
+      case "strategic-group-map-data":
+        return <StrategicGroupMapDataSlide />
+      case "financial-comparison-revenue":
+        return <FinancialComparisonRevenueSlide />
+      case "financial-comparison-margins":
+        return <FinancialComparisonMarginsSlide />
+      case "five-forces-rivalry":
+        return <FiveForcesRivalrySlide />
+      case "five-forces-supplier":
+        return <FiveForcesSupplierSlide />
+      case "five-forces-buyer":
+        return <FiveForcesBuyerSlide />
+      case "five-forces-substitution":
+        return <FiveForcesSubstitutionSlide />
+      case "five-forces-new-entry":
+        return <FiveForcesNewEntrySlide />
+      case "five-forces-insights":
+        return <FiveForcesInsightsSlide />
+      case "epic-pest-analysis":
+        return <EpicPestAnalysisSlide />
+      case "market-summary":
+        return <MarketSummarySlide />
       default:
         return null
     }
