@@ -18,12 +18,12 @@ export function StrategicMapSlide() {
       name: "Dexcom",
       tech: 88,
       access: 72,
-      size: 60,
+      size: 55,
       color: COLORS.amber,
       desc: "Premium accuracy + connected ecosystem",
     },
-    { name: "Medtronic", tech: 52, access: 55, size: 55, color: COLORS.coral, desc: "Integrated pump systems" },
-    { name: "Senseonics", tech: 40, access: 32, size: 50, color: "#4db6ac", desc: "Long-term implantable sensor" },
+    { name: "Medtronic", tech: 52, access: 55, size: 45, color: COLORS.coral, desc: "Integrated pump systems" },
+    { name: "Senseonics", tech: 40, access: 32, size: 20, color: "#4db6ac", desc: "Long-term implantable sensor" },
   ]
 
   // Chart dimensions
@@ -163,6 +163,7 @@ export function StrategicMapSlide() {
               {companies.map((company, idx) => {
                 const cx = xScale(company.tech)
                 const cy = yScale(company.access)
+                const isSmallBubble = company.size < 25
                 return (
                   <g key={company.name} className="cursor-pointer" style={{ animationDelay: `${idx * 100}ms` }}>
                     <circle
@@ -177,11 +178,11 @@ export function StrategicMapSlide() {
                     />
                     <text
                       x={cx}
-                      y={cy}
+                      y={isSmallBubble ? cy + company.size + 15 : cy}
                       textAnchor="middle"
-                      dominantBaseline="middle"
-                      fill="#fff"
-                      fontSize={company.name.length > 8 ? 14 : 16}
+                      dominantBaseline={isSmallBubble ? "hanging" : "middle"}
+                      fill={isSmallBubble ? "#374151" : "#fff"}
+                      fontSize={company.name.length > 8 ? 12 : 14}
                       fontWeight={600}
                       className="pointer-events-none"
                     >
