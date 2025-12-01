@@ -1,3 +1,5 @@
+import { SlideHeader, SlideTitle, Card, CardContent, Badge } from "@/components/ui"
+
 export function CompetitorsSlide() {
   const competitors = [
     {
@@ -31,33 +33,29 @@ export function CompetitorsSlide() {
   ]
 
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
+    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
       <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Competition</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Competitive Landscape</h2>
+        <SlideHeader>Competition</SlideHeader>
+        <SlideTitle>Competitive Landscape</SlideTitle>
       </div>
 
       <div className="grid grid-cols-2 gap-5">
         {competitors.map((comp, idx) => (
-          <div
+          <Card
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-md border ${
-              comp.highlight ? "bg-primary/5 border-primary/30" : "bg-card border-border"
-            }`}
+            className={`animate-fade-up stagger-${idx + 1} ${comp.highlight ? "bg-muted" : ""}`}
           >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xl font-bold text-foreground">{comp.name}</h3>
-              <span
-                className={`px-3 py-1 rounded-md text-xs font-medium ${
-                  comp.highlight ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"
-                }`}
-              >
-                {comp.product}
-              </span>
-            </div>
-            <p className="text-muted-foreground text-sm mb-3">{comp.position}</p>
-            <p className="text-foreground font-semibold">{comp.revenue}</p>
-          </div>
+            <CardContent className="pt-6">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xl font-semibold text-foreground">{comp.name}</h3>
+                <Badge variant={comp.highlight ? "default" : "secondary"}>
+                  {comp.product}
+                </Badge>
+              </div>
+              <p className="text-muted-foreground text-sm mb-3">{comp.position}</p>
+              <p className="text-foreground font-semibold">{comp.revenue}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>

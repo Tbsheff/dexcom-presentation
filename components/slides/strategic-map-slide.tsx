@@ -1,6 +1,7 @@
 "use client"
 
 import { COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideTitle, SlideSubtitle, Card, CardContent } from "@/components/ui"
 
 interface CompanyBubble {
   name: string
@@ -43,14 +44,14 @@ export function StrategicMapSlide() {
   return (
     <div className="p-12 max-w-7xl mx-auto">
       <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">Positioning</span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Strategic Group Map</h2>
-        <p className="text-muted-foreground mt-2">Technology Integration vs. User Accessibility</p>
+        <SlideHeader>Positioning</SlideHeader>
+        <SlideTitle>Strategic Group Map</SlideTitle>
+        <SlideSubtitle>Technology Integration vs. User Accessibility</SlideSubtitle>
       </div>
 
       <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-9 animate-fade-up">
-          <div className="p-6 rounded-lg bg-card border border-border">
+        <Card className="col-span-9 animate-fade-up">
+          <CardContent className="pt-6">
             <svg width="100%" height="100%" viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="overflow-visible">
               {/* Grid lines */}
               {ticks.map((tick) => (
@@ -61,7 +62,7 @@ export function StrategicMapSlide() {
                     y1={padding.top}
                     x2={xScale(tick)}
                     y2={chartHeight - padding.bottom}
-                    stroke="#e5e7eb"
+                    stroke="hsl(var(--border))"
                     strokeWidth={1}
                     strokeDasharray={tick === 0 ? "0" : "4,4"}
                   />
@@ -71,7 +72,7 @@ export function StrategicMapSlide() {
                     y1={yScale(tick)}
                     x2={chartWidth - padding.right}
                     y2={yScale(tick)}
-                    stroke="#e5e7eb"
+                    stroke="hsl(var(--border))"
                     strokeWidth={1}
                     strokeDasharray={tick === 0 ? "0" : "4,4"}
                   />
@@ -84,7 +85,7 @@ export function StrategicMapSlide() {
                 y1={chartHeight - padding.bottom}
                 x2={chartWidth - padding.right}
                 y2={chartHeight - padding.bottom}
-                stroke="#374151"
+                stroke="hsl(var(--foreground))"
                 strokeWidth={2}
               />
               {/* X-axis ticks and labels */}
@@ -95,14 +96,14 @@ export function StrategicMapSlide() {
                     y1={chartHeight - padding.bottom}
                     x2={xScale(tick)}
                     y2={chartHeight - padding.bottom + 6}
-                    stroke="#374151"
+                    stroke="hsl(var(--foreground))"
                     strokeWidth={2}
                   />
                   <text
                     x={xScale(tick)}
                     y={chartHeight - padding.bottom + 22}
                     textAnchor="middle"
-                    fill="#374151"
+                    fill="hsl(var(--foreground))"
                     fontSize={12}
                   >
                     {tick}
@@ -114,7 +115,7 @@ export function StrategicMapSlide() {
                 x={padding.left + plotWidth / 2}
                 y={chartHeight - 15}
                 textAnchor="middle"
-                fill="#374151"
+                fill="hsl(var(--foreground))"
                 fontSize={14}
                 fontWeight={500}
               >
@@ -127,7 +128,7 @@ export function StrategicMapSlide() {
                 y1={padding.top}
                 x2={padding.left}
                 y2={chartHeight - padding.bottom}
-                stroke="#374151"
+                stroke="hsl(var(--foreground))"
                 strokeWidth={2}
               />
               {/* Y-axis ticks and labels */}
@@ -138,10 +139,10 @@ export function StrategicMapSlide() {
                     y1={yScale(tick)}
                     x2={padding.left}
                     y2={yScale(tick)}
-                    stroke="#374151"
+                    stroke="hsl(var(--foreground))"
                     strokeWidth={2}
                   />
-                  <text x={padding.left - 12} y={yScale(tick) + 4} textAnchor="end" fill="#374151" fontSize={12}>
+                  <text x={padding.left - 12} y={yScale(tick) + 4} textAnchor="end" fill="hsl(var(--foreground))" fontSize={12}>
                     {tick}
                   </text>
                 </g>
@@ -151,7 +152,7 @@ export function StrategicMapSlide() {
                 x={20}
                 y={padding.top + plotHeight / 2}
                 textAnchor="middle"
-                fill="#374151"
+                fill="hsl(var(--foreground))"
                 fontSize={14}
                 fontWeight={500}
                 transform={`rotate(-90, 20, ${padding.top + plotHeight / 2})`}
@@ -191,18 +192,20 @@ export function StrategicMapSlide() {
                 )
               })}
             </svg>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         <div className="col-span-3 space-y-3">
           {companies.map((company, idx) => (
-            <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border border-border`}>
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: company.color }} />
-                <h4 className="font-semibold text-foreground">{company.name}</h4>
-              </div>
-              <p className="text-xs text-muted-foreground">{company.desc}</p>
-            </div>
+            <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: company.color }} />
+                  <h4 className="font-semibold text-foreground">{company.name}</h4>
+                </div>
+                <p className="text-xs text-muted-foreground">{company.desc}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

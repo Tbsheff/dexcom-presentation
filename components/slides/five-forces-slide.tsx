@@ -2,6 +2,7 @@
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts"
 import { fiveForces, COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideTitle, SlideSubtitle, Card, CardContent, Badge } from "@/components/ui"
 
 export function FiveForcesSlide() {
   const forces = [
@@ -18,62 +19,61 @@ export function FiveForcesSlide() {
   }))
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
+    <div className="p-8 lg:p-10 max-w-7xl mx-auto">
       <div className="mb-12">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">Porter's Analysis</span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Market Attractiveness</h2>
-        <p className="text-muted-foreground mt-2">Five Forces analysis of the CGM industry</p>
+        <SlideHeader>Porter's Analysis</SlideHeader>
+        <SlideTitle>Market Attractiveness</SlideTitle>
+        <SlideSubtitle>Five Forces analysis of the CGM industry</SlideSubtitle>
       </div>
 
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-6 space-y-3">
           {forces.map((item, idx) => (
-            <div
-              key={idx}
-              className={`animate-fade-up stagger-${idx + 1} flex items-center gap-4 p-4 rounded-lg bg-card border border-border`}
-            >
-              <div
-                className="px-3 py-1 rounded text-xs font-bold text-white shrink-0"
-                style={{ backgroundColor: item.color }}
-              >
-                {item.level}
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground text-sm">{item.force}</h4>
-                <p className="text-xs text-muted-foreground">{item.desc}</p>
-              </div>
-            </div>
+            <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
+              <CardContent className="flex items-center gap-4 pt-6">
+                <Badge
+                  className="shrink-0 text-white"
+                  style={{ backgroundColor: item.color }}
+                >
+                  {item.level}
+                </Badge>
+                <div>
+                  <h4 className="font-semibold text-foreground text-sm">{item.force}</h4>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
-        <div className="col-span-6 animate-fade-up stagger-6 flex items-center justify-center">
-          <div className="w-full h-72 p-4 rounded-lg bg-card border border-border">
+        <Card className="col-span-6 animate-fade-up stagger-6">
+          <CardContent className="pt-6 h-full">
             <h4 className="font-semibold text-foreground text-sm mb-4 text-center">Force Intensity (0-100)</h4>
             <ResponsiveContainer width="100%" height="85%">
               <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 40, bottom: 5, left: 10 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" horizontal={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" horizontal={false} />
                 <XAxis
                   type="number"
                   domain={[0, 100]}
-                  stroke="#374151"
+                  stroke="hsl(var(--foreground))"
                   tickLine={false}
-                  axisLine={{ stroke: "#d1d5db" }}
-                  tick={{ fill: "#6b7280", fontSize: 11 }}
+                  axisLine={{ stroke: "hsl(var(--border))" }}
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
                   tickFormatter={(value) => `${value}`}
                 />
                 <YAxis
                   dataKey="force"
                   type="category"
-                  stroke="#374151"
+                  stroke="hsl(var(--foreground))"
                   width={85}
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "#374151", fontSize: 11 }}
+                  tick={{ fill: "hsl(var(--foreground))", fontSize: 11 }}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "white",
-                    border: "1px solid #e5e7eb",
+                    backgroundColor: "hsl(var(--card))",
+                    border: "1px solid hsl(var(--border))",
                     borderRadius: "8px",
                     boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
                   }}
@@ -86,12 +86,12 @@ export function FiveForcesSlide() {
                       fill={entry.value >= 75 ? COLORS.coral : entry.value >= 40 ? COLORS.amber : COLORS.sage}
                     />
                   ))}
-                  <LabelList dataKey="label" position="right" fill="#374151" fontSize={11} fontWeight={600} />
+                  <LabelList dataKey="label" position="right" fill="hsl(var(--foreground))" fontSize={11} fontWeight={600} />
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )

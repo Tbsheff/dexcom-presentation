@@ -1,5 +1,6 @@
 import { CheckCircle2, AlertTriangle } from "lucide-react"
 import { COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideTitle } from "@/components/ui"
 
 export function ImitationSlide() {
   const creates = [
@@ -19,10 +20,10 @@ export function ImitationSlide() {
   ]
 
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
+    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
       <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Competitive Moat</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Imitation Barriers</h2>
+        <SlideHeader>Competitive Moat</SlideHeader>
+        <SlideTitle>Imitation Barriers</SlideTitle>
       </div>
 
       <div className="grid grid-cols-2 gap-10">

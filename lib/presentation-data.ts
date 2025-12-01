@@ -1,23 +1,35 @@
 export const COMPANY_COLORS = {
   dexcom: "#58A618", // Dexcom green - primary brand
-  abbott: "#5B8FB9", // Steel blue
-  medtronic: "#E07A5F", // Coral/terracotta
-  senseonics: "#6B9080", // Sage green
+  abbott: "#3B82F6", // Blue-500
+  medtronic: "#F97316", // Orange-500
+  senseonics: "#8B5CF6", // Violet-500
+} as const
+
+// Consistent chart styling using CSS variables
+export const CHART_THEME = {
+  grid: "hsl(var(--border))",
+  axis: "hsl(var(--muted-foreground))",
+  label: "hsl(var(--foreground))",
+  tooltip: {
+    bg: "hsl(var(--card))",
+    border: "hsl(var(--border))",
+    radius: "var(--radius)",
+  },
 } as const
 
 export const revenueData = [
-  { year: "2020", Dexcom: 1.93, Abbott: 3.7, Medtronic: 2.36 },
-  { year: "2021", Dexcom: 2.45, Abbott: 4.3, Medtronic: 2.41 },
-  { year: "2022", Dexcom: 2.91, Abbott: 5.3, Medtronic: 2.42 },
-  { year: "2023", Dexcom: 3.62, Abbott: 5.9, Medtronic: 2.46 },
-  { year: "2024", Dexcom: 4.03, Abbott: 6.8, Medtronic: 2.49 },
+  { year: "2020", Dexcom: 1.93, Abbott: 3.7, Medtronic: 2.36, Senseonics: 0.01 },
+  { year: "2021", Dexcom: 2.45, Abbott: 4.3, Medtronic: 2.41, Senseonics: 0.01 },
+  { year: "2022", Dexcom: 2.91, Abbott: 5.3, Medtronic: 2.42, Senseonics: 0.02 },
+  { year: "2023", Dexcom: 3.62, Abbott: 5.9, Medtronic: 2.46, Senseonics: 0.02 },
+  { year: "2024", Dexcom: 4.03, Abbott: 6.8, Medtronic: 2.49, Senseonics: 0.03 },
 ]
 
 export const growthData = [
-  { year: "2021", Dexcom: 27, Abbott: 16, Medtronic: 2 },
-  { year: "2022", Dexcom: 19, Abbott: 23, Medtronic: 0.4 },
-  { year: "2023", Dexcom: 24, Abbott: 11, Medtronic: 1.7 },
-  { year: "2024", Dexcom: 11, Abbott: 15, Medtronic: 1.2 },
+  { year: "2021", Dexcom: 27, Abbott: 16, Medtronic: 2, Senseonics: 15 },
+  { year: "2022", Dexcom: 19, Abbott: 23, Medtronic: 0.4, Senseonics: 45 },
+  { year: "2023", Dexcom: 24, Abbott: 11, Medtronic: 1.7, Senseonics: 35 },
+  { year: "2024", Dexcom: 11, Abbott: 15, Medtronic: 1.2, Senseonics: 25 },
 ]
 
 // X = Technology Integration, Y = User Accessibility, Z = bubble size (market share)
@@ -37,12 +49,12 @@ export const fiveForces = [
 ]
 
 export const differentiationRadar = [
-  { attr: "Accuracy", Dexcom: 95, Abbott: 80, Medtronic: 75 },
-  { attr: "Integration", Dexcom: 95, Abbott: 70, Medtronic: 85 },
-  { attr: "Wear Time", Dexcom: 70, Abbott: 75, Medtronic: 65 },
-  { attr: "Price", Dexcom: 50, Abbott: 85, Medtronic: 60 },
-  { attr: "Brand Trust", Dexcom: 90, Abbott: 75, Medtronic: 70 },
-  { attr: "Ease of Use", Dexcom: 90, Abbott: 85, Medtronic: 65 },
+  { attr: "Accuracy", Dexcom: 95, Abbott: 80, Medtronic: 75, Senseonics: 85 },
+  { attr: "Integration", Dexcom: 95, Abbott: 70, Medtronic: 85, Senseonics: 40 },
+  { attr: "Wear Time", Dexcom: 70, Abbott: 75, Medtronic: 65, Senseonics: 100 },
+  { attr: "Price", Dexcom: 50, Abbott: 85, Medtronic: 60, Senseonics: 40 },
+  { attr: "Brand Trust", Dexcom: 90, Abbott: 75, Medtronic: 70, Senseonics: 45 },
+  { attr: "Ease of Use", Dexcom: 90, Abbott: 85, Medtronic: 65, Senseonics: 50 },
 ]
 
 export const COLORS = {
@@ -52,12 +64,6 @@ export const COLORS = {
   abbott: COMPANY_COLORS.abbott,
   medtronic: COMPANY_COLORS.medtronic,
   senseonics: COMPANY_COLORS.senseonics,
-  // Legacy colors for other chart elements
-  blue: "#5b8fb9",
-  sage: "#7a9e7e",
-  coral: "#c97b63",
-  slate: "#6b7a8f",
-  amber: "#f5a21c",
 }
 
 export const slides = [

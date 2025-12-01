@@ -2,83 +2,40 @@
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts"
 import { revenueData, COMPANY_COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideLabel, SlideTitle, SlideSubtitle, Card, CardContent, StatCard } from "@/components/ui"
 
 export function RevenueComparisonSlide() {
   return (
-    <div className="p-16 max-w-6xl mx-auto">
-      <div className="mb-8">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">Competitive Context</span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Revenue Comparison</h2>
-        <p className="text-muted-foreground mt-2">Diabetes segment revenue in billions USD (2020-2024)</p>
-      </div>
+    <div className="p-8 lg:p-10 max-w-7xl mx-auto">
+      <SlideHeader>
+        <SlideLabel>Competitive Context</SlideLabel>
+        <SlideTitle>Revenue Comparison</SlideTitle>
+        <SlideSubtitle>Diabetes segment revenue in billions USD (2020-2024)</SlideSubtitle>
+      </SlideHeader>
 
-      <div className="animate-fade-up h-80 p-6 rounded-lg bg-card border border-border">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={revenueData} barCategoryGap="20%" margin={{ top: 10, right: 20, bottom: 10, left: 20 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
-            <XAxis
-              dataKey="year"
-              stroke="#374151"
-              tickLine={false}
-              axisLine={{ stroke: "#d1d5db" }}
-              tick={{ fill: "#374151", fontSize: 12 }}
-            />
-            <YAxis
-              stroke="#374151"
-              tickLine={false}
-              axisLine={false}
-              tick={{ fill: "#6b7280", fontSize: 11 }}
-              tickFormatter={(value) => `$${value}B`}
-              domain={[0, 8]}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "white",
-                border: "1px solid #e5e7eb",
-                borderRadius: "8px",
-                boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
-              }}
-              labelStyle={{ color: "#374151", fontWeight: 600 }}
-              formatter={(value: number) => [`$${value}B`, ""]}
-            />
-            <Legend
-              wrapperStyle={{ paddingTop: "15px" }}
-              formatter={(value) => <span style={{ color: "#374151", fontSize: 12 }}>{value}</span>}
-              payload={[
-                { value: "Dexcom", type: "rect", color: COMPANY_COLORS.dexcom },
-                { value: "Abbott", type: "rect", color: COMPANY_COLORS.abbott },
-                { value: "Medtronic", type: "rect", color: COMPANY_COLORS.medtronic },
-              ]}
-            />
-            <Bar dataKey="Dexcom" fill={COMPANY_COLORS.dexcom} radius={[4, 4, 0, 0]} name="Dexcom" />
-            <Bar dataKey="Abbott" fill={COMPANY_COLORS.abbott} radius={[4, 4, 0, 0]} name="Abbott" />
-            <Bar dataKey="Medtronic" fill={COMPANY_COLORS.medtronic} radius={[4, 4, 0, 0]} name="Medtronic" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+      <Card className="animate-fade-up mb-6">
+        <CardContent className="p-5 h-72">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={revenueData} barCategoryGap="20%" margin={{ top: 10, right: 20, bottom: 10, left: 20 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />
+              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" tickLine={false} axisLine={{ stroke: "hsl(var(--border))" }} tick={{ fill: "hsl(var(--foreground))", fontSize: 12 }} />
+              <YAxis stroke="hsl(var(--muted-foreground))" tickLine={false} axisLine={false} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} tickFormatter={(value) => `$${value}B`} domain={[0, 8]} />
+              <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)", boxShadow: "var(--shadow-md)" }} labelStyle={{ color: "hsl(var(--foreground))", fontWeight: 500 }} formatter={(value: number) => [`$${value}B`, ""]} />
+              <Legend wrapperStyle={{ paddingTop: "10px" }} formatter={(value) => <span style={{ color: "hsl(var(--foreground))", fontSize: 12 }}>{value}</span>} />
+              <Bar dataKey="Dexcom" fill={COMPANY_COLORS.dexcom} radius={[4, 4, 0, 0]} name="Dexcom" />
+              <Bar dataKey="Abbott" fill={COMPANY_COLORS.abbott} radius={[4, 4, 0, 0]} name="Abbott" />
+              <Bar dataKey="Medtronic" fill={COMPANY_COLORS.medtronic} radius={[4, 4, 0, 0]} name="Medtronic" />
+              <Bar dataKey="Senseonics" fill={COMPANY_COLORS.senseonics} radius={[4, 4, 0, 0]} name="Senseonics" />
+            </BarChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
 
-      <div className="animate-fade-up stagger-1 mt-6 grid grid-cols-3 gap-4">
-        <div className="p-4 rounded-lg bg-card border border-border text-center">
-          <p className="text-3xl font-bold" style={{ color: COMPANY_COLORS.dexcom }}>
-            $4.03B
-          </p>
-          <p className="text-sm text-muted-foreground">Dexcom 2024</p>
-          <p className="text-xs text-muted-foreground/70">100% diabetes-focused</p>
-        </div>
-        <div className="p-4 rounded-lg bg-card border border-border text-center">
-          <p className="text-3xl font-bold" style={{ color: COMPANY_COLORS.abbott }}>
-            $6.8B
-          </p>
-          <p className="text-sm text-muted-foreground">Abbott 2024</p>
-          <p className="text-xs text-muted-foreground/70">Diabetes segment only</p>
-        </div>
-        <div className="p-4 rounded-lg bg-card border border-border text-center">
-          <p className="text-3xl font-bold" style={{ color: COMPANY_COLORS.medtronic }}>
-            $2.49B
-          </p>
-          <p className="text-sm text-muted-foreground">Medtronic 2024</p>
-          <p className="text-xs text-muted-foreground/70">Diabetes segment only</p>
-        </div>
+      <div className="animate-fade-up stagger-1 grid grid-cols-4 gap-4">
+        <StatCard value="$4.03B" label="Dexcom 2024" subtext="100% diabetes-focused" valueColor={COMPANY_COLORS.dexcom} />
+        <StatCard value="$6.8B" label="Abbott 2024" subtext="Diabetes segment only" valueColor={COMPANY_COLORS.abbott} />
+        <StatCard value="$2.49B" label="Medtronic 2024" subtext="Diabetes segment only" valueColor={COMPANY_COLORS.medtronic} />
+        <StatCard value="$30M" label="Senseonics 2024" subtext="Implantable CGM niche" valueColor={COMPANY_COLORS.senseonics} />
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import { AlertTriangle, CheckCircle2 } from "lucide-react"
 import { COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideTitle, Card, CardContent } from "@/components/ui"
 
 export function Issue2Slide() {
   const problems = [
@@ -16,64 +17,66 @@ export function Issue2Slide() {
   ]
 
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
+    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
       <div className="mb-10">
-        <span className="text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: COLORS.coral }}>
-          Strategic Challenge
-        </span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Issue #2</h2>
+        <SlideHeader style={{ color: COLORS.coral }}>Strategic Challenge</SlideHeader>
+        <SlideTitle>Issue #2</SlideTitle>
       </div>
 
       <div className="grid grid-cols-2 gap-8">
         <div>
-          <div
-            className="animate-fade-up p-6 rounded-md border-2 mb-5"
-            style={{ borderColor: `${COLORS.coral}40`, backgroundColor: `${COLORS.coral}08` }}
+          <Card className="animate-fade-up mb-5" style={{ borderColor: `${COLORS.coral}40`, backgroundColor: `${COLORS.coral}08` }}>
+            <CardContent className="pt-6">
+              <h3 className="text-xl font-semibold text-foreground mb-4">Competitors Replicating Integration</h3>
+              <ul className="space-y-2.5">
+                {problems.map((item, idx) => (
+                  <li key={idx} className="text-sm text-muted-foreground flex items-start gap-3">
+                    <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.coral }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+          <Card
+            className="animate-fade-up stagger-1"
+            style={{ backgroundColor: `${COLORS.blue}10`, borderColor: `${COLORS.blue}30` }}
           >
-            <h3 className="text-xl font-bold text-foreground mb-4">Competitors Replicating Integration</h3>
-            <ul className="space-y-2.5">
-              {problems.map((item, idx) => (
-                <li key={idx} className="text-sm text-muted-foreground flex items-start gap-3">
-                  <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.coral }} />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div
-            className="animate-fade-up stagger-1 p-4 rounded-md"
-            style={{ backgroundColor: `${COLORS.blue}10`, border: `1px solid ${COLORS.blue}30` }}
-          >
-            <p className="text-sm text-muted-foreground">
-              <strong style={{ color: COLORS.blue }}>Acknowledgment:</strong> We cannot stop competitors from developing
-              their own integration capabilities.
-            </p>
-          </div>
+            <CardContent className="pt-6">
+              <p className="text-sm text-muted-foreground">
+                <strong style={{ color: COLORS.blue }}>Acknowledgment:</strong> We cannot stop competitors from developing
+                their own integration capabilities.
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         <div>
-          <div
-            className="animate-fade-up stagger-2 p-6 rounded-md border-2"
-            style={{ borderColor: `${COLORS.sage}40`, backgroundColor: `${COLORS.sage}08` }}
-          >
-            <h3 className="text-xl font-bold text-foreground mb-4">Solution: Innovate on Convenience</h3>
-            <ul className="space-y-3">
-              {solutions.map((item, idx) => (
-                <li key={idx} className="text-sm">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.sage }} />
-                    <div>
-                      <span className="font-semibold text-foreground">{item.title}</span>
-                      <p className="text-muted-foreground">{item.desc}</p>
+          <Card className="animate-fade-up stagger-2" style={{ borderColor: `${COLORS.sage}40`, backgroundColor: `${COLORS.sage}08` }}>
+            <CardContent className="pt-6">
+              <h3 className="text-xl font-semibold text-foreground mb-4">Solution: Innovate on Convenience</h3>
+              <ul className="space-y-3">
+                {solutions.map((item, idx) => (
+                  <li key={idx} className="text-sm">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.sage }} />
+                      <div>
+                        <span className="font-semibold text-foreground">{item.title}</span>
+                        <p className="text-muted-foreground">{item.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="animate-fade-up stagger-3 mt-5 text-xs text-muted-foreground p-3 rounded-md bg-secondary">
-            <strong>Leverages:</strong> R&D capability (S), manufacturing scale (S), tech advancement opportunity (O)
-          </div>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+          <Card className="animate-fade-up stagger-3 mt-5 bg-muted">
+            <CardContent className="pt-6">
+              <p className="text-xs text-muted-foreground">
+                <strong>Leverages:</strong> R&D capability (S), manufacturing scale (S), tech advancement opportunity (O)
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

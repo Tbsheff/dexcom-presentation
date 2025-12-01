@@ -40,11 +40,15 @@
   --input: oklch(0.96 0 0);
   --ring: oklch(0.58 0.17 130);
 
-  /* Company brand colors for consistent usage */
+  /* Company brand colors - distinct colors */
   --color-dexcom: #58a618;
-  --color-abbott: #5b8fb9;
-  --color-medtronic: #e07a5f;
-  --color-senseonics: #6b9080;
+  --color-abbott: #3B82F6;
+  --color-medtronic: #F97316;
+  --color-senseonics: #8B5CF6;
+
+  /* Shadow tokens */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
   /* Chart colors - restrained palette */
   --chart-1: oklch(0.58 0.17 130); /* Dexcom green */
@@ -156,7 +160,7 @@
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -174,11 +178,11 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.5s ease-out forwards;
+  animation: fade-up 0.2s ease-out forwards;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.4s ease-out forwards;
+  animation: fade-in 0.15s ease-out forwards;
 }
 
 .stagger-1 {
@@ -206,17 +210,12 @@
   opacity: 0;
 }
 
-/* Professional card style - clean, no glass effect */
+/* Professional card style - shadcn-like */
 .card-clean {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-}
-
-/* Accent highlight */
-.accent-bar {
-  border-left: 3px solid var(--primary);
-  padding-left: 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Chart container */
@@ -224,5 +223,6 @@
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   padding: 1.5rem;
 }

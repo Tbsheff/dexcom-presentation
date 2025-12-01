@@ -1,3 +1,5 @@
+import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/components/ui"
+
 export function MissionSlide() {
   const values = [
     { title: "Listen", desc: "Understand needs of people living with diabetes" },
@@ -7,28 +9,32 @@ export function MissionSlide() {
   ]
 
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
-      <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Purpose</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Mission & Values</h2>
-      </div>
+    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
+      <SlideHeader>
+        <SlideLabel>Purpose</SlideLabel>
+        <SlideTitle>Mission & Values</SlideTitle>
+      </SlideHeader>
 
-      <div className="animate-fade-up mb-12 accent-bar py-4">
-        <span className="text-xs uppercase tracking-wider text-primary font-semibold">Mission</span>
-        <p className="text-2xl font-medium text-foreground mt-3 leading-relaxed">
-          Empower people with diabetes to take control through Continuous Glucose Monitoring
-        </p>
-      </div>
+      <Card className="animate-fade-up mb-8">
+        <CardContent className="p-6">
+          <p className="text-sm text-muted-foreground mb-2">Mission</p>
+          <p className="text-xl font-medium text-foreground leading-relaxed">
+            Empower people with diabetes to take control through Continuous Glucose Monitoring
+          </p>
+        </CardContent>
+      </Card>
 
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-4 gap-4">
         {values.map((value, idx) => (
-          <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-6 card-clean text-center`}>
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <span className="text-primary font-bold">{idx + 1}</span>
-            </div>
-            <h4 className="font-semibold text-foreground mb-2">{value.title}</h4>
-            <p className="text-xs text-muted-foreground leading-relaxed">{value.desc}</p>
-          </div>
+          <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
+            <CardContent className="p-5 text-center">
+              <div className="w-8 h-8 rounded-md bg-muted flex items-center justify-center mx-auto mb-3">
+                <span className="text-muted-foreground font-semibold text-sm">{idx + 1}</span>
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">{value.title}</h4>
+              <p className="text-xs text-muted-foreground">{value.desc}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>
