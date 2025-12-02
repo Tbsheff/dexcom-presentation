@@ -939,23 +939,6 @@ export const recommendationsSection07 = {
       "Counter the Implantable Threat (Eversense).",
     ],
   },
-  issue3: {
-    title: "Erosion of Physician Loyalty & Recommendation Rates",
-    points: [
-      "Competitors have ramped up their professional marketing efforts.",
-      "Focused shift more to Direct-To-Consumer rather than focusing on educating the prescribing physician.",
-      "As Dexcom expands to Type 2 & general wellness, they must educate a wider range of providers.",
-      "Dexcom's systems still require physician's assistance with prescriptions, onboarding, & interpreting data.",
-    ],
-  },
-  solution3: {
-    title: "Market at Medical Conferences & Provide Samples to Clinics",
-    points: [
-      "Maximize impact at Medical Conferences: Present clinical evidence & give hands-on experience.",
-      "Provide no-cost samples to clinics to build trust. Encourage the use of Professional CGM samples in clinics for diagnostic purposes. Streamline the sample request process.",
-      "Physicians who receive samples & see positive, real-world outcomes will gain confidence.",
-    ],
-  },
 }
 // Main Presentation Slides
 export const presentationSlides = [
@@ -1055,11 +1038,10 @@ export const analysisSlides = [
   { id: "swot-weaknesses", title: "SWOT: Weaknesses", section: "analysis-06" },
   { id: "swot-opportunities", title: "SWOT: Opportunities", section: "analysis-06" },
   { id: "swot-threats", title: "SWOT: Threats", section: "analysis-06" },
-  // Section 07: Recommendations (4 slides)
+  // Section 07: Recommendations (3 slides)
   { id: "recommendations-divider", title: "Section 07: Recommendations", section: "analysis-07" },
   { id: "issue-1-detailed", title: "Recommendation #1: Expand Market Reach", section: "analysis-07" },
   { id: "issue-2-detailed", title: "Recommendation #2: Innovate on Convenience", section: "analysis-07" },
-  { id: "issue-3-detailed", title: "Recommendation #3: Rebuild Physician Network", section: "analysis-07" },
 ]
 
 // Combined slides (for backwards compatibility)

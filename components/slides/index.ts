@@ -59,6 +59,7 @@ import { MarketSummarySlide } from "./analysis/market-summary-slide"
 import { MarketSummaryConclusion } from "./analysis/market-summary-conclusion-slide"
 
 // Section 03 Part 2: Competitor Response Slides
+import { CompetitorResponseDividerSlide } from "./analysis/competitor-response-divider-slide"
 import { FutureGoalsSlide } from "./analysis/future-goals-slide"
 import { AssumptionsSlide } from "./analysis/assumptions-slide"
 import { CurrentStrategySlide } from "./analysis/current-strategy-slide"
@@ -87,7 +88,6 @@ import { SwotThreatsSlide } from "./analysis/swot-threats-slide"
 import { RecommendationsDividerSlide } from "./analysis/recommendations-divider-slide"
 import { Issue1DetailedSlide } from "./analysis/issue-1-detailed-slide"
 import { Issue2DetailedSlide } from "./analysis/issue-2-detailed-slide"
-import { Issue3DetailedSlide } from "./analysis/issue-3-detailed-slide"
 // Section 03 Part 1: Unique Value
 import { DifferentiationStrategySlide } from "./analysis/differentiation-strategy-slide"
 import { StrategyCanvasSlide } from "./analysis/strategy-canvas-slide"
@@ -200,5 +200,4 @@ export {
   RecommendationsDividerSlide,
   Issue1DetailedSlide,
   Issue2DetailedSlide,
-  Issue3DetailedSlide,
 }
