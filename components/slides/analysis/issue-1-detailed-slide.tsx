@@ -18,51 +18,47 @@ export function Issue1DetailedSlide() {
   ]
 
   return (
-    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+    <div className="px-8 pt-5 pb-16 h-full flex flex-col">
       <SlideHeader>
-        <span className="text-sm font-medium" style={{ color: COLORS.coral }}>Recommendation #1</span>
+        <span className="text-xs font-medium" style={{ color: COLORS.coral }}>Recommendation #1</span>
         <SlideTitle>Limited Market with Fragmented Competition</SlideTitle>
-        <p className="text-xl text-muted-foreground mt-2">Expand beyond Type 1 diabetes niche</p>
+        <p className="text-base text-muted-foreground mt-1">Expand beyond Type 1 diabetes niche</p>
       </SlideHeader>
 
-      <div className="grid grid-cols-2 gap-8">
-        <div>
-          <Card className="animate-fade-up mb-5" style={{ borderColor: `${COLORS.coral}40`, backgroundColor: `${COLORS.coral}08` }}>
-            <CardContent className="pt-6">
-              <h3 className="text-3xl font-bold text-foreground mb-5">The Problem</h3>
-              <ul className="space-y-3">
-                {problems.map((item, idx) => (
-                  <li key={idx} className="text-xl text-muted-foreground flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 mt-1 shrink-0" style={{ color: COLORS.coral }} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
+      <div className="grid grid-cols-2 gap-4">
+        <Card className="animate-fade-up h-full" style={{ borderColor: `${COLORS.coral}40`, backgroundColor: `${COLORS.coral}08` }}>
+          <CardContent className="pt-4">
+            <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">The Problem</h3>
+            <ul className="space-y-2">
+              {problems.map((item, idx) => (
+                <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2 leading-snug">
+                  <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.coral }} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
 
-        <div>
-          <Card className="animate-fade-up stagger-2" style={{ borderColor: `${COLORS.sage}40`, backgroundColor: `${COLORS.sage}08` }}>
-            <CardContent className="pt-6">
-              <h3 className="text-3xl font-bold text-foreground mb-5">The Solution: Market to Athletes and Health Industry</h3>
-              <ul className="space-y-4">
-                {solutions.map((item, idx) => (
-                  <li key={idx} className="text-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 mt-1 shrink-0" style={{ color: COLORS.sage }} />
-                      <div>
-                        <span className={`font-bold text-xl ${item.priority ? "text-primary" : "text-foreground"}`}>{item.title}</span>
-                        {item.priority && <span className="ml-2 text-base bg-primary/10 text-primary px-2 py-1 rounded">Top Priority</span>}
-                        <p className="text-xl text-muted-foreground">{item.desc}</p>
-                      </div>
+        <Card className="animate-fade-up stagger-2 h-full" style={{ borderColor: `${COLORS.sage}40`, backgroundColor: `${COLORS.sage}08` }}>
+          <CardContent className="pt-4">
+            <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">The Solution: Market to Athletes and Health Industry</h3>
+            <ul className="space-y-2.5">
+              {solutions.map((item, idx) => (
+                <li key={idx} className="text-sm">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.sage }} />
+                    <div>
+                      <span className={`font-bold text-base leading-tight ${item.priority ? "text-primary" : "text-foreground"}`}>{item.title}</span>
+                      {item.priority && <span className="ml-2 text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">Top Priority</span>}
+                      <p className="text-sm text-muted-foreground leading-snug">{item.desc}</p>
                     </div>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )

@@ -71,7 +71,6 @@ import {
   RecommendationsDividerSlide,
   Issue1DetailedSlide,
   Issue2DetailedSlide,
-  Issue3DetailedSlide,
 } from "@/components/slides"
 
 const analysisSections = [
@@ -248,8 +247,6 @@ export default function AnalysisDeck() {
         return <Issue1DetailedSlide />
       case "issue-2-detailed":
         return <Issue2DetailedSlide />
-      case "issue-3-detailed":
-        return <Issue3DetailedSlide />
       default:
         return <div className="flex items-center justify-center h-full text-muted-foreground">Slide: {slide.id}</div>
     }
