@@ -2,9 +2,11 @@ import { TitleSlide } from "./title-slide"
 import { AgendaSlide } from "./agenda-slide"
 import { DiabetesSlide } from "./diabetes-slide"
 import { CgmSlide } from "./cgm-slide"
+import { HowCgmWorksSlide } from "./how-cgm-works-slide"
 import { CompanySlide } from "./company-slide"
 import { MissionSlide } from "./mission-slide"
 import { FinancialsSlide } from "./financials-slide"
+import { KeyCompetitorsSlide } from "./key-competitors-slide"
 import { RevenueComparisonSlide } from "./revenue-comparison-slide"
 import { GrowthComparisonSlide } from "./growth-comparison-slide"
 import { IndustrySlide } from "./industry-slide"
@@ -105,9 +107,11 @@ export {
   AgendaSlide,
   DiabetesSlide,
   CgmSlide,
+  HowCgmWorksSlide,
   CompanySlide,
   MissionSlide,
   FinancialsSlide,
+  KeyCompetitorsSlide,
   RevenueComparisonSlide,
   GrowthComparisonSlide,
   IndustrySlide,

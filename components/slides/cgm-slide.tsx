@@ -1,13 +1,11 @@
-import { Activity, Zap, TrendingUp, Bell, Share2 } from "lucide-react"
+import { Activity, Zap, Bell } from "lucide-react"
 import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/components/ui"
 
 export function CgmSlide() {
   const features = [
     { icon: Activity, title: "24/7 Monitoring", desc: "Wearable sensor measures glucose continuously" },
-    { icon: Zap, title: "Real-Time", desc: "New reading every 5 minutes to your phone" },
-    { icon: TrendingUp, title: "Trend Analysis", desc: "See direction and rate of change" },
+    { icon: Zap, title: "Real-Time Data", desc: "New reading every 5 minutes to your phone" },
     { icon: Bell, title: "Smart Alerts", desc: "Notifications for highs and lows" },
-    { icon: Share2, title: "Data Sharing", desc: "Share with caregivers and doctors" },
   ]
 
   const glucoseData = [
@@ -17,15 +15,24 @@ export function CgmSlide() {
     { time: 9, value: 100 }, { time: 10, value: 112 }, { time: 11, value: 120 },
   ]
 
+  const width = 280, height = 140, padding = 20, maxValue = 180, minValue = 70
+
+  const getPoint = (index: number) => {
+    const point = glucoseData[index]
+    const x = padding + (index / (glucoseData.length - 1)) * (width - 2 * padding)
+    const y = height - padding - ((point.value - minValue) / (maxValue - minValue)) * (height - 2 * padding)
+    return { x, y }
+  }
+
   const generatePath = () => {
-    const width = 280, height = 140, padding = 20, maxValue = 180, minValue = 70
-    const points = glucoseData.map((point, index) => {
-      const x = padding + (index / (glucoseData.length - 1)) * (width - 2 * padding)
-      const y = height - padding - ((point.value - minValue) / (maxValue - minValue)) * (height - 2 * padding)
+    const points = glucoseData.map((_, index) => {
+      const { x, y } = getPoint(index)
       return `${x},${y}`
     })
     return `M ${points.join(" L ")}`
   }
+
+  const lastPoint = getPoint(glucoseData.length - 1)
 
   return (
     <div className="px-12 pt-8 pb-20 h-full flex flex-col">
@@ -48,8 +55,8 @@ export function CgmSlide() {
                   <rect width="280" height="140" fill="url(#grid)" />
                   <rect x="20" y="35" width="240" height="60" fill="currentColor" className="text-muted/50" rx="4" />
                   <path d={generatePath()} fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-primary" />
-                  <circle cx="260" cy="55" r="6" fill="currentColor" className="text-primary" />
-                  <circle cx="260" cy="55" r="3" fill="white" />
+                  <circle cx={lastPoint.x} cy={lastPoint.y} r="6" fill="currentColor" className="text-primary" />
+                  <circle cx={lastPoint.x} cy={lastPoint.y} r="3" fill="white" />
                 </svg>
                 <div className="absolute top-2 right-2 bg-primary text-primary-foreground px-2.5 py-1 rounded-md text-sm">
                   <span className="font-semibold">120</span>
@@ -78,7 +85,7 @@ export function CgmSlide() {
           <p className="text-2xl text-muted-foreground mb-4">
             A small wearable sensor that measures glucose levels in real-time, replacing painful finger pricks with continuous, actionable data.
           </p>
-          <div className="grid grid-cols-3 grid-rows-2 gap-3 flex-1">
+          <div className="grid grid-cols-3 gap-4 flex-1">
             {features.map((item, idx) => (
               <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
                 <CardContent className="p-4 h-full flex flex-col">

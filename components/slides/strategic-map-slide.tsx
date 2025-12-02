@@ -1,6 +1,7 @@
 "use client"
 
 import { COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideLabel, SlideTitle } from "@/components/ui"
 
 interface Company {
   name: string
@@ -26,19 +27,11 @@ export function StrategicMapSlide() {
   const yScale = (value: number) => chartSize - scale(value) + padding
 
   return (
-    <div className="px-12 pt-4 pb-20 h-full flex flex-col">
-      {/* Header */}
-      <div className="mb-4">
-        <div className="flex items-center gap-3 mb-1">
-          <div className="w-8 h-[2px] bg-emerald-500" />
-          <span className="text-xs font-semibold tracking-[0.2em] text-slate-400 uppercase">
-            Competitive Positioning
-          </span>
-        </div>
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight">
-          Strategic Group Map
-        </h1>
-      </div>
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <SlideHeader>
+        <SlideLabel>Competitive Positioning</SlideLabel>
+        <SlideTitle>Strategic Group Map</SlideTitle>
+      </SlideHeader>
 
       {/* Main content */}
       <div className="flex-1 flex gap-8 min-h-0">
