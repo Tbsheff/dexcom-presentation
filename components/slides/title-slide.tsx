@@ -10,13 +10,15 @@ export function TitleSlide() {
           DEXCOM
         </h1>
 
-        <div className="animate-fade-up stagger-2 mt-6 flex items-center justify-center gap-4">
+        <div className="animate-fade-up stagger-2 h-1.5 w-24 bg-primary mx-auto mt-6 rounded-full" />
+
+        <div className="animate-fade-up stagger-4 mt-6 flex items-center justify-center gap-4">
           <div className="h-px w-16 bg-border" />
           <span className="text-base text-muted-foreground">Continuous Glucose Monitoring</span>
           <div className="h-px w-16 bg-border" />
         </div>
 
-        <div className="animate-fade-up stagger-3 mt-16 text-sm text-muted-foreground">
+        <div className="animate-fade-up stagger-5 mt-16 text-sm text-muted-foreground">
           <p>Tyler Sheffield · Brendan Bundy · Tyler Keller · Adam Hildt · Hannah Johnson</p>
         </div>
       </div>

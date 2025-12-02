@@ -19,13 +19,13 @@ export function FinancialsSlide() {
   }))
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
         <SlideLabel>2024 Performance</SlideLabel>
         <SlideTitle>Financial Position</SlideTitle>
       </SlideHeader>
 
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {metrics.map((metric, idx) => (
           <StatCard
             key={idx}
@@ -34,6 +34,7 @@ export function FinancialsSlide() {
             value={metric.value}
             subtext={metric.subtext}
             valueColor={metric.subtext ? COLORS.dexcom : undefined}
+            size="large"
           />
         ))}
       </div>

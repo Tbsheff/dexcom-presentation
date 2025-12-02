@@ -2,14 +2,14 @@ import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent, ListCard } from
 
 export function SwotSlide() {
   const sections = [
-    { title: "Strengths", items: ["Leader in CGM accuracy", "Trusted physician brand", "Deep pump integrations", "Protected IP & patents"] },
-    { title: "Weaknesses", items: ["Premium pricing barrier", "Niche market dependency", "Subscription revenue model", "U.S. market concentration"] },
-    { title: "Opportunities", items: ["Type 2 market expansion", "Wellness/athlete segment", "Sensor tech advances", "Telehealth integration"] },
-    { title: "Threats", items: ["Intense competition", "Competitor innovation", "Regulatory changes", "Pricing pressure"] },
+    { title: "Strengths", items: ["High CGM accuracy", "Trusted physician brand", "Deep pump integrations", "Protected IP & patents"], color: "#22c55e" },
+    { title: "Weaknesses", items: ["Premium pricing barrier", "Niche market dependency", "Subscription revenue model", "U.S. market concentration"], color: "#ef4444" },
+    { title: "Opportunities", items: ["Type 2 market expansion", "Wellness/athlete segment", "Sensor tech advances", "Telehealth integration"], color: "#3b82f6" },
+    { title: "Threats", items: ["Intense competition", "Competitor innovation", "Regulatory changes", "Pricing pressure"], color: "#f97316" },
   ]
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
         <SlideLabel>Strategic Position</SlideLabel>
         <SlideTitle>SWOT Analysis</SlideTitle>
@@ -22,14 +22,15 @@ export function SwotSlide() {
             className={`animate-fade-up stagger-${idx + 1}`}
             title={section.title}
             items={section.items}
+            accentColor={section.color}
           />
         ))}
       </div>
 
-      <Card className="animate-fade-up stagger-5 mt-6">
-        <CardContent className="p-4">
-          <p className="text-center text-sm text-muted-foreground">
-            <span className="text-primary font-medium">Issues tie to Weaknesses & Threats</span> · Solutions leverage Strengths & Opportunities
+      <Card className="animate-fade-up stagger-5 mt-6 border-l-4 border-l-primary">
+        <CardContent className="p-5">
+          <p className="text-xl text-muted-foreground">
+            <span className="text-primary font-semibold">Strategic takeaway:</span> Issues tie to Weaknesses & Threats — Solutions leverage Strengths & Opportunities
           </p>
         </CardContent>
       </Card>

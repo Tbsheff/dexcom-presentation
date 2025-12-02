@@ -5,7 +5,7 @@ export function CompetitorsSlide() {
     {
       name: "Dexcom",
       product: "G7 / Stelo",
-      position: "Premium accuracy & integration leader",
+      position: "Premium accuracy & integration focus",
       revenue: "$4.03B total",
       highlight: true,
     },
@@ -33,27 +33,27 @@ export function CompetitorsSlide() {
   ]
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
-      <div className="mb-12">
-        <SlideHeader>Competition</SlideHeader>
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <SlideHeader>
+        <span className="text-sm text-muted-foreground font-medium">Competition</span>
         <SlideTitle>Competitive Landscape</SlideTitle>
-      </div>
+      </SlideHeader>
 
       <div className="grid grid-cols-2 gap-5">
         {competitors.map((comp, idx) => (
           <Card
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} ${comp.highlight ? "bg-muted" : ""}`}
+            className={`animate-fade-up stagger-${idx + 1}`}
           >
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-xl font-semibold text-foreground">{comp.name}</h3>
-                <Badge variant={comp.highlight ? "default" : "secondary"}>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-3xl font-bold text-foreground">{comp.name}</h3>
+                <Badge variant={comp.highlight ? "default" : "secondary"} className="text-sm px-3 py-1">
                   {comp.product}
                 </Badge>
               </div>
-              <p className="text-muted-foreground text-sm mb-3">{comp.position}</p>
-              <p className="text-foreground font-semibold">{comp.revenue}</p>
+              <p className="text-muted-foreground text-xl mb-3">{comp.position}</p>
+              <p className="text-foreground font-bold text-2xl">{comp.revenue}</p>
             </CardContent>
           </Card>
         ))}

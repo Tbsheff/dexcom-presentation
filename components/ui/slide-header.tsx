@@ -7,7 +7,7 @@ interface SlideHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function SlideHeader({ className, children, ...props }: SlideHeaderProps) {
   return (
-    <div className={cn("mb-6", className)} {...props}>
+    <div className={cn("mb-8", className)} {...props}>
       {children}
     </div>
   )
@@ -20,7 +20,7 @@ interface SlideLabelProps extends React.HTMLAttributes<HTMLParagraphElement> {
 function SlideLabel({ className, children, ...props }: SlideLabelProps) {
   return (
     <p
-      className={cn("text-sm text-muted-foreground font-medium", className)}
+      className={cn("text-xl text-muted-foreground font-medium uppercase tracking-wider", className)}
       {...props}
     >
       {children}
@@ -36,7 +36,7 @@ function SlideTitle({ className, children, ...props }: SlideTitleProps) {
   return (
     <h2
       className={cn(
-        "text-4xl font-semibold tracking-tight text-foreground mt-1",
+        "text-6xl font-bold tracking-tight text-foreground mt-2",
         className
       )}
       {...props}
@@ -54,7 +54,7 @@ interface SlideSubtitleProps
 function SlideSubtitle({ className, children, ...props }: SlideSubtitleProps) {
   return (
     <p
-      className={cn("text-muted-foreground mt-2", className)}
+      className={cn("text-2xl text-muted-foreground mt-4", className)}
       {...props}
     >
       {children}

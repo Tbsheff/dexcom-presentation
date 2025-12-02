@@ -11,14 +11,14 @@ import {
   Legend,
 } from "recharts"
 import { differentiationRadar, COLORS } from "@/lib/presentation-data"
-import { SlideHeader, SlideTitle, Card, CardContent } from "@/components/ui"
+import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/components/ui"
 
 export function DifferentiationSlide() {
   const features = [
-    { title: "Industry-Leading Accuracy", desc: "MARD scores that physicians trust for treatment decisions" },
-    { title: "Deepest Integration Network", desc: "Connected to insulin pumps, health apps, and care platforms" },
-    { title: "Superior User Experience", desc: "Minimal warmup, no calibration, seamless app experience" },
-    { title: "Trusted Clinical Brand", desc: "First choice recommendation from endocrinologists" },
+    { title: "Accuracy Focus", desc: "MARD scores physicians trust" },
+    { title: "Integration Network", desc: "Pumps, apps, care platforms" },
+    { title: "User Experience", desc: "30-min warmup, no calibration" },
+    { title: "Clinical Brand", desc: "Endocrinologist relationships" },
   ]
 
   const CustomTooltip = ({
@@ -40,92 +40,90 @@ export function DifferentiationSlide() {
   }
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto">
-      <div className="mb-8">
-        <SlideHeader>Core Strategy</SlideHeader>
+    <div className="px-12 pt-6 pb-20 h-full flex flex-col">
+      <SlideHeader className="mb-4">
+        <SlideLabel>Core Strategy</SlideLabel>
         <SlideTitle>Differentiation Strategy</SlideTitle>
-      </div>
+      </SlideHeader>
 
-      <Card className="animate-fade-up mb-8 bg-muted">
-        <CardContent className="pt-6">
-          <p className="text-lg text-foreground">
-            <span className="font-semibold text-primary">Competitors offer a glucose reading.</span> Dexcom offers a
-            connected care network.
+      <Card className="animate-fade-up mb-4 border-l-4 border-l-primary bg-primary/5">
+        <CardContent className="p-5">
+          <p className="text-2xl text-foreground leading-relaxed">
+            <span className="font-bold text-primary">Beyond glucose readings.</span> Dexcom's strategy centers on building a connected care network.
           </p>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-4 flex-1 min-h-0">
         <Card className="col-span-5 animate-fade-up stagger-1">
-          <CardContent className="pt-6">
-            <h3 className="font-semibold text-foreground mb-2">Competitive Comparison</h3>
-            <p className="text-xs text-muted-foreground mb-4">Scores out of 100 across key attributes</p>
-            <ResponsiveContainer width="100%" height={280}>
-              <RadarChart data={differentiationRadar}>
-                <PolarGrid stroke="hsl(var(--border))" />
-                <PolarAngleAxis
-                  dataKey="attr"
-                  stroke="hsl(var(--foreground))"
-                  tick={{ fill: "hsl(var(--foreground))", fontSize: 11, fontWeight: 500 }}
-                />
-                <PolarRadiusAxis
-                  angle={30}
-                  domain={[0, 100]}
-                  stroke="hsl(var(--border))"
-                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }}
-                  tickFormatter={(value) => `${value}`}
-                />
-                <Radar
-                  name="Dexcom"
-                  dataKey="Dexcom"
-                  stroke={COLORS.dexcom}
-                  fill={COLORS.dexcom}
-                  fillOpacity={0.35}
-                  strokeWidth={2}
-                />
-                <Radar
-                  name="Abbott"
-                  dataKey="Abbott"
-                  stroke={COLORS.abbott}
-                  fill={COLORS.abbott}
-                  fillOpacity={0.15}
-                  strokeWidth={2}
-                  strokeDasharray="4 4"
-                />
-                <Radar
-                  name="Medtronic"
-                  dataKey="Medtronic"
-                  stroke={COLORS.medtronic}
-                  fill={COLORS.medtronic}
-                  fillOpacity={0.1}
-                  strokeWidth={2}
-                  strokeDasharray="2 2"
-                />
-                <Radar
-                  name="Senseonics"
-                  dataKey="Senseonics"
-                  stroke={COLORS.senseonics}
-                  fill={COLORS.senseonics}
-                  fillOpacity={0.1}
-                  strokeWidth={2}
-                  strokeDasharray="6 2"
-                />
-                <Tooltip content={<CustomTooltip />} />
-                <Legend
-                  wrapperStyle={{ paddingTop: "10px" }}
-                  formatter={(value) => <span style={{ color: "hsl(var(--foreground))", fontSize: 11 }}>{value}</span>}
-                />
-              </RadarChart>
-            </ResponsiveContainer>
+          <CardContent className="p-4 h-full flex flex-col">
+            <h3 className="font-bold text-foreground text-lg mb-1">Competitive Comparison</h3>
+            <p className="text-sm text-muted-foreground mb-2">Scores out of 100</p>
+            <div className="flex-1 min-h-0">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={differentiationRadar}>
+                  <PolarGrid gridType="polygon" stroke="#9ca3af" />
+                  <PolarAngleAxis
+                    dataKey="attr"
+                    stroke="hsl(var(--foreground))"
+                    tick={{ fill: "hsl(var(--foreground))", fontSize: 10, fontWeight: 500 }}
+                  />
+                  <PolarRadiusAxis
+                    angle={30}
+                    domain={[0, 100]}
+                    stroke="hsl(var(--border))"
+                    tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 9 }}
+                    tickFormatter={(value) => `${value}`}
+                  />
+                  <Radar
+                    name="Dexcom"
+                    dataKey="Dexcom"
+                    stroke={COLORS.dexcom}
+                    fill={COLORS.dexcom}
+                    fillOpacity={0.45}
+                    strokeWidth={3}
+                  />
+                  <Radar
+                    name="Abbott"
+                    dataKey="Abbott"
+                    stroke={COLORS.abbott}
+                    fill="none"
+                    strokeWidth={2}
+                    strokeDasharray="6 4"
+                  />
+                  <Radar
+                    name="Medtronic"
+                    dataKey="Medtronic"
+                    stroke={COLORS.medtronic}
+                    fill="none"
+                    strokeWidth={2}
+                    strokeDasharray="3 3"
+                  />
+                  <Radar
+                    name="Senseonics"
+                    dataKey="Senseonics"
+                    stroke={COLORS.senseonics}
+                    fill="none"
+                    strokeWidth={2}
+                    strokeDasharray="8 3"
+                  />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend
+                    wrapperStyle={{ paddingTop: "5px" }}
+                    formatter={(value) => <span style={{ color: "hsl(var(--foreground))", fontSize: 10 }}>{value}</span>}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
 
-        <div className="col-span-7 space-y-3">
+        <div className="col-span-7 grid grid-cols-2 gap-3">
           {features.map((item, idx) => (
             <Card key={idx} className={`animate-fade-up stagger-${idx + 2}`}>
-              <CardContent className="pt-6">
-                <h4 className="font-semibold text-foreground">{item.title}</h4>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <CardContent className="p-4">
+                <h4 className="font-bold text-foreground text-xl">{item.title}</h4>
+                <p className="text-lg text-muted-foreground mt-1">{item.desc}</p>
               </CardContent>
             </Card>
           ))}

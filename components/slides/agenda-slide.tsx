@@ -10,7 +10,7 @@ export function AgendaSlide({ goToSlide }: AgendaSlideProps) {
   const sectionStarts: Record<string, number> = { "01": 2, "02": 6, "03": 14, "04": 21 }
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader className="mb-12">
         <SlideLabel>Overview</SlideLabel>
         <SlideTitle>Agenda</SlideTitle>
@@ -32,10 +32,10 @@ export function AgendaSlide({ goToSlide }: AgendaSlideProps) {
               {item.num}
             </span>
             <div className="pt-2">
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
                 {item.title}
               </h3>
-              <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
+              <p className="text-lg text-muted-foreground mt-1">{item.desc}</p>
             </div>
           </div>
         ))}

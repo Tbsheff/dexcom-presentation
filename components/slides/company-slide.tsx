@@ -8,7 +8,7 @@ export function CompanySlide() {
   ]
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
         <SlideLabel>About</SlideLabel>
         <SlideTitle>Company Overview</SlideTitle>
@@ -29,7 +29,7 @@ export function CompanySlide() {
       <div className="grid grid-cols-2 gap-5">
         <Card className="animate-fade-up stagger-4">
           <CardContent className="p-5">
-            <h3 className="font-semibold text-foreground mb-3">Product Portfolio</h3>
+            <h3 className="font-semibold text-foreground text-xl mb-3">Product Portfolio</h3>
             <div className="flex flex-wrap gap-2">
               {["G6", "G7", "G7 15-Day", "Stelo (OTC)"].map((product) => (
                 <Badge key={product} variant="muted">{product}</Badge>
@@ -39,9 +39,9 @@ export function CompanySlide() {
         </Card>
         <Card className="animate-fade-up stagger-5">
           <CardContent className="p-5">
-            <h3 className="font-semibold text-foreground mb-2">Global Presence</h3>
-            <p className="text-4xl font-semibold text-primary">52</p>
-            <p className="text-sm text-muted-foreground">Countries worldwide</p>
+            <h3 className="font-semibold text-foreground text-xl mb-2">Global Presence</h3>
+            <p className="text-5xl font-semibold text-primary">52</p>
+            <p className="text-lg text-muted-foreground">Countries worldwide</p>
           </CardContent>
         </Card>
       </div>

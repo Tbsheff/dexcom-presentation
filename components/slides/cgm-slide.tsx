@@ -28,17 +28,17 @@ export function CgmSlide() {
   }
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
         <SlideLabel>Technology</SlideLabel>
         <SlideTitle>Continuous Glucose Monitoring</SlideTitle>
       </SlideHeader>
 
-      <div className="grid grid-cols-12 gap-8 items-center">
-        <div className="col-span-12 lg:col-span-5 animate-fade-up">
-          <Card>
-            <CardContent className="p-5">
-              <div className="relative">
+      <div className="grid grid-cols-12 gap-6 flex-1 min-h-0">
+        <div className="col-span-5 animate-fade-up">
+          <Card className="h-full">
+            <CardContent className="p-5 h-full flex flex-col">
+              <div className="relative flex-1 flex flex-col justify-center">
                 <svg viewBox="0 0 280 140" className="w-full h-auto">
                   <defs>
                     <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
@@ -74,19 +74,19 @@ export function CgmSlide() {
           </Card>
         </div>
 
-        <div className="col-span-12 lg:col-span-7">
-          <p className="text-muted-foreground mb-6">
+        <div className="col-span-7 flex flex-col">
+          <p className="text-2xl text-muted-foreground mb-4">
             A small wearable sensor that measures glucose levels in real-time, replacing painful finger pricks with continuous, actionable data.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 grid-rows-2 gap-3 flex-1">
             {features.map((item, idx) => (
               <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
-                <CardContent className="p-4">
-                  <div className="w-8 h-8 rounded-md bg-muted flex items-center justify-center mb-2">
-                    <item.icon className="w-4 h-4 text-muted-foreground" />
+                <CardContent className="p-4 h-full flex flex-col">
+                  <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center mb-3">
+                    <item.icon className="w-5 h-5 text-muted-foreground" />
                   </div>
-                  <h4 className="font-medium text-foreground text-sm">{item.title}</h4>
-                  <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
+                  <h4 className="font-bold text-foreground text-xl">{item.title}</h4>
+                  <p className="text-lg text-muted-foreground mt-1">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}

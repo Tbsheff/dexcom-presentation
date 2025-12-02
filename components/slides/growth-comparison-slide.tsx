@@ -22,14 +22,14 @@ export function GrowthComparisonSlide() {
   }
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
         <SlideLabel>Performance</SlideLabel>
         <SlideTitle>Growth Trajectory</SlideTitle>
-        <SlideSubtitle>Year-over-year revenue growth percentage (2021-2024)</SlideSubtitle>
+        <SlideSubtitle>Year-over-year revenue growth reflects each company's market position and strategic focus</SlideSubtitle>
       </SlideHeader>
 
-      <Card className="animate-fade-up mb-6">
+      <Card className="animate-fade-up mb-4">
         <CardContent className="p-5 h-72">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={growthData} margin={{ top: 10, right: 30, bottom: 10, left: 20 }}>
@@ -44,14 +44,6 @@ export function GrowthComparisonSlide() {
               <Line type="monotone" dataKey="Senseonics" stroke={COLORS.senseonics} strokeWidth={2} dot={{ fill: COLORS.senseonics, r: 4, strokeWidth: 2, stroke: "white" }} />
             </LineChart>
           </ResponsiveContainer>
-        </CardContent>
-      </Card>
-
-      <Card className="animate-fade-up stagger-1">
-        <CardContent className="p-4">
-          <p className="text-center text-sm text-muted-foreground">
-            <span className="text-primary font-medium">Key Insight:</span> Dexcom maintains strong double-digit growth while Medtronic remains flat at 1-2%
-          </p>
         </CardContent>
       </Card>
     </div>

@@ -6,6 +6,7 @@ interface StatCardProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string
   subtext?: string
   valueColor?: string
+  size?: "default" | "large"
 }
 
 function StatCard({
@@ -13,26 +14,30 @@ function StatCard({
   label,
   subtext,
   valueColor,
+  size = "default",
   className,
   ...props
 }: StatCardProps) {
   return (
     <div
       className={cn(
-        "p-5 rounded-lg bg-card border border-border shadow-sm text-center",
+        "p-6 rounded-lg bg-card border border-border shadow-sm text-center",
         className
       )}
       {...props}
     >
       <p
-        className="text-2xl font-semibold"
+        className={cn(
+          "font-bold",
+          size === "large" ? "text-5xl" : "text-4xl"
+        )}
         style={valueColor ? { color: valueColor } : undefined}
       >
         {value}
       </p>
-      <p className="text-sm text-muted-foreground mt-1">{label}</p>
+      <p className={cn("text-muted-foreground mt-2", size === "large" ? "text-xl" : "text-lg")}>{label}</p>
       {subtext && (
-        <p className="text-xs text-muted-foreground/70 mt-0.5">{subtext}</p>
+        <p className="text-base text-muted-foreground/70 mt-1">{subtext}</p>
       )}
     </div>
   )

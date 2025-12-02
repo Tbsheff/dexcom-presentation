@@ -6,11 +6,11 @@ import { SlideHeader, SlideLabel, SlideTitle, SlideSubtitle, Card, CardContent, 
 
 export function RevenueComparisonSlide() {
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
         <SlideLabel>Competitive Context</SlideLabel>
         <SlideTitle>Revenue Comparison</SlideTitle>
-        <SlideSubtitle>Diabetes segment revenue in billions USD (2020-2024)</SlideSubtitle>
+        <SlideSubtitle>Abbott and Medtronic are diversified companies — only their diabetes segments shown. Dexcom's entire revenue is diabetes-focused.</SlideSubtitle>
       </SlideHeader>
 
       <Card className="animate-fade-up mb-6">

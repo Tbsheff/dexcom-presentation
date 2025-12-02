@@ -25,7 +25,7 @@ export function PestSlide() {
   ]
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <div className="mb-12">
         <SlideHeader>PEST Analysis</SlideHeader>
         <SlideTitle>Industry Drivers</SlideTitle>
@@ -41,10 +41,10 @@ export function PestSlide() {
               >
                 <item.icon className="w-6 h-6" style={{ color: item.color }} />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-4">{item.title}</h3>
+              <h3 className="text-2xl font-semibold text-foreground mb-4">{item.title}</h3>
               <ul className="space-y-2.5">
                 {item.points.map((point, i) => (
-                  <li key={i} className="text-sm text-muted-foreground flex items-start gap-3">
+                  <li key={i} className="text-lg text-muted-foreground flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: item.color }} />
                     {point}
                   </li>
@@ -58,8 +58,7 @@ export function PestSlide() {
       <Card className="animate-fade-up stagger-4 mt-8 bg-muted">
         <CardContent className="pt-6">
           <p className="text-center text-sm text-muted-foreground">
-            <strong className="text-primary">Key Insight:</strong> Technology and sociocultural shifts drive growth;
-            regulatory environment is the primary constraint
+            <strong className="text-primary">Key Insight:</strong> Tech drives growth; regulation is the constraint
           </p>
         </CardContent>
       </Card>

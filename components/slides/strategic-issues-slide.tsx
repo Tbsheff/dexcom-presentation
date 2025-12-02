@@ -36,7 +36,7 @@ export function StrategicIssuesSlide() {
   ]
 
   return (
-    <div className="p-10 lg:p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center slide-bg">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <div className="mb-8 relative z-10">
         <span className="section-label text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: COLORS.coral }}>
           Strategic Recommendations

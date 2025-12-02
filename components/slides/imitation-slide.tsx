@@ -1,6 +1,4 @@
-import { CheckCircle2, AlertTriangle } from "lucide-react"
-import { COLORS } from "@/lib/presentation-data"
-import { SlideHeader, SlideTitle } from "@/components/ui"
+import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/components/ui"
 
 export function ImitationSlide() {
   const creates = [
@@ -20,40 +18,50 @@ export function ImitationSlide() {
   ]
 
   return (
-    <div className="p-8 lg:p-10 max-w-7xl mx-auto h-full flex flex-col justify-center">
-      <div className="mb-12">
-        <SlideHeader>Competitive Moat</SlideHeader>
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <SlideHeader>
+        <SlideLabel>Competitive Moat</SlideLabel>
         <SlideTitle>Imitation Barriers</SlideTitle>
-      </div>
+      </SlideHeader>
 
-      <div className="grid grid-cols-2 gap-10">
-        <div className="animate-fade-up">
-          <h3 className="text-lg font-semibold mb-5" style={{ color: COLORS.sage }}>
-            Barriers Dexcom Creates
-          </h3>
-          <ul className="space-y-3">
-            {creates.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.sage }} />
-                <span className="text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="grid grid-cols-2 gap-8">
+        <Card className="animate-fade-up">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <h3 className="text-xl font-semibold text-foreground uppercase tracking-wider">
+                Barriers Dexcom Creates
+              </h3>
+            </div>
+            <ul className="space-y-4">
+              {creates.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="text-xl font-bold text-primary">{idx + 1}</span>
+                  <span className="text-xl text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
 
-        <div className="animate-fade-up stagger-1">
-          <h3 className="text-lg font-semibold mb-5" style={{ color: COLORS.coral }}>
-            Barriers Dexcom Faces
-          </h3>
-          <ul className="space-y-3">
-            {faces.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: COLORS.coral }} />
-                <span className="text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Card className="animate-fade-up stagger-1">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-2 h-2 rounded-full bg-muted-foreground" />
+              <h3 className="text-xl font-semibold text-foreground uppercase tracking-wider">
+                Barriers Dexcom Faces
+              </h3>
+            </div>
+            <ul className="space-y-4">
+              {faces.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="text-xl font-bold text-muted-foreground">{idx + 1}</span>
+                  <span className="text-xl text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )
