@@ -12,7 +12,7 @@ export function MarketLandscapeAnalysisSlide() {
   ]
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
       <div className="mb-12">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Industry Analysis

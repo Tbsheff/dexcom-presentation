@@ -12,10 +12,10 @@ interface CompanyBubble {
 
 export function StrategicGroupMapVisualSlide() {
   const companies: CompanyBubble[] = [
-    { name: "Abbott", tech: 68, access: 88, size: 70, color: COLORS.blue },
-    { name: "Dexcom", tech: 88, access: 72, size: 55, color: COLORS.amber },
-    { name: "Medtronic", tech: 55, access: 58, size: 45, color: COLORS.coral },
-    { name: "Senseonics", tech: 42, access: 35, size: 20, color: "#4db6ac" },
+    { name: "Abbott", tech: 68, access: 88, size: 70, color: COLORS.abbott },
+    { name: "Dexcom", tech: 88, access: 72, size: 55, color: COLORS.dexcom },
+    { name: "Medtronic", tech: 55, access: 58, size: 45, color: COLORS.medtronic },
+    { name: "Senseonics", tech: 42, access: 35, size: 20, color: COLORS.senseonics },
   ]
 
   // Chart dimensions
