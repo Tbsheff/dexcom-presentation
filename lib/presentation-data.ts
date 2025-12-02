@@ -481,6 +481,230 @@ export const recommendations = [
 
 // Main Presentation Slides
 
+// Section 03 Part 1: Differentiation & Brand Image
+export const differentiationFeatures = {
+  superiorFeatures: [
+    { feature: "Integrations with Insulin Pumps", description: "Seamless connectivity with leading AID systems including Tandem and Omnipod" },
+    { feature: "Minimal Warmup", description: "30-minute warmup period vs competitors' longer initialization times" },
+    { feature: "No Calibration Needed", description: "Factory-calibrated sensors eliminate the need for fingerstick calibrations" },
+  ],
+  brandAttributes: [
+    { attribute: "Trusted by Doctors", description: "Dexcom is the most recommended CGM system by endocrinologists and healthcare providers" },
+    { attribute: "Premium, State-of-the-Art, and Accurate", description: "Industry-leading accuracy with MARD <9% and cutting-edge sensor technology" },
+  ],
+}
+
+export const strategyCanvasData = [
+  { dimension: "Accuracy", "Dexcom G7": 95, "Libre 3": 75, "Guardian 4": 60, "Eversense E3": 85 },
+  { dimension: "Duration", "Dexcom G7": 70, "Libre 3": 75, "Guardian 4": 50, "Eversense E3": 100 },
+  { dimension: "Calibration", "Dexcom G7": 100, "Libre 3": 100, "Guardian 4": 50, "Eversense E3": 30 },
+  { dimension: "Comfort", "Dexcom G7": 85, "Libre 3": 90, "Guardian 4": 65, "Eversense E3": 75 },
+  { dimension: "Integration", "Dexcom G7": 100, "Libre 3": 60, "Guardian 4": 85, "Eversense E3": 50 },
+]
+
+export const brandImageData = {
+  headline: "The Most Connected CGM System in the World",
+  tagline: "Competitors offer a glucose reading. Dexcom offers a connected care network.",
+  trustStatement: "Dexcom is a brand patients and doctors know they can trust",
+  connections: [
+    { type: "Insulin Pumps", partners: ["Tandem t:slim X2", "Omnipod 5", "Omnipod iLet"] },
+    { type: "Wearables", partners: ["Apple Watch", "Garmin", "Fitbit"] },
+    { type: "Mobile Apps", partners: ["Dexcom App", "Glooko", "Clarity"] },
+    { type: "Care Network", partners: ["Clinicians", "Parents/Spouses", "Healthcare Providers"] },
+  ],
+}
+
+// Section 03 Part 3: Value Chain & Consumption Chain
+export const valueChainPrimary = [
+  {
+    title: "Inbound Logistics",
+    description: "Procurement: Sourcing biosensing materials & components globally to fuel high-volume manufacturing",
+  },
+  {
+    title: "Operations",
+    description: "Manufacturing: High-precision, automated assembly of sensors & transmitters in large-scale facilities to achieve low unit cost",
+  },
+  {
+    title: "Outbound Logistics",
+    description: "Distribution: Managing supply chains to pharmacies, distributors, & direct-to-patient channels globally",
+  },
+  {
+    title: "Marketing & Sales",
+    description: "Advocacy: Campaigning for broad payer reimbursement & securing coverage for new patient populations. Commercial: Expanding the direct-to-consumer sales model to new wellness markets",
+  },
+  {
+    title: "Service",
+    description: "Support: Providing 24/7 technical & production assistance to ensure high user retention & confidence in the life-saving technology",
+  },
+]
+
+export const valueChainSupport = [
+  {
+    title: "Firm Infrastructure",
+    items: [
+      {
+        subtitle: "Compliance",
+        description: "Maintaining a robust quality management system (QMS) & responding to regulatory requirements",
+      },
+      {
+        subtitle: "Financial",
+        description: "Managing large cash & liquid assets to fund global expansion and R&D",
+      },
+    ],
+  },
+  {
+    title: "Human Resource Management",
+    items: [
+      {
+        subtitle: "Talent",
+        description: "Recruiting & training specialized engineers & clinical sales teams for a high-growth medical device market",
+      },
+    ],
+  },
+  {
+    title: "Technology Development",
+    items: [
+      {
+        subtitle: "R&D",
+        description: "Continuous innovation on sensor accuracy, wear time, & software integration",
+      },
+      {
+        subtitle: "AI/Software",
+        description: "Integrating real-time data insights & AI into applications for enhanced user experience & clinical value",
+      },
+    ],
+  },
+  {
+    title: "Procurement",
+    items: [
+      {
+        subtitle: "Supplier Relations",
+        description: "Building trust & reliability w/ critical, single-source component suppliers to mitigate supply chain risk",
+      },
+    ],
+  },
+]
+
+export const valueChainTakeaways1 = {
+  category: "Core Differentiators",
+  takeaways: [
+    {
+      title: "Technology development is paramount",
+      description: "The most critical activity is R&D. Their ability to shrink sensors, reduce warm-up time, & improve accuracy justifies their premium price point over competitors.",
+    },
+    {
+      title: "Regulatory & Reimbursement Mastery",
+      description: "The Marketing & Sales and Firm Infrastructure functions are central to turning innovation into revenue. Dexcom has mastered the process of securing payer reimbursement & navigating global regulatory approvals, this unlocks huge revenue streams.",
+    },
+  ],
+}
+
+export const valueChainTakeaways2 = {
+  category: "Cost & Efficiency Focus",
+  takeaways: [
+    {
+      title: "Scale for Cost Control",
+      description: "Operations is focused on achieving massive scale & automation. This drives down COGS for high-volume products like the G7 & to make low-cost products like Stelo profitable.",
+    },
+    {
+      title: "Supplier Dependence Risk",
+      description: "The Procurement activity shows a potential risk. Relying on specialized, single-sourced suppliers for unique biosensing materials is necessary for product quality but creates a supply chain vulnerability that must be managed carefully.",
+    },
+  ],
+}
+
+export const valueChainTakeaways3 = {
+  category: "Future Strategy Alignment",
+  takeaways: [
+    {
+      title: "Service Drives Retention",
+      description: "The Service activity is key to retaining users. Providing 24/7 tech support helps w/ patient frustration, renewal rates, & solidifies customer loyalty against competitors.",
+    },
+    {
+      title: "HR for Innovation",
+      description: "The HRM function support innovation by recruiting & retaining highly specialized engineering talent required to advance sensor tech & software integration ahead of its rivals.",
+    },
+  ],
+}
+
+export const consumptionChain1 = [
+  {
+    question: "How do consumers become aware of a need for your product/service?",
+    answer: "Doctor diagnoses diabetes; recommend CGM technology.",
+  },
+  {
+    question: "How do consumers find your offering?",
+    answer: "Doctor writes prescription; patient goes to pharmacy",
+  },
+  {
+    question: "How do consumers make their final selection (priority of attributes)?",
+    answer: "Accuracy, alerts, size, & pump compatibility matter most",
+  },
+  {
+    question: "How do consumers order & purchase your product?",
+    answer: "Prescription filled at pharmacy or distributor; pay copay.",
+  },
+  {
+    question: "How is your product/service delivered?",
+    answer: "Picked up at pharmacy or shipped directly to door.",
+  },
+]
+
+export const consumptionChain2 = [
+  {
+    question: "How is your product/service paid for?",
+    answer: "Insurance pays bulk; patient pays negotiated copay/cash.",
+  },
+  {
+    question: "How is your product stored/moved around?",
+    answer: "Stored at room temperature; worn on body/in pocket.",
+  },
+  {
+    question: "What is your product really used for?",
+    answer: "Real-time glucose tracking; informs treatment decisions.",
+  },
+  {
+    question: "What do consumers need help with when they use the product?",
+    answer: "Sensor application, adhesive issues, and phone app setup.",
+  },
+  {
+    question: "How is your product/service disposed of?",
+    answer: "Applicator & sensor disposed as biohazard waste.",
+  },
+]
+
+export const consumptionChainTakeaways1 = {
+  category: "Awareness & Purchase Stages",
+  takeaways: [
+    {
+      title: "Physician as the Gatekeeper",
+      description: "The chain clearly shows that the physician is the most critical factor in initiating the sale & ensuring the transaction. Dexcom's strategy must heavily focus on clinical evidence & physician education.",
+    },
+    {
+      title: "Insurance Dictates Access",
+      description: 'The complexity of "How is your product/service paid for?" highlights that insurance coverage & reimbursement are the biggest hurdles to access, not necessarily consumer awareness.',
+    },
+  ],
+}
+
+export const consumptionChainTakeaways2 = {
+  category: "Usage & Post-Purchase Stages",
+  takeaways: [
+    {
+      title: "Ease-of-Use is Paramount",
+      description: "The questions about what consumers need help with show that the sensor application & technical setup are major pain points. Improvements here directly reduce customer friction & increase loyalty.",
+    },
+    {
+      title: "Data is the Product",
+      description: 'The answer to "What is your product really used for?" confirms that the physical sensor is simply a delivery mechanism; the true product value is the real-time data & actionable health insights.',
+    },
+    {
+      title: "Disposal is a Hassle",
+      description: "The final step indicates that disposal is a known inconvenience that adds complexity to the user experience, particularly compared to competitors w/ smaller, less wasteful applicators.",
+    },
+  ],
+}
+
 // Competitor Response Analysis Data (Section 03 Part 2)
 export const competitorResponse = {
   futureGoals: {
@@ -607,6 +831,74 @@ export const competitorResponse = {
       response: "Senseonics will likely aggressively market the unique advantage of its 365-day, fully implantable sensor, emphasizing patient freedom & less frequent changes, which is a key differentiator from Dexcom's 10- or 15-day wear. They will also likely launch long-wear pump integration & highlight the \"no sensor waste\" benefit to appeal to the value-conscious user.",
     },
   },
+}
+
+// SWOT Analysis Data (Section 06)
+export const swotAnalysis = {
+  strengths: [
+    {
+      title: "Leader in Glucose Monitoring",
+      description: "Dexcom is known for being easy to use, accurate, and providing real-time data for users",
+    },
+    {
+      title: "Trusted Brand",
+      description: "Dexcom is associated with good quality & reliable CGM which has led to customer loyalty",
+    },
+    {
+      title: "Partnerships",
+      description: "Dexcom has partnered with healthcare providers, insulin pump manufacturers, and pharmaceutical companies which has expanded their reach",
+    },
+    {
+      title: "Patented Technology",
+      description: "Dexcom's technology is protected",
+    },
+  ],
+  weaknesses: [
+    {
+      title: "Expensive",
+      description: "CGM systems can be expensive, which is a barrier for users without insurance.",
+    },
+    {
+      title: "Niche product",
+      description: "Limited market that they are heavily reliant on.",
+    },
+    {
+      title: "Subscription-based",
+      description: "Revenue comes from subscriptions, which means Dexcom needs customer retention",
+    },
+    {
+      title: "Market Dependency",
+      description: "Dexcom depends on U.S. customers heavily for a significant portion of their revenue.",
+    },
+  ],
+  opportunities: [
+    {
+      title: "Expanding Market",
+      description: "The global diabetes population is expected to continue growing. Additionally, there is an increasing interest by non-insulin users who are interested in Dexcom for wellness tracking. This presents a significant growth opportunity for Dexcom globally.",
+    },
+    {
+      title: "Technological Advancements",
+      description: "Advancements in sensor technology and additional integrations would help Dexcom to further enhance its CGM systems, making them more accurate, user-friendly, and integrated with other healthcare devices.",
+    },
+    {
+      title: "Telehealth Integration",
+      description: "As telehealth and remote patient monitoring becomes increasingly common, there is an opportunity for Dexcom to integrate its CGM systems with telehealth platforms, enabling healthcare providers to remotely monitor and manage patients' glucose levels.",
+    },
+  ],
+  threats: [
+    {
+      title: "Competition",
+      description: "Companies are introducing their own CGM systems. This competition is from both existing companies and new entrants which could impact their market share. As competition increases, there may be pressure to lower prices, which could decrease Dexcom's profit margins.",
+    },
+    {
+      title: "Regulations",
+      description: "The medical device industry is subject to strict regulatory requirements. Any delays or difficulties in obtaining regulatory approvals could slow Dexcom's growth.",
+    },
+    {
+      title: "New Technology",
+      description: "Technological advancements could lead to new diabetes management solutions that could potentially disrupt Dexcom's market position.",
+    },
+  ],
 }
 
 // Section 07: Recommendations Data (Pages 35-40)
