@@ -58,6 +58,49 @@ import {
   EpicPestAnalysisSlide,
   MarketSummarySlide,
   MarketSummaryConclusion,
+  // Section 03: Unique Value & Competitor Analysis
+  DifferentiationStrategySlide,
+  StrategyCanvasSlide,
+  BrandImageSlide,
+  CompetitorResponseDividerSlide,
+  FutureGoalsSlide,
+  AssumptionsSlide,
+  CurrentStrategySlide,
+  CapabilitiesComparisonDetailedSlide,
+  CompetitorResponseAnalysisSlide,
+  // Section 03 Part 3: Value Chain & Consumption Chain
+  ValueChainPrimarySlide,
+  ValueChainSupportSlide,
+  ValueChainTakeaways1Slide,
+  ValueChainTakeaways2Slide,
+  ValueChainTakeaways3Slide,
+  ConsumptionChain1Slide,
+  ConsumptionChain2Slide,
+  ConsumptionChainTakeaways1Slide,
+  ConsumptionChainTakeaways2Slide,
+  // Section 04: Resources & Capabilities
+  ResourcesDetailedSlide,
+  CapabilitiesComprehensiveSlide,
+  LimitationsResourcesSlide,
+  LimitationsCapabilitiesSlide,
+  // Section 05: Imitation Barriers
+  ImitationBarriersCreatedSlide,
+  ImitationBarriersFacedSlide,
+  ImitationBarriersInsightsSlide,
+  // Section 06: SWOT Analysis
+  SwotDividerSlide,
+  SwotStrengthsSlide,
+  SwotWeaknessesSlide,
+  SwotOpportunitiesSlide,
+  SwotThreatsSlide,
+  // Section 07: Recommendations
+  RecommendationsDividerSlide,
+  Issue1DetailedSlide,
+  Solution1DetailedSlide,
+  Issue2DetailedSlide,
+  Solution2DetailedSlide,
+  Issue3DetailedSlide,
+  Solution3DetailedSlide,
 } from "@/components/slides"
 
 export default function DexcomPresentation() {
@@ -199,6 +242,93 @@ export default function DexcomPresentation() {
         return <MarketSummarySlide />
       case "market-summary-conclusion":
         return <MarketSummaryConclusion />
+      // Section 03: Unique Value & Competitor Analysis
+      case "unique-value-divider":
+        return <AnalysisSectionDivider sectionNumber="03" title="Unique Value & Competitor Analysis" />
+      case "differentiation-strategy":
+        return <DifferentiationStrategySlide />
+      case "strategy-canvas":
+        return <StrategyCanvasSlide />
+      case "brand-image":
+        return <BrandImageSlide />
+      // Section 03: Competitor Response
+      case "competitor-response-divider":
+        return <CompetitorResponseDividerSlide />
+      case "future-goals":
+        return <FutureGoalsSlide />
+      case "assumptions":
+        return <AssumptionsSlide />
+      case "current-strategy":
+        return <CurrentStrategySlide />
+      case "capabilities-comparison-detailed":
+        return <CapabilitiesComparisonDetailedSlide />
+      case "competitor-response-analysis":
+        return <CompetitorResponseAnalysisSlide />
+      // Section 03: Value Chain & Consumption Chain
+      case "value-chain-primary":
+        return <ValueChainPrimarySlide />
+      case "value-chain-support":
+        return <ValueChainSupportSlide />
+      case "value-chain-takeaways-1":
+        return <ValueChainTakeaways1Slide />
+      case "value-chain-takeaways-2":
+        return <ValueChainTakeaways2Slide />
+      case "value-chain-takeaways-3":
+        return <ValueChainTakeaways3Slide />
+      case "consumption-chain-1":
+        return <ConsumptionChain1Slide />
+      case "consumption-chain-2":
+        return <ConsumptionChain2Slide />
+      case "consumption-chain-takeaways-1":
+        return <ConsumptionChainTakeaways1Slide />
+      case "consumption-chain-takeaways-2":
+        return <ConsumptionChainTakeaways2Slide />
+      // Section 04: Resources & Capabilities
+      case "resources-capabilities-divider":
+        return <AnalysisSectionDivider sectionNumber="04" title="Resources & Capabilities" />
+      case "resources-detailed":
+        return <ResourcesDetailedSlide />
+      case "capabilities-comprehensive":
+        return <CapabilitiesComprehensiveSlide />
+      case "limitations-resources":
+        return <LimitationsResourcesSlide />
+      case "limitations-capabilities":
+        return <LimitationsCapabilitiesSlide />
+      // Section 05: Imitation Barriers
+      case "imitation-barriers-divider":
+        return <AnalysisSectionDivider sectionNumber="05" title="Imitation Barriers" />
+      case "imitation-barriers-created":
+        return <ImitationBarriersCreatedSlide />
+      case "imitation-barriers-faced":
+        return <ImitationBarriersFacedSlide />
+      case "imitation-barriers-insights":
+        return <ImitationBarriersInsightsSlide />
+      // Section 06: SWOT Analysis
+      case "swot-divider":
+        return <SwotDividerSlide />
+      case "swot-strengths":
+        return <SwotStrengthsSlide />
+      case "swot-weaknesses":
+        return <SwotWeaknessesSlide />
+      case "swot-opportunities":
+        return <SwotOpportunitiesSlide />
+      case "swot-threats":
+        return <SwotThreatsSlide />
+      // Section 07: Recommendations
+      case "recommendations-divider":
+        return <RecommendationsDividerSlide />
+      case "issue-1-detailed":
+        return <Issue1DetailedSlide />
+      case "solution-1-detailed":
+        return <Solution1DetailedSlide />
+      case "issue-2-detailed":
+        return <Issue2DetailedSlide />
+      case "solution-2-detailed":
+        return <Solution2DetailedSlide />
+      case "issue-3-detailed":
+        return <Issue3DetailedSlide />
+      case "solution-3-detailed":
+        return <Solution3DetailedSlide />
       default:
         return null
     }
