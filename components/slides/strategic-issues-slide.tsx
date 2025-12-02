@@ -41,7 +41,7 @@ export function StrategicIssuesSlide() {
         <span className="section-label text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: COLORS.coral }}>
           Strategic Recommendations
         </span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Key Strategic Issues</h2>
+        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Key Strategic Issues</h2>
         <div className="accent-line w-24 mt-4" />
       </div>
 

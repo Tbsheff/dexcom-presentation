@@ -59,7 +59,6 @@ import { MarketSummarySlide } from "./analysis/market-summary-slide"
 import { MarketSummaryConclusion } from "./analysis/market-summary-conclusion-slide"
 
 // Section 03 Part 2: Competitor Response Slides
-import { CompetitorResponseDividerSlide } from "./analysis/competitor-response-divider-slide"
 import { FutureGoalsSlide } from "./analysis/future-goals-slide"
 import { AssumptionsSlide } from "./analysis/assumptions-slide"
 import { CurrentStrategySlide } from "./analysis/current-strategy-slide"

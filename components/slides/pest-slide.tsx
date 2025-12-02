@@ -26,7 +26,7 @@ export function PestSlide() {
 
   return (
     <div className="px-12 pt-8 pb-20 h-full flex flex-col">
-      <div className="mb-6">
+      <div className="mb-12">
         <SlideHeader>PEST Analysis</SlideHeader>
         <SlideTitle>Industry Drivers</SlideTitle>
       </div>
