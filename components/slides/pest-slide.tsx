@@ -57,8 +57,8 @@ export function PestSlide() {
 
       <Card className="animate-fade-up stagger-4 mt-8 bg-muted">
         <CardContent className="pt-6">
-          <p className="text-center text-sm text-muted-foreground">
-            <strong className="text-primary">Key Insight:</strong> Tech drives growth; regulation is the constraint
+          <p className="text-center text-xl text-muted-foreground">
+            <strong className="text-primary text-2xl">Key Insight:</strong> Tech drives growth; regulation is the constraint
           </p>
         </CardContent>
       </Card>

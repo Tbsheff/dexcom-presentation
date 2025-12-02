@@ -15,10 +15,10 @@ import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/compon
 
 export function DifferentiationSlide() {
   const features = [
-    { title: "Accuracy Focus", desc: "MARD scores physicians trust" },
-    { title: "Integration Network", desc: "Pumps, apps, care platforms" },
-    { title: "User Experience", desc: "30-min warmup, no calibration" },
-    { title: "Clinical Brand", desc: "Endocrinologist relationships" },
+    { title: "Accuracy Leadership", stat: "Best-in-class", desc: "Most accurate readings physicians trust" },
+    { title: "Integration Network", stat: "3 pump partners", desc: "Tandem, Omnipod, Beta Bionics + health apps" },
+    { title: "User Experience", stat: "30-min warmup", desc: "No fingerstick calibration required" },
+    { title: "Clinical Brand", stat: "#1 physician choice", desc: "Endocrinologist preferred" },
   ]
 
   const CustomTooltip = ({
@@ -118,12 +118,20 @@ export function DifferentiationSlide() {
           </CardContent>
         </Card>
 
-        <div className="col-span-7 grid grid-cols-2 gap-3">
+        <div className="col-span-7 flex flex-col gap-3">
           {features.map((item, idx) => (
-            <Card key={idx} className={`animate-fade-up stagger-${idx + 2}`}>
-              <CardContent className="p-4">
-                <h4 className="font-bold text-foreground text-xl">{item.title}</h4>
-                <p className="text-lg text-muted-foreground mt-1">{item.desc}</p>
+            <Card key={idx} className={`animate-fade-up stagger-${idx + 2} flex-1`}>
+              <CardContent className="p-4 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span className="text-lg font-bold text-primary">{idx + 1}</span>
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-2">
+                    <h4 className="font-bold text-foreground text-xl">{item.title}</h4>
+                    <span className="text-primary font-semibold text-lg">— {item.stat}</span>
+                  </div>
+                  <p className="text-lg text-muted-foreground">{item.desc}</p>
+                </div>
               </CardContent>
             </Card>
           ))}

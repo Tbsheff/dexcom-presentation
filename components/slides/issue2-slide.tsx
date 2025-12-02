@@ -13,7 +13,7 @@ export function Issue2Slide() {
     { title: "21-30 Day Sensor", desc: "Beyond 14-day standard", priority: true },
     { title: "Reduce Replacement Fatigue", desc: "Lower cost, less hassle", priority: false },
     { title: "Counter Implantables", desc: "Convenience without surgery", priority: false },
-    { title: "Accuracy Leadership", desc: "Maintain MARD advantage", priority: false },
+    { title: "Accuracy Leadership", desc: "Maintain accuracy advantage", priority: false },
   ]
 
   return (
