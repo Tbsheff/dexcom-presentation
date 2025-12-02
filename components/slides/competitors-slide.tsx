@@ -1,9 +1,11 @@
+import { SlideHeader, SlideTitle, Card, CardContent, Badge } from "@/components/ui"
+
 export function CompetitorsSlide() {
   const competitors = [
     {
       name: "Dexcom",
       product: "G7 / Stelo",
-      position: "Premium accuracy & integration leader",
+      position: "Premium accuracy & integration focus",
       revenue: "$4.03B total",
       highlight: true,
     },
@@ -31,33 +33,29 @@ export function CompetitorsSlide() {
   ]
 
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
-      <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Competition</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Competitive Landscape</h2>
-      </div>
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <SlideHeader>
+        <span className="text-sm text-muted-foreground font-medium">Competition</span>
+        <SlideTitle>Competitive Landscape</SlideTitle>
+      </SlideHeader>
 
       <div className="grid grid-cols-2 gap-5">
         {competitors.map((comp, idx) => (
-          <div
+          <Card
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-md border ${
-              comp.highlight ? "bg-primary/5 border-primary/30" : "bg-card border-border"
-            }`}
+            className={`animate-fade-up stagger-${idx + 1}`}
           >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xl font-bold text-foreground">{comp.name}</h3>
-              <span
-                className={`px-3 py-1 rounded-md text-xs font-medium ${
-                  comp.highlight ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"
-                }`}
-              >
-                {comp.product}
-              </span>
-            </div>
-            <p className="text-muted-foreground text-sm mb-3">{comp.position}</p>
-            <p className="text-foreground font-semibold">{comp.revenue}</p>
-          </div>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-3xl font-bold text-foreground">{comp.name}</h3>
+                <Badge variant={comp.highlight ? "default" : "secondary"} className="text-sm px-3 py-1">
+                  {comp.product}
+                </Badge>
+              </div>
+              <p className="text-muted-foreground text-xl mb-3">{comp.position}</p>
+              <p className="text-foreground font-bold text-2xl">{comp.revenue}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>

@@ -1,41 +1,57 @@
+import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/components/ui"
+
 export function ResourcesSlide() {
+  const intangible = [
+    { title: "Patents & IP", desc: "1,500+ patents protecting core tech" },
+    { title: "Brand Reputation", desc: "Most trusted name in CGM" },
+  ]
+
+  const tangible = [
+    { title: "Manufacturing", desc: "Arizona facility, 200M+ sensors/year" },
+    { title: "Human Capital", desc: "9,000+ employees, strong R&D team" },
+  ]
+
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
-      <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Tangible & Intangible</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Resources</h2>
-      </div>
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <SlideHeader>
+        <SlideLabel>Strategic Assets</SlideLabel>
+        <SlideTitle>Resources</SlideTitle>
+      </SlideHeader>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div className="space-y-5">
-          <div className="animate-fade-up stagger-1 p-6 card-clean border-l-3 border-l-primary">
-            <h4 className="font-bold text-foreground mb-2">Patents & IP</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Protected CGM technology and proprietary algorithms that competitors cannot easily replicate
-            </p>
+      <div className="grid grid-cols-2 gap-10">
+        {/* Intangible */}
+        <div>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-2 h-2 rounded-full bg-primary" />
+            <h3 className="text-xl font-semibold text-foreground uppercase tracking-wider">Intangible</h3>
           </div>
-
-          <div className="animate-fade-up stagger-2 p-6 card-clean border-l-3 border-l-primary">
-            <h4 className="font-bold text-foreground mb-2">Brand Reputation</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Trusted name among physicians and patients built over 25+ years of innovation
-            </p>
+          <div className="space-y-4">
+            {intangible.map((item, idx) => (
+              <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
+                <CardContent className="p-6">
+                  <h4 className="font-bold text-foreground text-2xl mb-2">{item.title}</h4>
+                  <p className="text-xl text-muted-foreground leading-relaxed">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
-        <div className="space-y-5">
-          <div className="animate-fade-up stagger-3 p-6 card-clean">
-            <h4 className="font-semibold text-foreground mb-2">Manufacturing Infrastructure</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              3 large facilities including international presence, enabling high-volume precision production
-            </p>
+        {/* Tangible */}
+        <div>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-2 h-2 rounded-full bg-primary" />
+            <h3 className="text-xl font-semibold text-foreground uppercase tracking-wider">Tangible</h3>
           </div>
-
-          <div className="animate-fade-up stagger-4 p-6 card-clean">
-            <h4 className="font-semibold text-foreground mb-2">Human Capital</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              10,000+ employees with specialized expertise in biosensors, regulatory affairs, and clinical development
-            </p>
+          <div className="space-y-4">
+            {tangible.map((item, idx) => (
+              <Card key={idx} className={`animate-fade-up stagger-${idx + 3}`}>
+                <CardContent className="p-6">
+                  <h4 className="font-bold text-foreground text-2xl mb-2">{item.title}</h4>
+                  <p className="text-xl text-muted-foreground leading-relaxed">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
