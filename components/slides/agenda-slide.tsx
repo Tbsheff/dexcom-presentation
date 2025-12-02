@@ -9,11 +9,11 @@ interface AgendaSlideProps {
 export function AgendaSlide({ goToSlide }: AgendaSlideProps) {
   const sections = [
     { num: "01", title: "Company Overview", startSlide: 2 },
-    { num: "02", title: "Market", startSlide: 6 },
-    { num: "03", title: "Unique Value", startSlide: 14 },
-    { num: "04", title: "Resources & Capabilities", startSlide: 17 },
-    { num: "05", title: "Imitation Barriers", startSlide: 19 },
-    { num: "06", title: "Recommendations", startSlide: 21 },
+    { num: "02", title: "Market", startSlide: 7 },
+    { num: "03", title: "Unique Value", startSlide: 15 },
+    { num: "04", title: "Resources & Capabilities", startSlide: 18 },
+    { num: "05", title: "Imitation Barriers", startSlide: 20 },
+    { num: "06", title: "Recommendations", startSlide: 22 },
   ]
 
   return (

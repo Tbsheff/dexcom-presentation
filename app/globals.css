@@ -226,3 +226,48 @@
   box-shadow: var(--shadow-sm);
   padding: 1.5rem;
 }
+
+/* Print styles for PDF export */
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide UI chrome */
+  .no-print,
+  nav,
+  .presentation-nav,
+  .running-agenda {
+    display: none !important;
+  }
+
+  /* Each slide is a page */
+  .print-slide {
+    page-break-after: always;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .print-slide:last-child {
+    page-break-after: avoid;
+  }
+
+  /* Remove animations */
+  .animate-fade-up,
+  .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .stagger-1, .stagger-2, .stagger-3,
+  .stagger-4, .stagger-5, .stagger-6 {
+    animation-delay: 0s !important;
+    opacity: 1 !important;
+  }
+}

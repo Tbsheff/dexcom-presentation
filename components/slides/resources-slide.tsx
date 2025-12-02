@@ -7,7 +7,7 @@ export function ResourcesSlide() {
   ]
 
   const tangible = [
-    { title: "Manufacturing", desc: "Arizona facility, 200M+ sensors/year" },
+    { title: "Manufacturing", desc: "3 facilities — Arizona, San Diego, Malaysia" },
     { title: "Human Capital", desc: "9,000+ employees, strong R&D team" },
   ]
 

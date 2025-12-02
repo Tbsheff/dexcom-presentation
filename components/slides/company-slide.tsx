@@ -30,9 +30,9 @@ export function CompanySlide() {
         <Card className="animate-fade-up stagger-4">
           <CardContent className="p-5">
             <h3 className="font-semibold text-foreground text-xl mb-3">Product Portfolio</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {["G6", "G7", "G7 15-Day", "Stelo (OTC)"].map((product) => (
-                <Badge key={product} variant="muted">{product}</Badge>
+                <Badge key={product} variant="muted" className="px-4 py-2 text-lg">{product}</Badge>
               ))}
             </div>
           </CardContent>

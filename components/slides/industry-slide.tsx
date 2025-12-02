@@ -2,15 +2,15 @@ import { SlideHeader, SlideLabel, SlideTitle, StatCard, ListCard, Card, CardCont
 
 export function IndustrySlide() {
   return (
-    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col overflow-hidden">
       <SlideHeader>
         <SlideLabel>Market Context</SlideLabel>
         <SlideTitle>Industry Definition</SlideTitle>
       </SlideHeader>
 
-      <Card className="animate-fade-up mb-8 border-l-4 border-l-primary bg-primary/5">
-        <CardContent className="p-8">
-          <p className="text-3xl md:text-4xl text-foreground leading-relaxed font-medium">
+      <Card className="animate-fade-up mb-4 border-l-4 border-l-primary bg-primary/5">
+        <CardContent className="p-6">
+          <p className="text-2xl md:text-3xl text-foreground leading-relaxed font-medium">
             Dexcom competes in the{" "}
             <span className="text-primary font-bold">global continuous glucose monitoring (CGM) market</span> within
             the medical device and digital health industry.
@@ -18,7 +18,7 @@ export function IndustrySlide() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-3 gap-4 mb-4">
         <StatCard
           value="$8.7B"
           label="Market Size (2024)"
@@ -39,7 +39,7 @@ export function IndustrySlide() {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
         <ListCard
           title="Products & Services"
           items={[
