@@ -1,10 +1,31 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { Presentation, BarChart3 } from "lucide-react"
+import { Presentation, BarChart3, Download, Loader2 } from "lucide-react"
 import { presentationSlides, analysisSlides } from "@/lib/presentation-data"
 
 export default function Home() {
+  const [isGenerating, setIsGenerating] = useState(false)
+
+  const [exportProgress, setExportProgress] = useState("")
+
+  const handleExport = async () => {
+    setIsGenerating(true)
+    setExportProgress("Loading slides...")
+    try {
+      const { exportToPdf } = await import("@/lib/export-pdf")
+      await exportToPdf((current, total) => {
+        setExportProgress(`Capturing slide ${current} of ${total}...`)
+      })
+    } catch (error) {
+      console.error("Export failed:", error)
+      alert("Failed to export PDF. Please try again.")
+    } finally {
+      setIsGenerating(false)
+      setExportProgress("")
+    }
+  }
   const decks = [
     {
       title: "Main Presentation",
@@ -54,6 +75,25 @@ export default function Home() {
           ))}
         </div>
 
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={handleExport}
+            disabled={isGenerating}
+            className="flex items-center gap-3 px-6 py-3 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isGenerating ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                <span>{exportProgress || "Generating PDF..."}</span>
+              </>
+            ) : (
+              <>
+                <Download className="w-5 h-5" />
+                <span>Export Presentation to PDF</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   )
