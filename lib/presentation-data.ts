@@ -1,23 +1,35 @@
 export const COMPANY_COLORS = {
   dexcom: "#58A618", // Dexcom green - primary brand
-  abbott: "#5B8FB9", // Steel blue
-  medtronic: "#E07A5F", // Coral/terracotta
-  senseonics: "#6B9080", // Sage green
+  abbott: "#3B82F6", // Blue-500
+  medtronic: "#F97316", // Orange-500
+  senseonics: "#8B5CF6", // Violet-500
+} as const
+
+// Consistent chart styling using CSS variables
+export const CHART_THEME = {
+  grid: "hsl(var(--border))",
+  axis: "hsl(var(--muted-foreground))",
+  label: "hsl(var(--foreground))",
+  tooltip: {
+    bg: "hsl(var(--card))",
+    border: "hsl(var(--border))",
+    radius: "var(--radius)",
+  },
 } as const
 
 export const revenueData = [
-  { year: "2020", Dexcom: 1.93, Abbott: 3.7, Medtronic: 2.36 },
-  { year: "2021", Dexcom: 2.45, Abbott: 4.3, Medtronic: 2.41 },
-  { year: "2022", Dexcom: 2.91, Abbott: 5.3, Medtronic: 2.42 },
-  { year: "2023", Dexcom: 3.62, Abbott: 5.9, Medtronic: 2.46 },
-  { year: "2024", Dexcom: 4.03, Abbott: 6.8, Medtronic: 2.49 },
+  { year: "2020", Dexcom: 1.93, Abbott: 3.7, Medtronic: 2.36, Senseonics: 0.01 },
+  { year: "2021", Dexcom: 2.45, Abbott: 4.3, Medtronic: 2.41, Senseonics: 0.01 },
+  { year: "2022", Dexcom: 2.91, Abbott: 5.3, Medtronic: 2.42, Senseonics: 0.02 },
+  { year: "2023", Dexcom: 3.62, Abbott: 5.9, Medtronic: 2.46, Senseonics: 0.02 },
+  { year: "2024", Dexcom: 4.03, Abbott: 6.8, Medtronic: 2.49, Senseonics: 0.03 },
 ]
 
 export const growthData = [
-  { year: "2021", Dexcom: 27, Abbott: 16, Medtronic: 2 },
-  { year: "2022", Dexcom: 19, Abbott: 23, Medtronic: 0.4 },
-  { year: "2023", Dexcom: 24, Abbott: 11, Medtronic: 1.7 },
-  { year: "2024", Dexcom: 11, Abbott: 15, Medtronic: 1.2 },
+  { year: "2021", Dexcom: 27, Abbott: 16, Medtronic: 2, Senseonics: 15 },
+  { year: "2022", Dexcom: 19, Abbott: 23, Medtronic: 0.4, Senseonics: 45 },
+  { year: "2023", Dexcom: 24, Abbott: 11, Medtronic: 1.7, Senseonics: 35 },
+  { year: "2024", Dexcom: 11, Abbott: 15, Medtronic: 1.2, Senseonics: 25 },
 ]
 
 // X = Technology Integration, Y = User Accessibility, Z = bubble size (market share)
@@ -37,12 +49,12 @@ export const fiveForces = [
 ]
 
 export const differentiationRadar = [
-  { attr: "Accuracy", Dexcom: 95, Abbott: 80, Medtronic: 75 },
-  { attr: "Integration", Dexcom: 95, Abbott: 70, Medtronic: 85 },
-  { attr: "Wear Time", Dexcom: 70, Abbott: 75, Medtronic: 65 },
-  { attr: "Price", Dexcom: 50, Abbott: 85, Medtronic: 60 },
-  { attr: "Brand Trust", Dexcom: 90, Abbott: 75, Medtronic: 70 },
-  { attr: "Ease of Use", Dexcom: 90, Abbott: 85, Medtronic: 65 },
+  { attr: "Accuracy", Dexcom: 95, Abbott: 80, Medtronic: 75, Senseonics: 85 },
+  { attr: "Integration", Dexcom: 95, Abbott: 70, Medtronic: 85, Senseonics: 40 },
+  { attr: "Wear Time", Dexcom: 70, Abbott: 75, Medtronic: 65, Senseonics: 100 },
+  { attr: "Price", Dexcom: 50, Abbott: 85, Medtronic: 60, Senseonics: 40 },
+  { attr: "Brand Trust", Dexcom: 90, Abbott: 75, Medtronic: 70, Senseonics: 45 },
+  { attr: "Ease of Use", Dexcom: 90, Abbott: 85, Medtronic: 65, Senseonics: 50 },
 ]
 
 export const COLORS = {
@@ -52,12 +64,6 @@ export const COLORS = {
   abbott: COMPANY_COLORS.abbott,
   medtronic: COMPANY_COLORS.medtronic,
   senseonics: COMPANY_COLORS.senseonics,
-  // Legacy colors for other chart elements
-  blue: "#5b8fb9",
-  sage: "#7a9e7e",
-  coral: "#c97b63",
-  slate: "#6b7a8f",
-  amber: "#f5a21c",
 }
 
 // Financial Analysis Data (Section 01)
@@ -321,7 +327,7 @@ export const marketDrivers = [
 // Market Summary (Slide 21)
 export const marketSummary = {
   strengths: [
-    "Industry-leading sensor accuracy and reliability (MARD <9%)",
+    "Industry-leading sensor accuracy and reliability",
     "Strong brand equity and clinical reputation among endocrinologists",
     "Premium market positioning with demonstrated superior outcomes",
     "Robust R&D capabilities driving continuous innovation",
@@ -353,7 +359,7 @@ export const marketSummary = {
 // Core Competencies Data (Section 03)
 export const coreCompetencies = {
   technicalCapabilities: [
-    { capability: "Sensor Accuracy", strength: "Industry-leading MARD <9%", impact: "Clinical trust & adoption" },
+    { capability: "Sensor Accuracy", strength: "Industry-leading accuracy", impact: "Clinical trust & adoption" },
     { capability: "Miniaturization", strength: "Smallest form factor in market", impact: "Patient comfort & adherence" },
     { capability: "Algorithm Development", strength: "Predictive glucose monitoring", impact: "Proactive diabetes management" },
     { capability: "Manufacturing Scale", strength: "Vertical integration & automation", impact: "Cost efficiency & reliability" },
@@ -378,238 +384,6 @@ export const vrinAnalysis = [
   { criterion: "Inimitable", rating: "Medium-High", explanation: "Patents, data, and brand are hard to replicate quickly" },
   { criterion: "Non-substitutable", rating: "Medium", explanation: "CGM category growing but invasive/non-invasive alternatives emerging" },
 ]
-
-// Section 03 Part 1: Unique Value - Differentiation Strategy
-export const differentiationFeatures = {
-  superiorFeatures: [
-    { feature: "Integrations with Insulin Pumps", description: "Seamless connectivity with leading AID systems including Tandem and Omnipod" },
-    { feature: "Minimal Warmup", description: "30-minute warmup period vs competitors' longer initialization times" },
-    { feature: "No Calibration Needed", description: "Factory-calibrated sensors eliminate the need for fingerstick calibrations" },
-  ],
-  brandAttributes: [
-    { attribute: "Trusted by Doctors", description: "Dexcom is the most recommended CGM system by endocrinologists and healthcare providers" },
-    { attribute: "Premium, State-of-the-Art, and Accurate", description: "Industry-leading accuracy with MARD <9% and cutting-edge sensor technology" },
-  ],
-}
-
-// Strategy Canvas Data - Comparison across key dimensions
-export const strategyCanvasData = [
-  { dimension: "Accuracy", "Dexcom G7": 95, "Libre 3": 75, "Guardian 4": 60, "Eversense E3": 85 },
-  { dimension: "Duration", "Dexcom G7": 70, "Libre 3": 75, "Guardian 4": 50, "Eversense E3": 100 },
-  { dimension: "Calibration", "Dexcom G7": 100, "Libre 3": 100, "Guardian 4": 50, "Eversense E3": 30 },
-  { dimension: "Comfort", "Dexcom G7": 85, "Libre 3": 90, "Guardian 4": 65, "Eversense E3": 75 },
-  { dimension: "Integration", "Dexcom G7": 100, "Libre 3": 60, "Guardian 4": 85, "Eversense E3": 50 },
-]
-
-// Brand Image - Connected CGM System
-export const brandImageData = {
-  headline: "The Most Connected CGM System in the World",
-  tagline: "Competitors offer a glucose reading. Dexcom offers a connected care network.",
-  trustStatement: "Dexcom is a brand patients and doctors know they can trust",
-  connections: [
-    { type: "Insulin Pumps", partners: ["Tandem t:slim X2", "Omnipod 5", "Omnipod iLet"] },
-    { type: "Wearables", partners: ["Apple Watch", "Garmin", "Fitbit"] },
-    { type: "Mobile Apps", partners: ["Dexcom App", "Glooko", "Clarity"] },
-    { type: "Care Network", partners: ["Clinicians", "Parents/Spouses", "Healthcare Providers"] },
-  ],
-}
-
-// Section 03 Part 3: Value Chain & Consumption Chain (Pages 11-19)
-
-// Value Chain - Primary Activities (Page 11)
-export const valueChainPrimary = [
-  {
-    title: "Inbound Logistics",
-    description: "Procurement: Sourcing biosensing materials & components globally to fuel high-volume manufacturing",
-  },
-  {
-    title: "Operations",
-    description: "Manufacturing: High-precision, automated assembly of sensors & transmitters in large-scale facilities to achieve low unit cost",
-  },
-  {
-    title: "Outbound Logistics",
-    description: "Distribution: Managing supply chains to pharmacies, distributors, & direct-to-patient channels globally",
-  },
-  {
-    title: "Marketing & Sales",
-    description: "Advocacy: Campaigning for broad payer reimbursement & securing coverage for new patient populations. Commercial: Expanding the direct-to-consumer sales model to new wellness markets",
-  },
-  {
-    title: "Service",
-    description: "Support: Providing 24/7 technical & production assistance to ensure high user retention & confidence in the life-saving technology",
-  },
-]
-
-// Value Chain - Support Activities (Page 12)
-export const valueChainSupport = [
-  {
-    title: "Firm Infrastructure",
-    items: [
-      {
-        subtitle: "Compliance",
-        description: "Maintaining a robust quality management system (QMS) & responding to regulatory requirements",
-      },
-      {
-        subtitle: "Financial",
-        description: "Managing large cash & liquid assets to fund global expansion and R&D",
-      },
-    ],
-  },
-  {
-    title: "Human Resource Management",
-    items: [
-      {
-        subtitle: "Talent",
-        description: "Recruiting & training specialized engineers & clinical sales teams for a high-growth medical device market",
-      },
-    ],
-  },
-  {
-    title: "Technology Development",
-    items: [
-      {
-        subtitle: "R&D",
-        description: "Continuous innovation on sensor accuracy, wear time, & software integration",
-      },
-      {
-        subtitle: "AI/Software",
-        description: "Integrating real-time data insights & AI into applications for enhanced user experience & clinical value",
-      },
-    ],
-  },
-  {
-    title: "Procurement",
-    items: [
-      {
-        subtitle: "Supplier Relations",
-        description: "Building trust & reliability w/ critical, single-source component suppliers to mitigate supply chain risk",
-      },
-    ],
-  },
-]
-
-// Value Chain Takeaways (Pages 13-15)
-export const valueChainTakeaways1 = {
-  category: "Core Differentiators",
-  takeaways: [
-    {
-      title: "Technology development is paramount",
-      description: "The most critical activity is R&D. Their ability to shrink sensors, reduce warm-up time, & improve accuracy justifies their premium price point over competitors.",
-    },
-    {
-      title: "Regulatory & Reimbursement Mastery",
-      description: "The Marketing & Sales and Firm Infrastructure functions are central to turning innovation into revenue. Dexcom has mastered the process of securing payer reimbursement & navigating global regulatory approvals, this unlocks huge revenue streams.",
-    },
-  ],
-}
-
-export const valueChainTakeaways2 = {
-  category: "Cost & Efficiency Focus",
-  takeaways: [
-    {
-      title: "Scale for Cost Control",
-      description: "Operations is focused on achieving massive scale & automation. This drives down COGS for high-volume products like the G7 & to make low-cost products like Stelo profitable.",
-    },
-    {
-      title: "Supplier Dependence Risk",
-      description: "The Procurement activity shows a potential risk. Relying on specialized, single-sourced suppliers for unique biosensing materials is necessary for product quality but creates a supply chain vulnerability that must be managed carefully.",
-    },
-  ],
-}
-
-export const valueChainTakeaways3 = {
-  category: "Future Strategy Alignment",
-  takeaways: [
-    {
-      title: "Service Drives Retention",
-      description: "The Service activity is key to retaining users. Providing 24/7 tech support helps w/ patient frustration, renewal rates, & solidifies customer loyalty against competitors.",
-    },
-    {
-      title: "HR for Innovation",
-      description: "The HRM function support innovation by recruiting & retaining highly specialized engineering talent required to advance sensor tech & software integration ahead of its rivals.",
-    },
-  ],
-}
-
-// Consumption Chain Q&A (Pages 16-17)
-export const consumptionChain1 = [
-  {
-    question: "How do consumers become aware of a need for your product/service?",
-    answer: "Doctor diagnoses diabetes; recommend CGM technology.",
-  },
-  {
-    question: "How do consumers find your offering?",
-    answer: "Doctor writes prescription; patient goes to pharmacy",
-  },
-  {
-    question: "How do consumers make their final selection (priority of attributes)?",
-    answer: "Accuracy, alerts, size, & pump compatibility matter most",
-  },
-  {
-    question: "How do consumers order & purchase your product?",
-    answer: "Prescription filled at pharmacy or distributor; pay copay.",
-  },
-  {
-    question: "How is your product/service delivered?",
-    answer: "Picked up at pharmacy or shipped directly to door.",
-  },
-]
-
-export const consumptionChain2 = [
-  {
-    question: "How is your product/service paid for?",
-    answer: "Insurance pays bulk; patient pays negotiated copay/cash.",
-  },
-  {
-    question: "How is your product stored/moved around?",
-    answer: "Stored at room temperature; worn on body/in pocket.",
-  },
-  {
-    question: "What is your product really used for?",
-    answer: "Real-time glucose tracking; informs treatment decisions.",
-  },
-  {
-    question: "What do consumers need help with when they use the product?",
-    answer: "Sensor application, adhesive issues, and phone app setup.",
-  },
-  {
-    question: "How is your product/service disposed of?",
-    answer: "Applicator & sensor disposed as biohazard waste.",
-  },
-]
-
-// Consumption Chain Takeaways (Pages 18-19)
-export const consumptionChainTakeaways1 = {
-  category: "Awareness & Purchase Stages",
-  takeaways: [
-    {
-      title: "Physician as the Gatekeeper",
-      description: "The chain clearly shows that the physician is the most critical factor in initiating the sale & ensuring the transaction. Dexcom's strategy must heavily focus on clinical evidence & physician education.",
-    },
-    {
-      title: "Insurance Dictates Access",
-      description: 'The complexity of "How is your product/service paid for?" highlights that insurance coverage & reimbursement are the biggest hurdles to access, not necessarily consumer awareness.',
-    },
-  ],
-}
-
-export const consumptionChainTakeaways2 = {
-  category: "Usage & Post-Purchase Stages",
-  takeaways: [
-    {
-      title: "Ease-of-Use is Paramount",
-      description: "The questions about what consumers need help with show that the sensor application & technical setup are major pain points. Improvements here directly reduce customer friction & increase loyalty.",
-    },
-    {
-      title: "Data is the Product",
-      description: 'The answer to "What is your product really used for?" confirms that the physical sensor is simply a delivery mechanism; the true product value is the real-time data & actionable health insights.',
-    },
-    {
-      title: "Disposal is a Hassle",
-      description: "The final step indicates that disposal is a known inconvenience that adds complexity to the user experience, particularly compared to competitors w/ smaller, less wasteful applicators.",
-    },
-  ],
-}
 
 // Strategic Issues Data (Section 04)
 export const strategicIssues = {
@@ -705,110 +479,7 @@ export const recommendations = [
   },
 ]
 
-export const slides = [
-  { id: "title", title: "DEXCOM", section: "intro" },
-  { id: "agenda", title: "Agenda", section: "intro" },
-  { id: "diabetes", title: "Understanding Diabetes", section: "intro" },
-  { id: "cgm", title: "What is a CGM?", section: "intro" },
-  { id: "company", title: "Company Overview", section: "intro" },
-  { id: "mission", title: "Mission & Values", section: "intro" },
-  { id: "financials", title: "Financial Position", section: "industry" },
-  { id: "revenue-comparison", title: "Revenue Comparison", section: "industry" },
-  { id: "growth-comparison", title: "Growth Trajectory", section: "industry" },
-  { id: "industry", title: "Industry Definition", section: "industry" },
-  { id: "competitors", title: "Competitive Landscape", section: "industry" },
-  { id: "strategic-map", title: "Strategic Positioning", section: "industry" },
-  { id: "five-forces", title: "Market Attractiveness", section: "industry" },
-  { id: "pest", title: "Industry Drivers", section: "industry" },
-  { id: "consumer-wants", title: "Consumer Needs", section: "core" },
-  { id: "differentiation", title: "Differentiation Strategy", section: "core" },
-  { id: "why-dexcom", title: "Competitive Advantage", section: "core" },
-  { id: "resources", title: "Resources", section: "core" },
-  { id: "capabilities", title: "Capabilities", section: "core" },
-  { id: "imitation", title: "Imitation Barriers", section: "core" },
-  { id: "swot", title: "SWOT Analysis", section: "core" },
-  { id: "issue1", title: "Strategic Issue #1", section: "recommendations" },
-  { id: "issue2", title: "Strategic Issue #2", section: "recommendations" },
-  { id: "thanks", title: "Thank You", section: "outro" },
-  // Analysis Section - Appended after main presentation
-  // Section 01: Company Overview Analysis
-  { id: "analysis-divider-01", title: "Section 01: Company Overview Analysis", section: "analysis" },
-  { id: "profitability-analysis", title: "Profitability Metrics", section: "analysis" },
-  { id: "operating-efficiency-analysis", title: "Operating Efficiency", section: "analysis" },
-  { id: "financial-risk-analysis", title: "Financial Risk", section: "analysis" },
-  { id: "financial-trends-analysis", title: "Financial Trends", section: "analysis" },
-  { id: "expense-analysis", title: "Expense Allocation", section: "analysis" },
-  { id: "revenue-sources-analysis", title: "Revenue Sources", section: "analysis" },
-  // Section 02: Industry Analysis (21 comprehensive slides)
-  { id: "analysis-divider-02", title: "Section 02: Industry Analysis", section: "analysis" },
-  { id: "industry-definition-intro", title: "Industry Definition", section: "analysis" },
-  { id: "industry-definition-framework-1", title: "Industry Framework (Part 1)", section: "analysis" },
-  { id: "industry-definition-framework-2", title: "Industry Framework (Part 2)", section: "analysis" },
-  { id: "vrio-value", title: "VRIO: Value", section: "analysis" },
-  { id: "vrio-rarity", title: "VRIO: Rarity", section: "analysis" },
-  { id: "vrio-inimitable", title: "VRIO: Inimitable", section: "analysis" },
-  { id: "vrio-organized", title: "VRIO: Organized", section: "analysis" },
-  { id: "key-competitors-overview", title: "Key Competitors", section: "analysis" },
-  { id: "strategic-group-map-visual", title: "Strategic Group Map", section: "analysis" },
-  { id: "strategic-group-map-positioning", title: "Strategic Positioning", section: "analysis" },
-  { id: "strategic-group-map-data", title: "Capability Comparison", section: "analysis" },
-  { id: "financial-comparison-revenue", title: "Revenue Comparison", section: "analysis" },
-  { id: "financial-comparison-margins", title: "Operating Margins", section: "analysis" },
-  { id: "five-forces-rivalry", title: "Five Forces: Competitive Rivalry", section: "analysis" },
-  { id: "five-forces-supplier", title: "Five Forces: Supplier Power", section: "analysis" },
-  { id: "five-forces-buyer", title: "Five Forces: Buyer Power", section: "analysis" },
-  { id: "five-forces-substitution", title: "Five Forces: Threat of Substitution", section: "analysis" },
-  { id: "five-forces-new-entry", title: "Five Forces: Threat of New Entry", section: "analysis" },
-  { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis" },
-  { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis" },
-  { id: "market-summary", title: "Market Summary", section: "analysis" },
-  { id: "market-summary-conclusion", title: "Market Summary: Conclusion", section: "analysis" },
-  // Section 03: Unique Value & Competitor Analysis (19 slides)
-  { id: "unique-value-divider", title: "Section 03: Unique Value & Competitor Analysis", section: "analysis" },
-  { id: "differentiation-strategy", title: "Differentiation Strategy", section: "analysis" },
-  { id: "strategy-canvas", title: "Strategy Canvas", section: "analysis" },
-  { id: "brand-image", title: "Brand Image", section: "analysis" },
-  { id: "competitor-response-divider", title: "Competitor Response", section: "analysis" },
-  { id: "future-goals", title: "Future Goals", section: "analysis" },
-  { id: "assumptions", title: "Assumptions", section: "analysis" },
-  { id: "current-strategy", title: "Current Strategy", section: "analysis" },
-  { id: "capabilities-comparison-detailed", title: "Capabilities Comparison", section: "analysis" },
-  { id: "competitor-response-analysis", title: "Competitor Response Analysis", section: "analysis" },
-  { id: "value-chain-primary", title: "Value Chain: Primary Activities", section: "analysis" },
-  { id: "value-chain-support", title: "Value Chain: Support Activities", section: "analysis" },
-  { id: "value-chain-takeaways-1", title: "Value Chain Takeaways: Core Differentiators", section: "analysis" },
-  { id: "value-chain-takeaways-2", title: "Value Chain Takeaways: Cost & Efficiency", section: "analysis" },
-  { id: "value-chain-takeaways-3", title: "Value Chain Takeaways: Future Strategy", section: "analysis" },
-  { id: "consumption-chain-1", title: "Consumption Chain (Part 1)", section: "analysis" },
-  { id: "consumption-chain-2", title: "Consumption Chain (Part 2)", section: "analysis" },
-  { id: "consumption-chain-takeaways-1", title: "Consumption Chain Takeaways: Awareness & Purchase", section: "analysis" },
-  { id: "consumption-chain-takeaways-2", title: "Consumption Chain Takeaways: Usage & Post-Purchase", section: "analysis" },
-  // Section 04: Resources & Capabilities (5 slides)
-  { id: "resources-capabilities-divider", title: "Section 04: Resources & Capabilities", section: "analysis" },
-  { id: "resources-detailed", title: "Resources", section: "analysis" },
-  { id: "capabilities-comprehensive", title: "Capabilities", section: "analysis" },
-  { id: "limitations-resources", title: "Limitations of Resources", section: "analysis" },
-  { id: "limitations-capabilities", title: "Limitations of Capabilities", section: "analysis" },
-  // Section 05: Imitation Barriers (4 slides)
-  { id: "imitation-barriers-divider", title: "Section 05: Imitation Barriers", section: "analysis" },
-  { id: "imitation-barriers-created", title: "Imitation Barriers Created", section: "analysis" },
-  { id: "imitation-barriers-faced", title: "Imitation Barriers Faced", section: "analysis" },
-  { id: "imitation-barriers-insights", title: "Imitation Barriers Key Insights", section: "analysis" },
-  // Section 06: SWOT Analysis (5 slides)
-  { id: "swot-divider", title: "Section 06: SWOT Analysis", section: "analysis" },
-  { id: "swot-strengths", title: "SWOT: Strengths", section: "analysis" },
-  { id: "swot-weaknesses", title: "SWOT: Weaknesses", section: "analysis" },
-  { id: "swot-opportunities", title: "SWOT: Opportunities", section: "analysis" },
-  { id: "swot-threats", title: "SWOT: Threats", section: "analysis" },
-  // Section 07: Recommendations (7 slides)
-  { id: "recommendations-divider", title: "Section 07: Recommendations", section: "analysis" },
-  { id: "issue-1-detailed", title: "Issue #1: Limited Market", section: "analysis" },
-  { id: "solution-1-detailed", title: "Solution #1: Market to Athletes", section: "analysis" },
-  { id: "issue-2-detailed", title: "Issue #2: Competitors Replicating", section: "analysis" },
-  { id: "solution-2-detailed", title: "Solution #2: Longer-lasting Product", section: "analysis" },
-  { id: "issue-3-detailed", title: "Issue #3: Physician Loyalty Erosion", section: "analysis" },
-  { id: "solution-3-detailed", title: "Solution #3: Medical Conferences & Samples", section: "analysis" },
-]
+// Main Presentation Slides
 
 // Competitor Response Analysis Data (Section 03 Part 2)
 export const competitorResponse = {
@@ -992,185 +663,113 @@ export const recommendationsSection07 = {
     ],
   },
 }
+// Main Presentation Slides
+export const presentationSlides = [
+  { id: "title", title: "DEXCOM", section: "intro" },
+  { id: "agenda", title: "Agenda", section: "intro" },
+  { id: "diabetes", title: "Understanding Diabetes", section: "intro" },
+  { id: "cgm", title: "What is a CGM?", section: "intro" },
+  { id: "company", title: "Company Overview", section: "intro" },
+  { id: "mission", title: "Mission & Values", section: "intro" },
+  { id: "financials", title: "Financial Position", section: "industry" },
+  { id: "revenue-comparison", title: "Revenue Comparison", section: "industry" },
+  { id: "growth-comparison", title: "Growth Trajectory", section: "industry" },
+  { id: "industry", title: "Industry Definition", section: "industry" },
+  { id: "competitors", title: "Competitive Landscape", section: "industry" },
+  { id: "strategic-map", title: "Strategic Positioning", section: "industry" },
+  { id: "five-forces", title: "Market Attractiveness", section: "industry" },
+  { id: "pest", title: "Industry Drivers", section: "industry" },
+  { id: "consumer-wants", title: "Consumer Needs", section: "core" },
+  { id: "differentiation", title: "Differentiation Strategy", section: "core" },
+  { id: "why-dexcom", title: "Competitive Advantage", section: "core" },
+  { id: "resources", title: "Resources", section: "core" },
+  { id: "capabilities", title: "Capabilities", section: "core" },
+  { id: "imitation", title: "Imitation Barriers", section: "core" },
+  { id: "swot", title: "SWOT Analysis", section: "core" },
+  { id: "issue1", title: "Strategic Issue #1", section: "recommendations" },
+  { id: "issue2", title: "Strategic Issue #2", section: "recommendations" },
+  { id: "thanks", title: "Thank You", section: "outro" },
+]
 
-// SWOT Analysis Data (Section 06)
-export const swotAnalysis = {
-  strengths: [
-    {
-      title: "Leader in Glucose Monitoring",
-      description: "Dexcom is known for being easy to use, accurate, and providing real-time data for users",
-    },
-    {
-      title: "Trusted Brand",
-      description: "Dexcom is associated with good quality & reliable CGM which has led to customer loyalty",
-    },
-    {
-      title: "Partnerships",
-      description: "Dexcom has partnered with healthcare providers, insulin pump manufacturers, and pharmaceutical companies which has expanded their reach",
-    },
-    {
-      title: "Patented Technology",
-      description: "Dexcom's technology is protected",
-    },
-  ],
-  weaknesses: [
-    {
-      title: "Expensive",
-      description: "CGM systems can be expensive, which is a barrier for users without insurance.",
-    },
-    {
-      title: "Niche product",
-      description: "Limited market that they are heavily reliant on.",
-    },
-    {
-      title: "Subscription-based",
-      description: "Revenue comes from subscriptions, which means Dexcom needs customer retention",
-    },
-    {
-      title: "Market Dependency",
-      description: "Dexcom depends on U.S. customers heavily for a significant portion of their revenue.",
-    },
-  ],
-  opportunities: [
-    {
-      title: "Expanding Market",
-      description: "The global diabetes population is expected to continue growing. Additionally, there is an increasing interest by non-insulin users who are interested in Dexcom for wellness tracking. This presents a significant growth opportunity for Dexcom globally.",
-    },
-    {
-      title: "Technological Advancements",
-      description: "Advancements in sensor technology and additional integrations would help Dexcom to further enhance its CGM systems, making them more accurate, user-friendly, and integrated with other healthcare devices.",
-    },
-    {
-      title: "Telehealth Integration",
-      description: "As telehealth and remote patient monitoring becomes increasingly common, there is an opportunity for Dexcom to integrate its CGM systems with telehealth platforms, enabling healthcare providers to remotely monitor and manage patients' glucose levels.",
-    },
-  ],
-  threats: [
-    {
-      title: "Competition",
-      description: "Companies are introducing their own CGM systems. This competition is from both existing companies and new entrants which could impact their market share. As competition increases, there may be pressure to lower prices, which could decrease Dexcom's profit margins.",
-    },
-    {
-      title: "Regulations",
-      description: "The medical device industry is subject to strict regulatory requirements. Any delays or difficulties in obtaining regulatory approvals could slow Dexcom's growth.",
-    },
-    {
-      title: "New Technology",
-      description: "Technological advancements could lead to new diabetes management solutions that could potentially disrupt Dexcom's market position.",
-    },
-  ],
-}
+// Analysis Deep Dive Slides
+export const analysisSlides = [
+  // Section 01: Company Overview Analysis
+  { id: "analysis-divider-01", title: "Section 01: Company Overview Analysis", section: "analysis-01" },
+  { id: "profitability-analysis", title: "Profitability Metrics", section: "analysis-01" },
+  { id: "operating-efficiency-analysis", title: "Operating Efficiency", section: "analysis-01" },
+  { id: "financial-risk-analysis", title: "Financial Risk", section: "analysis-01" },
+  { id: "financial-trends-analysis", title: "Financial Trends", section: "analysis-01" },
+  { id: "expense-analysis", title: "Expense Allocation", section: "analysis-01" },
+  { id: "revenue-sources-analysis", title: "Revenue Sources", section: "analysis-01" },
+  // Section 02: Industry Analysis
+  { id: "analysis-divider-02", title: "Section 02: Industry Analysis", section: "analysis-02" },
+  { id: "industry-definition-intro", title: "Industry Definition", section: "analysis-02" },
+  { id: "industry-definition-framework-1", title: "Industry Framework (Part 1)", section: "analysis-02" },
+  { id: "industry-definition-framework-2", title: "Industry Framework (Part 2)", section: "analysis-02" },
+  { id: "vrio-value", title: "VRIO: Value", section: "analysis-02" },
+  { id: "vrio-rarity", title: "VRIO: Rarity", section: "analysis-02" },
+  { id: "vrio-inimitable", title: "VRIO: Inimitable", section: "analysis-02" },
+  { id: "vrio-organized", title: "VRIO: Organized", section: "analysis-02" },
+  { id: "key-competitors-overview", title: "Key Competitors", section: "analysis-02" },
+  { id: "strategic-group-map-visual", title: "Strategic Group Map", section: "analysis-02" },
+  { id: "strategic-group-map-positioning", title: "Strategic Positioning", section: "analysis-02" },
+  { id: "strategic-group-map-data", title: "Capability Comparison", section: "analysis-02" },
+  { id: "financial-comparison-revenue", title: "Revenue Comparison", section: "analysis-02" },
+  { id: "financial-comparison-margins", title: "Operating Margins", section: "analysis-02" },
+  { id: "five-forces-rivalry", title: "Five Forces: Competitive Rivalry", section: "analysis-02" },
+  { id: "five-forces-supplier", title: "Five Forces: Supplier Power", section: "analysis-02" },
+  { id: "five-forces-buyer", title: "Five Forces: Buyer Power", section: "analysis-02" },
+  { id: "five-forces-substitution", title: "Five Forces: Threat of Substitution", section: "analysis-02" },
+  { id: "five-forces-new-entry", title: "Five Forces: Threat of New Entry", section: "analysis-02" },
+  { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis-02" },
+  { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis-02" },
+  { id: "market-summary", title: "Market Summary", section: "analysis-02" },
+  // Section 03: Unique Value & Competitor Analysis (19 slides)
+  { id: "unique-value-divider", title: "Section 03: Unique Value & Competitor Analysis", section: "analysis-03" },
+  { id: "differentiation-strategy", title: "Differentiation Strategy", section: "analysis-03" },
+  { id: "strategy-canvas", title: "Strategy Canvas", section: "analysis-03" },
+  { id: "brand-image", title: "Brand Image", section: "analysis-03" },
+  { id: "competitor-response-divider", title: "Competitor Response", section: "analysis-03" },
+  { id: "future-goals", title: "Future Goals", section: "analysis-03" },
+  { id: "assumptions", title: "Assumptions", section: "analysis-03" },
+  { id: "current-strategy", title: "Current Strategy", section: "analysis-03" },
+  { id: "capabilities-comparison-detailed", title: "Capabilities Comparison", section: "analysis-03" },
+  { id: "competitor-response-analysis", title: "Competitor Response Analysis", section: "analysis-03" },
+  { id: "value-chain-primary", title: "Value Chain: Primary Activities", section: "analysis-03" },
+  { id: "value-chain-support", title: "Value Chain: Support Activities", section: "analysis-03" },
+  { id: "value-chain-takeaways-1", title: "Value Chain Takeaways: Core Differentiators", section: "analysis-03" },
+  { id: "value-chain-takeaways-2", title: "Value Chain Takeaways: Cost & Efficiency", section: "analysis-03" },
+  { id: "value-chain-takeaways-3", title: "Value Chain Takeaways: Future Strategy", section: "analysis-03" },
+  { id: "consumption-chain-1", title: "Consumption Chain (Part 1)", section: "analysis-03" },
+  { id: "consumption-chain-2", title: "Consumption Chain (Part 2)", section: "analysis-03" },
+  { id: "consumption-chain-takeaways-1", title: "Consumption Chain Takeaways: Awareness & Purchase", section: "analysis-03" },
+  { id: "consumption-chain-takeaways-2", title: "Consumption Chain Takeaways: Usage & Post-Purchase", section: "analysis-03" },
+  // Section 04: Resources & Capabilities (5 slides)
+  { id: "resources-capabilities-divider", title: "Section 04: Resources & Capabilities", section: "analysis-04" },
+  { id: "resources-detailed", title: "Resources", section: "analysis-04" },
+  { id: "capabilities-comprehensive", title: "Capabilities", section: "analysis-04" },
+  { id: "limitations-resources", title: "Limitations of Resources", section: "analysis-04" },
+  { id: "limitations-capabilities", title: "Limitations of Capabilities", section: "analysis-04" },
+  // Section 05: Imitation Barriers (4 slides)
+  { id: "imitation-barriers-divider", title: "Section 05: Imitation Barriers", section: "analysis-05" },
+  { id: "imitation-barriers-created", title: "Imitation Barriers Created", section: "analysis-05" },
+  { id: "imitation-barriers-faced", title: "Imitation Barriers Faced", section: "analysis-05" },
+  { id: "imitation-barriers-insights", title: "Imitation Barriers Key Insights", section: "analysis-05" },
+  // Section 06: SWOT Analysis (5 slides)
+  { id: "swot-divider", title: "Section 06: SWOT Analysis", section: "analysis-06" },
+  { id: "swot-strengths", title: "SWOT: Strengths", section: "analysis-06" },
+  { id: "swot-weaknesses", title: "SWOT: Weaknesses", section: "analysis-06" },
+  { id: "swot-opportunities", title: "SWOT: Opportunities", section: "analysis-06" },
+  { id: "swot-threats", title: "SWOT: Threats", section: "analysis-06" },
+  // Section 07: Recommendations (7 slides)
+  { id: "recommendations-divider", title: "Section 07: Recommendations", section: "analysis-07" },
+  { id: "issue-1-detailed", title: "Issue #1: Limited Market", section: "analysis-07" },
+  { id: "solution-1-detailed", title: "Solution #1: Market to Athletes", section: "analysis-07" },
+  { id: "issue-2-detailed", title: "Issue #2: Competitors Replicating", section: "analysis-07" },
+  { id: "solution-2-detailed", title: "Solution #2: Longer-lasting Product", section: "analysis-07" },
+  { id: "issue-3-detailed", title: "Issue #3: Physician Loyalty Erosion", section: "analysis-07" },
+  { id: "solution-3-detailed", title: "Solution #3: Medical Conferences & Samples", section: "analysis-07" },
+]
 
-// Resources & Capabilities Data (Section 04)
-export const resourcesCapabilitiesData = {
-  resources: [
-    {
-      title: "Patents",
-      description: "Dexcom has patents for their CGM technology and algorithms.",
-    },
-    {
-      title: "Brand Reputation",
-      description: "Dexcom's name is well-known and trusted among doctors and patients.",
-    },
-    {
-      title: "Manufacturing Facilities & Workforce",
-      description: "Dexcom has 3 large manufacturing facilities including one internationally and employs over 10,000 people.",
-    },
-  ],
-  capabilities: [
-    {
-      title: "R&D",
-      description: "Dexcom has rapid product iterations with significant improvements. Dexcom released G6 in 2018, G7 in 2023, and the G7 15 Day system in 2025. The newest release lasts 50% longer and is 60% smaller than the G6.",
-    },
-    {
-      title: "Relationships with Partners",
-      description: "Dexcom has connections with other companies that make products for people with diabetes, and is able to partner with them to connect CGM to insulin pumps.",
-    },
-    {
-      title: "Manufacturing & Sales",
-      description: "Dexcom manufactures a high volume for devices that are precise (they have to be). They have effective B2B sales and have already expanded to Direct-to-Consumer as they serve people seeking wellness monitoring.",
-    },
-  ],
-  resourceLimitations: [
-    {
-      title: "Reliance on Patents",
-      description: "Patent expirations could open doors for competitors. Additionally, patents won't necessarily protect against companies imitating Dexcom's algorithm.",
-    },
-    {
-      title: "Brand Reputation Risk",
-      description: "One large recall or safety issue could damage trust with customers. Competitors like Abbott have gained market share.",
-    },
-    {
-      title: "Manufacturing Concentration",
-      description: "Dexcom has only 3 major facilities means they are vulnerable to: supply chain disruptions, geopolitical risk (international site), and natural disasters.",
-    },
-  ],
-  capabilityLimitations: [
-    {
-      title: "R&D Speed vs. Regulatory Approval Timeline",
-      description: "Even if Dexcom innovates fast, FDA approval can slow down releasing new technology. Any regulatory issues can weaken competitive advantage.",
-    },
-    {
-      title: "Partnerships Can Create Dependency",
-      description: "If an insulin pump partner fails or changes strategy, Dexcom loses integration points.",
-    },
-    {
-      title: "Limited Direct-to-Consumer Experience",
-      description: "Competing with Fitbit, Oura, and Apple requires marketing capabilities that Dexcom hasn't explored until recent years.",
-    },
-  ],
-}
-
-// Imitation Barriers Data (Section 05)
-export const imitationBarriersData = {
-  barriersCreated: [
-    {
-      title: "Proprietary Sensor Technology & Algorithms",
-      description: "Dexcom's CGMs rely on patented enzyme chemistry and advanced calibration algorithms that deliver highly accurate, real-time glucose readings. These technologies are difficult to replicate without infringing on Dexcom's intellectual property or matching years of R&D refinement.",
-    },
-    {
-      title: "Regulatory and Clinical Validation",
-      description: "Dexcom has extensive FDA-approved clinical data and regulatory clearances built over multiple product generations (G4 to G7). Competitors face major time and cost hurdles replicating this proven safety and performance record, which is essential for physician and insurer trust.",
-    },
-    {
-      title: "Ecosystem Integration and Partnerships",
-      description: "Dexcom's integration with Tandem, Omnipod, and Apple Health creates a tightly connected ecosystem of devices and data platforms. This interoperability builds user loyalty and makes it difficult for rivals to offer a seamless experience across pumps, wearables, and mobile apps.",
-    },
-    {
-      title: "Brand Reputation and Clinical Trust",
-      description: "Dexcom's long-standing reputation among endocrinologists, hospitals, and patients creates a trust moat. Healthcare professionals are hesitant to switch to lesser-known or less-tested systems, even if they are cheaper.",
-    },
-    {
-      title: "Economies of Scale and Vertical Integration",
-      description: "Dexcom's large-scale production and partial in-house manufacturing lower costs and improve quality control. This operational efficiency is tough for smaller competitors to imitate without significant capital investment.",
-    },
-  ],
-  barriersFaced: [
-    {
-      title: "Lower-Cost Products (Abbott's FreeStyle Libre)",
-      description: "Abbott's simpler, lower-priced CGM appeals to cost-sensitive patients, insurers, and non-insulin users. Dexcom cannot easily imitate this price point without reducing margins.",
-    },
-    {
-      title: "Longer Wear Duration (Senseonics' Eversense 365)",
-      description: "Senseonics' implantable CGM lasts up to a year, which rivals Dexcom's sensor wear time. Dexcom faces pressure to innovate longer-lasting sensors, a technical barrier to imitate quickly.",
-    },
-    {
-      title: "Pump Integration & Automated Insulin Delivery (Medtronic Guardian Connect)",
-      description: "Medtronic integrates its CGM directly with insulin pumps to automate insulin delivery, creating a seamless closed-loop system. Dexcom faces barriers in replicating end-to-end automated insulin delivery without partnerships.",
-    },
-    {
-      title: "Brand Loyalty & Established Ecosystem (Abbott, Medtronic)",
-      description: "Competitors have loyal users in specific segments (e.g., type 2 patients with Libre, pump users with Medtronic), which acts as a barrier for Dexcom to capture those customers.",
-    },
-    {
-      title: "Distribution and Insurance Relationships",
-      description: "Competitors like Abbott and Medtronic have extensive insurance contracts and pharmacy networks, making it harder for Dexcom to expand into certain markets quickly.",
-    },
-  ],
-  keyInsights: [
-    "Dexcom's technology and data accuracy are core defensible advantages that competitors struggle to replicate quickly.",
-    "Integration with insulin pumps and digital platforms creates a 'stickiness' effect, making switching costly for users.",
-    "Dexcom must innovate on cost, convenience, and wear duration to remain competitive.",
-    "Competitors' ecosystem integration and patient loyalty highlight the importance of partnerships and continuous device compatibility.",
-  ],
-}
+// Combined slides (for backwards compatibility)
+export const slides = [...presentationSlides, ...analysisSlides]

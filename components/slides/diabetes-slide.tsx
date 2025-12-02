@@ -1,51 +1,59 @@
 import { Activity } from "lucide-react"
+import { SlideHeader, SlideLabel, SlideTitle } from "@/components/ui"
+import { Card, CardContent } from "@/components/ui"
 
 export function DiabetesSlide() {
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
-      <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Foundation</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Understanding Diabetes</h2>
-      </div>
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <SlideHeader>
+        <SlideLabel>Foundation</SlideLabel>
+        <SlideTitle>Understanding Diabetes</SlideTitle>
+      </SlideHeader>
 
-      <div className="grid grid-cols-12 gap-10">
-        <div className="col-span-5 animate-fade-up h-full">
-          <div className="p-8 card-clean h-full">
-            <Activity className="w-8 h-8 text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-3 text-foreground">The Core Problem</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Insulin dysfunction causes glucose to accumulate in the bloodstream instead of fueling cells. This affects{" "}
-              <span className="text-primary font-semibold">537M+ people</span> globally.
-            </p>
-          </div>
+      <div className="grid grid-cols-2 gap-6">
+        <div className="animate-fade-up">
+          <Card className="h-full flex flex-col justify-center">
+            <CardContent className="p-6">
+              <Activity className="w-10 h-10 text-primary mb-4" />
+              <h3 className="text-4xl font-bold mb-4 text-foreground">The Core Problem</h3>
+              <p className="text-6xl font-bold text-primary mb-4">537M+</p>
+              <p className="text-2xl text-muted-foreground leading-relaxed">
+                people with glucose that stays in bloodstream instead of fueling cells
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
-        <div className="col-span-7 space-y-5">
-          <div className="animate-fade-up stagger-1 p-6 card-clean">
-            <div className="flex items-center gap-4 mb-3">
-              <div className="w-10 h-10 rounded-full bg-destructive/10 flex items-center justify-center">
-                <span className="text-destructive font-bold text-sm">T1</span>
+        <div className="space-y-4">
+          <Card className="animate-fade-up stagger-1">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-md bg-muted flex items-center justify-center">
+                  <span className="text-muted-foreground font-bold text-lg">T1</span>
+                </div>
+                <h4 className="font-bold text-foreground text-2xl">Type 1 Diabetes</h4>
               </div>
-              <h4 className="text-lg font-semibold text-foreground">Type 1 Diabetes</h4>
-            </div>
-            <ul className="text-muted-foreground space-y-1.5 text-sm">
-              <li>• Autoimmune condition — body produces no insulin</li>
-              <li>• Not preventable — requires lifelong management</li>
-            </ul>
-          </div>
+              <ul className="text-muted-foreground space-y-2 text-xl ml-16">
+                <li>Autoimmune condition — body produces no insulin</li>
+                <li>Not preventable — requires lifelong management</li>
+              </ul>
+            </CardContent>
+          </Card>
 
-          <div className="animate-fade-up stagger-2 p-6 card-clean">
-            <div className="flex items-center gap-4 mb-3">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <span className="text-primary font-bold text-sm">T2</span>
+          <Card className="animate-fade-up stagger-2">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-md bg-muted flex items-center justify-center">
+                  <span className="text-muted-foreground font-bold text-lg">T2</span>
+                </div>
+                <h4 className="font-bold text-foreground text-2xl">Type 2 Diabetes</h4>
               </div>
-              <h4 className="text-lg font-semibold text-foreground">Type 2 Diabetes</h4>
-            </div>
-            <ul className="text-muted-foreground space-y-1.5 text-sm">
-              <li>• Insulin resistance + pancreatic decline over time</li>
-              <li>• Risk reduced with lifestyle changes — not caused by sugar</li>
-            </ul>
-          </div>
+              <ul className="text-muted-foreground space-y-2 text-xl ml-16">
+                <li>Insulin resistance + pancreatic decline over time</li>
+                <li>Risk reduced with lifestyle changes — not caused by sugar</li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

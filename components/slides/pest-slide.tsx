@@ -1,5 +1,6 @@
 import { Shield, Users, Zap } from "lucide-react"
 import { COLORS } from "@/lib/presentation-data"
+import { SlideHeader, SlideTitle, Card, CardContent } from "@/components/ui"
 
 export function PestSlide() {
   const factors = [
@@ -24,43 +25,43 @@ export function PestSlide() {
   ]
 
   return (
-    <div className="p-12 lg:p-20 max-w-5xl mx-auto h-full flex flex-col justify-center">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <div className="mb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">PEST Analysis</span>
-        <h2 className="text-5xl font-bold mt-3 tracking-tight text-foreground">Industry Drivers</h2>
+        <SlideHeader>PEST Analysis</SlideHeader>
+        <SlideTitle>Industry Drivers</SlideTitle>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
         {factors.map((item, idx) => (
-          <div
-            key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border border-border card-clean`}
-          >
-            <div
-              className="w-12 h-12 rounded-md flex items-center justify-center mb-4"
-              style={{ backgroundColor: `${item.color}15` }}
-            >
-              <item.icon className="w-6 h-6" style={{ color: item.color }} />
-            </div>
-            <h3 className="text-lg font-bold text-foreground mb-4">{item.title}</h3>
-            <ul className="space-y-2.5">
-              {item.points.map((point, i) => (
-                <li key={i} className="text-sm text-muted-foreground flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: item.color }} />
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Card key={idx} className={`animate-fade-up stagger-${idx + 1}`}>
+            <CardContent className="pt-6">
+              <div
+                className="w-12 h-12 rounded-md flex items-center justify-center mb-4"
+                style={{ backgroundColor: `${item.color}15` }}
+              >
+                <item.icon className="w-6 h-6" style={{ color: item.color }} />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-4">{item.title}</h3>
+              <ul className="space-y-2.5">
+                {item.points.map((point, i) => (
+                  <li key={i} className="text-lg text-muted-foreground flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: item.color }} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         ))}
       </div>
 
-      <div className="animate-fade-up stagger-4 mt-8 p-4 rounded-md bg-primary/5 border border-primary/20">
-        <p className="text-center text-sm text-muted-foreground">
-          <strong className="text-primary">Key Insight:</strong> Technology and sociocultural shifts drive growth;
-          regulatory environment is the primary constraint
-        </p>
-      </div>
+      <Card className="animate-fade-up stagger-4 mt-8 bg-muted">
+        <CardContent className="pt-6">
+          <p className="text-center text-xl text-muted-foreground">
+            <strong className="text-primary text-2xl">Key Insight:</strong> Tech drives growth; regulation is the constraint
+          </p>
+        </CardContent>
+      </Card>
     </div>
   )
 }

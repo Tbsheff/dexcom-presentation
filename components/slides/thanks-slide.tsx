@@ -14,7 +14,7 @@ export function ThanksSlide() {
 
       <div className="relative z-10 text-center max-w-3xl">
         <div className="animate-fade-up">
-          <h1 className="text-7xl font-bold tracking-tight text-foreground mb-8">Thank You</h1>
+          <h1 className="text-7xl font-semibold tracking-tight text-foreground mb-8">Thank You</h1>
         </div>
 
         <div className="animate-fade-up stagger-1 flex items-center justify-center gap-6 mb-16">
@@ -29,7 +29,6 @@ export function ThanksSlide() {
         </div>
       </div>
 
-      {/* Subtle accent element */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-primary" />
     </div>
   )
