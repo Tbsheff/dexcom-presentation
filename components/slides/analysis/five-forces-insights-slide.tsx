@@ -1,7 +1,7 @@
 "use client"
 
 import { fiveForcesDetailed } from "@/lib/presentation-data"
-import { Lightbulb, TrendingUp, AlertCircle, CheckCircle2, Users, Shield } from "lucide-react"
+import { TrendingUp, AlertCircle, CheckCircle2, Users, Shield, Lightbulb } from "lucide-react"
 
 export function FiveForcesInsightsSlide() {
   const forcesSummary = [
@@ -13,17 +13,16 @@ export function FiveForcesInsightsSlide() {
   ]
 
   return (
-    <div className="p-12 pb-28 max-w-6xl mx-auto">
-      <div className="mb-8">
+    <div className="p-10 pb-20 max-w-6xl mx-auto">
+      <div className="mb-4">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Porter's Five Forces
         </span>
         <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Key Insights</h2>
-        <p className="text-muted-foreground mt-2">Strategic implications from Five Forces analysis</p>
       </div>
 
       {/* Forces Summary Grid */}
-      <div className="grid grid-cols-5 gap-3 mb-6">
+      <div className="grid grid-cols-5 gap-2 mb-2">
         {forcesSummary.map((force, idx) => {
           const Icon = force.icon
           return (
@@ -39,28 +38,28 @@ export function FiveForcesInsightsSlide() {
         })}
       </div>
 
-      {/* Key Insights */}
-      <div className="space-y-4">
+      {/* All Key Insights */}
+      <div className="space-y-2">
         {fiveForcesDetailed.keyInsights.map((insight, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 6} p-5 rounded-lg bg-card border-l-4 border-l-primary`}
+            className={`animate-fade-up stagger-${idx + 6} p-3 rounded-lg bg-card border-l-4 border-l-primary`}
           >
-            <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-foreground leading-relaxed">{insight}</p>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+              <p className="text-foreground text-base leading-snug">{insight}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Overall Assessment */}
-      <div className="animate-fade-up stagger-10 mt-6 p-6 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary">
-        <div className="flex items-start gap-4">
-          <Lightbulb className="w-10 h-10 text-primary flex-shrink-0" />
+      <div className="animate-fade-up stagger-11 p-3 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary mt-2">
+        <div className="flex items-start gap-3">
+          <Lightbulb className="w-8 h-8 text-primary flex-shrink-0" />
           <div>
-            <h3 className="text-2xl font-bold text-foreground mb-2">Industry Attractiveness: Moderate</h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <h3 className="text-base font-bold text-foreground mb-1">Industry Attractiveness: Moderate</h3>
+            <p className="text-muted-foreground text-sm leading-snug">
               The CGM industry presents a <span className="text-primary font-semibold">mixed competitive landscape</span>.
               While high barriers to entry and strong growth potential are favorable, intense rivalry and moderate-to-high
               buyer power create challenges. Success requires continuous innovation, strong clinical evidence, and effective

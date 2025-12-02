@@ -34,8 +34,8 @@ export function FinancialRiskAnalysisSlide() {
   ]
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
-      <div className="mb-12">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
@@ -43,13 +43,13 @@ export function FinancialRiskAnalysisSlide() {
         <p className="text-muted-foreground mt-2">Debt profile and financial stability assessment</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-2 gap-4 mb-4">
         {riskMetrics.map((metric, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border border-border flex flex-col`}
+            className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border border-border flex flex-col`}
           >
-            <div className="flex items-start justify-between mb-4">
+            <div className="flex items-start justify-between mb-3">
               <div className="w-12 h-12 rounded-md flex items-center justify-center bg-primary/10">
                 <metric.icon className="w-6 h-6 text-primary" />
               </div>
@@ -65,16 +65,16 @@ export function FinancialRiskAnalysisSlide() {
                 {metric.riskLevel}
               </span>
             </div>
-            <h3 className="font-bold text-foreground text-lg mb-2">{metric.title}</h3>
-            <p className="text-3xl font-bold text-foreground mb-2">{metric.value}</p>
+            <h3 className="font-bold text-foreground text-base mb-2">{metric.title}</h3>
+            <p className="text-2xl font-bold text-foreground mb-2">{metric.value}</p>
             <p className="text-sm text-muted-foreground">{metric.subtitle}</p>
           </div>
         ))}
       </div>
 
-      <div className="animate-fade-up stagger-5 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+      <div className="animate-fade-up stagger-5 p-4 rounded-lg bg-card border-l-4 border-l-primary">
         <h3 className="font-bold text-foreground mb-3">Risk Assessment Summary</h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
           <div>
             <p className="font-semibold text-foreground mb-2">Manageable Debt Load</p>
             <ul className="space-y-1.5">

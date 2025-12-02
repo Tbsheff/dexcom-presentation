@@ -20,8 +20,8 @@ export function StrategicGroupMapDataSlide() {
   }
 
   return (
-    <div className="p-12 pb-28 max-w-6xl mx-auto">
-      <div className="mb-8">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Competitive Analysis
         </span>
@@ -49,12 +49,12 @@ export function StrategicGroupMapDataSlide() {
                 </td>
                 <td className="p-4 text-foreground font-semibold">${company.revenue.toFixed(2)}B</td>
                 <td className="p-4">
-                  <span className={`font-bold text-2xl ${getScoreColor(company.digitalEcosystem)}`}>
+                  <span className={`font-bold text-xl ${getScoreColor(company.digitalEcosystem)}`}>
                     {company.digitalEcosystem}
                   </span>
                 </td>
                 <td className="p-4">
-                  <span className={`font-bold text-2xl ${getScoreColor(company.easeOfUse)}`}>
+                  <span className={`font-bold text-xl ${getScoreColor(company.easeOfUse)}`}>
                     {company.easeOfUse}
                   </span>
                 </td>

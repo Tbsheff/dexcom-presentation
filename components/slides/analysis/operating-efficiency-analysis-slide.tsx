@@ -24,8 +24,8 @@ export function OperatingEfficiencyAnalysisSlide() {
   ]
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
-      <div className="mb-12">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
@@ -33,24 +33,24 @@ export function OperatingEfficiencyAnalysisSlide() {
         <p className="text-muted-foreground mt-2">Operational performance indicators and cost management effectiveness</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-3 gap-4 mb-4">
         {metrics.map((metric, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border border-border flex flex-col`}
+            className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border border-border flex flex-col`}
           >
-            <div className="w-12 h-12 rounded-md flex items-center justify-center mb-4 bg-primary/10">
+            <div className="w-12 h-12 rounded-md flex items-center justify-center mb-3 bg-primary/10">
               <metric.icon className="w-6 h-6 text-primary" />
             </div>
             <span className="text-xs uppercase tracking-wider text-muted-foreground">{metric.label}</span>
-            <p className="text-4xl font-bold text-foreground mt-3">{metric.value}</p>
+            <p className="text-3xl font-bold text-foreground mt-2">{metric.value}</p>
             <p className="text-sm text-muted-foreground mt-2">{metric.description}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div className="animate-fade-up stagger-4 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="animate-fade-up stagger-4 p-4 rounded-lg bg-card border-l-4 border-l-primary">
           <h3 className="font-bold text-foreground mb-3">Efficiency Strengths</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
@@ -68,7 +68,7 @@ export function OperatingEfficiencyAnalysisSlide() {
           </ul>
         </div>
 
-        <div className="animate-fade-up stagger-5 p-6 rounded-lg bg-card border-l-4 border-l-amber">
+        <div className="animate-fade-up stagger-5 p-4 rounded-lg bg-card border-l-4 border-l-amber">
           <h3 className="font-bold text-foreground mb-3">Areas for Improvement</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">

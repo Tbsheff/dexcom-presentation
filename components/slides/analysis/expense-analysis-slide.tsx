@@ -10,8 +10,8 @@ export function ExpenseAnalysisSlide() {
   }))
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
-      <div className="mb-12">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
@@ -19,10 +19,10 @@ export function ExpenseAnalysisSlide() {
         <p className="text-muted-foreground mt-2">Breakdown of operational expenses and investment priorities (2024)</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div className="animate-fade-up p-6 rounded-lg bg-card border border-border">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="animate-fade-up p-4 rounded-lg bg-card border border-border">
           <h3 className="font-semibold text-foreground mb-4 text-center">Operating Expenses ($ Millions)</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={260}>
             <BarChart data={chartData} margin={{ top: 20, right: 20, bottom: 5, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
               <XAxis
@@ -55,12 +55,12 @@ export function ExpenseAnalysisSlide() {
           </ResponsiveContainer>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {expenseAllocation.map((item, idx) => (
-            <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-5 rounded-lg bg-card border border-border`}>
+            <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border border-border`}>
               <div className="flex items-start justify-between mb-2">
                 <h4 className="font-bold text-foreground">{item.category}</h4>
-                <span className="text-2xl font-bold text-primary">${item.amount}M</span>
+                <span className="text-xl font-bold text-primary">${item.amount}M</span>
               </div>
               <p className="text-sm text-muted-foreground">{item.description}</p>
             </div>
@@ -68,9 +68,9 @@ export function ExpenseAnalysisSlide() {
         </div>
       </div>
 
-      <div className="animate-fade-up stagger-4 mt-8 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+      <div className="animate-fade-up stagger-4 mt-4 p-4 rounded-lg bg-card border-l-4 border-l-primary">
         <h3 className="font-bold text-foreground mb-3">Expense Structure Analysis</h3>
-        <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-semibold text-foreground mb-2">Investment Priorities</p>
             <ul className="space-y-1.5">

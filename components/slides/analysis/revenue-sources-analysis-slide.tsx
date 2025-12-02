@@ -14,8 +14,8 @@ export function RevenueSourcesAnalysisSlide() {
   const chartColors = [COLORS.dexcom, COLORS.blue]
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
-      <div className="mb-12">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
@@ -25,10 +25,10 @@ export function RevenueSourcesAnalysisSlide() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
-        <div className="animate-fade-up p-6 rounded-lg bg-card border border-border">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="animate-fade-up p-4 rounded-lg bg-card border border-border">
           <h3 className="font-semibold text-foreground mb-4 text-center">Revenue Breakdown ($ Millions)</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={260}>
             <BarChart data={dataWithPercentages} layout="vertical" margin={{ top: 5, right: 60, bottom: 5, left: 150 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" horizontal={false} />
               <XAxis
@@ -69,15 +69,15 @@ export function RevenueSourcesAnalysisSlide() {
           </ResponsiveContainer>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {dataWithPercentages.map((item, idx) => (
             <div
               key={idx}
-              className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border border-border`}
+              className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border border-border`}
               style={{ borderLeftWidth: "4px", borderLeftColor: chartColors[idx] }}
             >
               <h4 className="font-bold text-foreground mb-2">{item.category}</h4>
-              <p className="text-4xl font-bold text-foreground mb-1">${item.amount}M</p>
+              <p className="text-2xl font-bold text-foreground mb-1">${item.amount}M</p>
               <p className="text-sm text-muted-foreground mb-3">{item.percentage}% of total revenue</p>
               <p className="text-xs text-muted-foreground">
                 {idx === 0
@@ -89,9 +89,9 @@ export function RevenueSourcesAnalysisSlide() {
         </div>
       </div>
 
-      <div className="animate-fade-up stagger-3 mt-8 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+      <div className="animate-fade-up stagger-3 mt-4 p-4 rounded-lg bg-card border-l-4 border-l-primary">
         <h3 className="font-bold text-foreground mb-3">Revenue Model Analysis</h3>
-        <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-semibold text-foreground mb-2">Strengths</p>
             <ul className="space-y-1.5">
