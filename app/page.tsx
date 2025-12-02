@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Presentation, BarChart3 } from "lucide-react"
+import { presentationSlides, analysisSlides } from "@/lib/presentation-data"
 
 export default function Home() {
   const decks = [
@@ -10,7 +11,7 @@ export default function Home() {
       description: "Executive overview of Dexcom's strategic position",
       href: "/presentation",
       icon: Presentation,
-      slides: 24,
+      slides: presentationSlides.length,
       color: "#58A618",
     },
     {
@@ -18,7 +19,7 @@ export default function Home() {
       description: "Detailed financial and competitive analysis",
       href: "/analysis",
       icon: BarChart3,
-      slides: 30,
+      slides: analysisSlides.length,
       color: "#3B82F6",
     },
   ]
