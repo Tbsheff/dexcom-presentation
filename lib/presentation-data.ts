@@ -64,6 +64,8 @@ export const COLORS = {
   abbott: COMPANY_COLORS.abbott,
   medtronic: COMPANY_COLORS.medtronic,
   senseonics: COMPANY_COLORS.senseonics,
+  coral: "#F97316", // Warm coral for problems/issues
+  sage: "#58A618", // Sage green for solutions (using Dexcom green)
 }
 
 // Financial Analysis Data (Section 01)
@@ -480,6 +482,465 @@ export const recommendations = [
 ]
 
 // Main Presentation Slides
+
+// Section 03 Part 1: Differentiation & Brand Image
+export const differentiationFeatures = {
+  superiorFeatures: [
+    { feature: "Integrations with Insulin Pumps", description: "Seamless connectivity with leading AID systems including Tandem and Omnipod" },
+    { feature: "Minimal Warmup", description: "30-minute warmup period vs competitors' longer initialization times" },
+    { feature: "No Calibration Needed", description: "Factory-calibrated sensors eliminate the need for fingerstick calibrations" },
+  ],
+  brandAttributes: [
+    { attribute: "Trusted by Doctors", description: "Dexcom is the most recommended CGM system by endocrinologists and healthcare providers" },
+    { attribute: "Premium, State-of-the-Art, and Accurate", description: "Industry-leading accuracy with MARD <9% and cutting-edge sensor technology" },
+  ],
+}
+
+export const strategyCanvasData = [
+  { dimension: "Accuracy", "Dexcom G7": 95, "Libre 3": 75, "Guardian 4": 60, "Eversense E3": 85 },
+  { dimension: "Duration", "Dexcom G7": 70, "Libre 3": 75, "Guardian 4": 50, "Eversense E3": 100 },
+  { dimension: "Calibration", "Dexcom G7": 100, "Libre 3": 100, "Guardian 4": 50, "Eversense E3": 30 },
+  { dimension: "Comfort", "Dexcom G7": 85, "Libre 3": 90, "Guardian 4": 65, "Eversense E3": 75 },
+  { dimension: "Integration", "Dexcom G7": 100, "Libre 3": 60, "Guardian 4": 85, "Eversense E3": 50 },
+]
+
+export const brandImageData = {
+  headline: "The Most Connected CGM System in the World",
+  tagline: "Competitors offer a glucose reading. Dexcom offers a connected care network.",
+  trustStatement: "Dexcom is a brand patients and doctors know they can trust",
+  connections: [
+    { type: "Insulin Pumps", partners: ["Tandem t:slim X2", "Omnipod 5", "Omnipod iLet"] },
+    { type: "Wearables", partners: ["Apple Watch", "Garmin", "Fitbit"] },
+    { type: "Mobile Apps", partners: ["Dexcom App", "Glooko", "Clarity"] },
+    { type: "Care Network", partners: ["Clinicians", "Parents/Spouses", "Healthcare Providers"] },
+  ],
+}
+
+// Section 03 Part 3: Value Chain & Consumption Chain
+export const valueChainPrimary = [
+  {
+    title: "Inbound Logistics",
+    description: "Procurement: Sourcing biosensing materials & components globally to fuel high-volume manufacturing",
+  },
+  {
+    title: "Operations",
+    description: "Manufacturing: High-precision, automated assembly of sensors & transmitters in large-scale facilities to achieve low unit cost",
+  },
+  {
+    title: "Outbound Logistics",
+    description: "Distribution: Managing supply chains to pharmacies, distributors, & direct-to-patient channels globally",
+  },
+  {
+    title: "Marketing & Sales",
+    description: "Advocacy: Campaigning for broad payer reimbursement & securing coverage for new patient populations. Commercial: Expanding the direct-to-consumer sales model to new wellness markets",
+  },
+  {
+    title: "Service",
+    description: "Support: Providing 24/7 technical & production assistance to ensure high user retention & confidence in the life-saving technology",
+  },
+]
+
+export const valueChainSupport = [
+  {
+    title: "Firm Infrastructure",
+    items: [
+      {
+        subtitle: "Compliance",
+        description: "Maintaining a robust quality management system (QMS) & responding to regulatory requirements",
+      },
+      {
+        subtitle: "Financial",
+        description: "Managing large cash & liquid assets to fund global expansion and R&D",
+      },
+    ],
+  },
+  {
+    title: "Human Resource Management",
+    items: [
+      {
+        subtitle: "Talent",
+        description: "Recruiting & training specialized engineers & clinical sales teams for a high-growth medical device market",
+      },
+    ],
+  },
+  {
+    title: "Technology Development",
+    items: [
+      {
+        subtitle: "R&D",
+        description: "Continuous innovation on sensor accuracy, wear time, & software integration",
+      },
+      {
+        subtitle: "AI/Software",
+        description: "Integrating real-time data insights & AI into applications for enhanced user experience & clinical value",
+      },
+    ],
+  },
+  {
+    title: "Procurement",
+    items: [
+      {
+        subtitle: "Supplier Relations",
+        description: "Building trust & reliability w/ critical, single-source component suppliers to mitigate supply chain risk",
+      },
+    ],
+  },
+]
+
+export const valueChainTakeaways1 = {
+  category: "Core Differentiators",
+  takeaways: [
+    {
+      title: "Technology development is paramount",
+      description: "The most critical activity is R&D. Their ability to shrink sensors, reduce warm-up time, & improve accuracy justifies their premium price point over competitors.",
+    },
+    {
+      title: "Regulatory & Reimbursement Mastery",
+      description: "The Marketing & Sales and Firm Infrastructure functions are central to turning innovation into revenue. Dexcom has mastered the process of securing payer reimbursement & navigating global regulatory approvals, this unlocks huge revenue streams.",
+    },
+  ],
+}
+
+export const valueChainTakeaways2 = {
+  category: "Cost & Efficiency Focus",
+  takeaways: [
+    {
+      title: "Scale for Cost Control",
+      description: "Operations is focused on achieving massive scale & automation. This drives down COGS for high-volume products like the G7 & to make low-cost products like Stelo profitable.",
+    },
+    {
+      title: "Supplier Dependence Risk",
+      description: "The Procurement activity shows a potential risk. Relying on specialized, single-sourced suppliers for unique biosensing materials is necessary for product quality but creates a supply chain vulnerability that must be managed carefully.",
+    },
+  ],
+}
+
+export const valueChainTakeaways3 = {
+  category: "Future Strategy Alignment",
+  takeaways: [
+    {
+      title: "Service Drives Retention",
+      description: "The Service activity is key to retaining users. Providing 24/7 tech support helps w/ patient frustration, renewal rates, & solidifies customer loyalty against competitors.",
+    },
+    {
+      title: "HR for Innovation",
+      description: "The HRM function support innovation by recruiting & retaining highly specialized engineering talent required to advance sensor tech & software integration ahead of its rivals.",
+    },
+  ],
+}
+
+export const consumptionChain1 = [
+  {
+    question: "How do consumers become aware of a need for your product/service?",
+    answer: "Doctor diagnoses diabetes; recommend CGM technology.",
+  },
+  {
+    question: "How do consumers find your offering?",
+    answer: "Doctor writes prescription; patient goes to pharmacy",
+  },
+  {
+    question: "How do consumers make their final selection (priority of attributes)?",
+    answer: "Accuracy, alerts, size, & pump compatibility matter most",
+  },
+  {
+    question: "How do consumers order & purchase your product?",
+    answer: "Prescription filled at pharmacy or distributor; pay copay.",
+  },
+  {
+    question: "How is your product/service delivered?",
+    answer: "Picked up at pharmacy or shipped directly to door.",
+  },
+]
+
+export const consumptionChain2 = [
+  {
+    question: "How is your product/service paid for?",
+    answer: "Insurance pays bulk; patient pays negotiated copay/cash.",
+  },
+  {
+    question: "How is your product stored/moved around?",
+    answer: "Stored at room temperature; worn on body/in pocket.",
+  },
+  {
+    question: "What is your product really used for?",
+    answer: "Real-time glucose tracking; informs treatment decisions.",
+  },
+  {
+    question: "What do consumers need help with when they use the product?",
+    answer: "Sensor application, adhesive issues, and phone app setup.",
+  },
+  {
+    question: "How is your product/service disposed of?",
+    answer: "Applicator & sensor disposed as biohazard waste.",
+  },
+]
+
+export const consumptionChainTakeaways1 = {
+  category: "Awareness & Purchase Stages",
+  takeaways: [
+    {
+      title: "Physician as the Gatekeeper",
+      description: "The chain clearly shows that the physician is the most critical factor in initiating the sale & ensuring the transaction. Dexcom's strategy must heavily focus on clinical evidence & physician education.",
+    },
+    {
+      title: "Insurance Dictates Access",
+      description: 'The complexity of "How is your product/service paid for?" highlights that insurance coverage & reimbursement are the biggest hurdles to access, not necessarily consumer awareness.',
+    },
+  ],
+}
+
+export const consumptionChainTakeaways2 = {
+  category: "Usage & Post-Purchase Stages",
+  takeaways: [
+    {
+      title: "Ease-of-Use is Paramount",
+      description: "The questions about what consumers need help with show that the sensor application & technical setup are major pain points. Improvements here directly reduce customer friction & increase loyalty.",
+    },
+    {
+      title: "Data is the Product",
+      description: 'The answer to "What is your product really used for?" confirms that the physical sensor is simply a delivery mechanism; the true product value is the real-time data & actionable health insights.',
+    },
+    {
+      title: "Disposal is a Hassle",
+      description: "The final step indicates that disposal is a known inconvenience that adds complexity to the user experience, particularly compared to competitors w/ smaller, less wasteful applicators.",
+    },
+  ],
+}
+
+// Competitor Response Analysis Data (Section 03 Part 2)
+export const competitorResponse = {
+  futureGoals: {
+    dexcom: [
+      "Expand into the Type 2 Non-Insulin Market",
+      "Drive Product Innovation & Convenience",
+      "Grow Global Market Access & Coverage",
+      "Establish a Metabolic Health Platform",
+    ],
+    abbott: [
+      "Expand Global CGM Market Leadership",
+      "Innovate for Access & Affordability",
+      "Drive integration & Next-gen Features",
+      "Sustain Growth in Core Medical Devices",
+    ],
+    medtronic: [
+      "Become a standalone Company",
+      "Strengthen Automated Insulin Delivery",
+      "Embrace Interoperability",
+      "Expand Patient Acces",
+    ],
+    senseonics: [
+      "Launch the 365 - Day Sensor",
+      "Integrate w/ AID Pumps",
+      "Transition to Direct Commercialization",
+      "Build a Comprehensible Solution",
+    ],
+  },
+  assumptions: {
+    dexcom: [
+      "Reimbursement for all Type 2",
+      "Primary care widely adopts CGM",
+      "G7/G8 maintains their accuracy lead",
+      "Non-diabetics will buy Stelo for health",
+    ],
+    abbott: [
+      "FreeStyle Libre remains cheapest",
+      "Non-insulin users widely adopt",
+      "Dual sensor beats competitors",
+      "Global adoption accelerates easily",
+    ],
+    medtronic: [
+      "MiniMed spin-off creates value",
+      "Integrated AID is preferred",
+      "New sensor closes accuracy gap",
+      "Regulatory approval remains smooth",
+    ],
+    senseonics: [
+      "Year-long sensor overcomes cost",
+      "High patient retention continues",
+      "Physicians embrace procedure",
+      "Direct sales model succeeds",
+    ],
+  },
+  currentStrategy: {
+    dexcom: [
+      "Expand into Type 2 market",
+      "Launch 15 - day G7 sensor",
+      "Maintain superior accuracy advantage",
+      "Build massive global scale",
+      "Drive metabolic health adoption",
+    ],
+    abbott: [
+      "Lead global price & access",
+      "Seamlessly integrate w/ pumps",
+      "Increase sensor wear time",
+      "Broaden over-the-counter sales",
+      "Launch advanced Libre Plus",
+    ],
+    medtronic: [
+      "Spin off diabetes business",
+      "Focus on integrated pump systems",
+      "Achieve high Time in Range",
+      "Improve sensor tech.",
+      "Pursue interoperable components",
+    ],
+    senseonics: [
+      "Aggressively market 365 - day sensor",
+      "Take over commercialization fully",
+      "Partner w/ AID pump companies",
+      "Build strong physician network",
+    ],
+  },
+  capabilities: {
+    dexcom: [
+      "Industry-leading accuracy (MARD)",
+      "Best real-time data sharing",
+      "Strong pump integration network",
+      "Rapid sensor warm-up time",
+      "High-volume manufacturing",
+    ],
+    abbott: [
+      "Extremely low production costs",
+      "Highest volume global sales",
+      "Smallest, thinnest sensor size",
+      "Broad market distribution reach",
+      "Highly diversified parent company",
+    ],
+    medtronic: [
+      "Pioneer insulin pump tech",
+      "Closed-loop system integration",
+      "Full diabetes therapy ecosystem",
+      "Deep hospital system relationships",
+      "Large global service infrastructure",
+    ],
+    senseonics: [
+      "Longest sensor wear time (365 days)",
+      "Fully implantable sensor design",
+      "Removable, reusable transmitter",
+      "Very low patient interaction",
+    ],
+  },
+  responses: {
+    abbott: {
+      title: "Abbott",
+      response: "Abbott's immediate response will likely be to aggressively counter Dexcom's pricing & expanded market reach by lowering the FreeStyle Libre price & accelerating the development of a 15-day sensor to match the G7. They will also likely strengthen critical pump integration deals & push new monitoring tech like the dual glucose-ketone sensor.",
+    },
+    medtronic: {
+      title: "Medtronic",
+      response: "Medtronic will likely focus on its end-to-end diabetes management system, leveraging the ongoing business spin-off to gain focus. The core strategy involves rapidly rolling out the Simplera Sync CGM and finalizing the integration of Abbot's more accurate Libre sensors. This will solidify their MiniMed 780G as a superior, fully automated closed-loop solution.",
+    },
+    senseonics: {
+      title: "Senseonics",
+      response: "Senseonics will likely aggressively market the unique advantage of its 365-day, fully implantable sensor, emphasizing patient freedom & less frequent changes, which is a key differentiator from Dexcom's 10- or 15-day wear. They will also likely launch long-wear pump integration & highlight the \"no sensor waste\" benefit to appeal to the value-conscious user.",
+    },
+  },
+}
+
+// SWOT Analysis Data (Section 06)
+export const swotAnalysis = {
+  strengths: [
+    {
+      title: "Leader in Glucose Monitoring",
+      description: "Dexcom is known for being easy to use, accurate, and providing real-time data for users",
+    },
+    {
+      title: "Trusted Brand",
+      description: "Dexcom is associated with good quality & reliable CGM which has led to customer loyalty",
+    },
+    {
+      title: "Partnerships",
+      description: "Dexcom has partnered with healthcare providers, insulin pump manufacturers, and pharmaceutical companies which has expanded their reach",
+    },
+    {
+      title: "Patented Technology",
+      description: "Dexcom's technology is protected",
+    },
+  ],
+  weaknesses: [
+    {
+      title: "Expensive",
+      description: "CGM systems can be expensive, which is a barrier for users without insurance.",
+    },
+    {
+      title: "Niche product",
+      description: "Limited market that they are heavily reliant on.",
+    },
+    {
+      title: "Subscription-based",
+      description: "Revenue comes from subscriptions, which means Dexcom needs customer retention",
+    },
+    {
+      title: "Market Dependency",
+      description: "Dexcom depends on U.S. customers heavily for a significant portion of their revenue.",
+    },
+  ],
+  opportunities: [
+    {
+      title: "Expanding Market",
+      description: "The global diabetes population is expected to continue growing. Additionally, there is an increasing interest by non-insulin users who are interested in Dexcom for wellness tracking. This presents a significant growth opportunity for Dexcom globally.",
+    },
+    {
+      title: "Technological Advancements",
+      description: "Advancements in sensor technology and additional integrations would help Dexcom to further enhance its CGM systems, making them more accurate, user-friendly, and integrated with other healthcare devices.",
+    },
+    {
+      title: "Telehealth Integration",
+      description: "As telehealth and remote patient monitoring becomes increasingly common, there is an opportunity for Dexcom to integrate its CGM systems with telehealth platforms, enabling healthcare providers to remotely monitor and manage patients' glucose levels.",
+    },
+  ],
+  threats: [
+    {
+      title: "Competition",
+      description: "Companies are introducing their own CGM systems. This competition is from both existing companies and new entrants which could impact their market share. As competition increases, there may be pressure to lower prices, which could decrease Dexcom's profit margins.",
+    },
+    {
+      title: "Regulations",
+      description: "The medical device industry is subject to strict regulatory requirements. Any delays or difficulties in obtaining regulatory approvals could slow Dexcom's growth.",
+    },
+    {
+      title: "New Technology",
+      description: "Technological advancements could lead to new diabetes management solutions that could potentially disrupt Dexcom's market position.",
+    },
+  ],
+}
+
+// Section 07: Recommendations Data (Pages 35-40)
+export const recommendationsSection07 = {
+  issue1: {
+    title: "Limited Market with Fragmented Competition",
+    points: [
+      "Too reliant on Core Market (Type 1 diabetes). This is a smaller population compared to Type 2 diabetes.",
+      "CGM market is highly competitive, especially with Abbott's FreeStyle Libre system.",
+      "CGM devices & their supplies are expensive, varying insurance coverage acts as a major barrier to wider adoption.",
+      "Too focused on Insulin Users, this leaves the growing population of non-insulin-dependent Type 2 patients underserved.",
+    ],
+  },
+  solution1: {
+    title: "Market to Athletes and Health Industry",
+    points: [
+      "Capture the Non-Insulin-Dependent T2D Market. This is the largest potential growth area for Dexcom. Highlight how CGM shows the immediate impact of food & physical activity.",
+      "Create a Lifestyle/Performance Segment (Athletes). Invest in NIL Programs & Sponsorships, help normalize the device.",
+      "Shift the marketing narrative to focusing on broader metabolic health. Educate Primary Care Physicians rather than just endocrinologists.",
+    ],
+  },
+  issue2: {
+    title: "Competitors Replicating Dexcom's Integration",
+    points: [
+      "Dexcom was the first to offer integration with AID systems & popular digital health apps. Competitors now are forming their own partnerships & developing their own AID compatibility systems.",
+      "Unique features, like real-time data transmission & high accuracy are now standard across the industry.",
+      "Digital Health Apps Compete with Dexcom's Clarity data analytics platform.",
+    ],
+  },
+  solution2: {
+    title: "Create a product that lasts for greater amount of time than competition",
+    points: [
+      "Reduce replacement frequency. Move beyond the industry standard of 14-15 days.",
+      "Continue R&D efforts toward a 21-day or 30-day wear sensor.",
+      "Address patient fatigue and cost. Longer wear time addresses the two biggest pain points for CGM users: convenience & cost/waste.",
+      "Counter the Implantable Threat (Eversense).",
+    ],
+  },
+}
+// Main Presentation Slides
 export const presentationSlides = [
   { id: "title", title: "DEXCOM", section: "intro" },
   { id: "agenda", title: "Agenda", section: "intro" },
@@ -541,21 +1002,46 @@ export const analysisSlides = [
   { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis-02" },
   { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis-02" },
   { id: "market-summary", title: "Market Summary", section: "analysis-02" },
-  // Section 03: Core Competencies Analysis
-  { id: "analysis-divider-03", title: "Section 03: Core Competencies Analysis", section: "analysis-03" },
-  { id: "technical-capabilities-analysis", title: "Technical Capabilities", section: "analysis-03" },
-  { id: "organizational-capabilities-analysis", title: "Organizational Capabilities", section: "analysis-03" },
-  { id: "strategic-resources-analysis", title: "Strategic Resources", section: "analysis-03" },
-  { id: "vrin-analysis", title: "VRIN Analysis", section: "analysis-03" },
-  // Section 04: Strategic Issues Analysis
-  { id: "analysis-divider-04", title: "Section 04: Strategic Issues Analysis", section: "analysis-04" },
-  { id: "issue1-deep-dive", title: "Issue #1: Market Share Erosion", section: "analysis-04" },
-  { id: "issue2-deep-dive", title: "Issue #2: Non-Invasive Competition", section: "analysis-04" },
-  // Section 05: Recommendations Analysis
-  { id: "analysis-divider-05", title: "Section 05: Recommendations Analysis", section: "analysis-05" },
-  { id: "recommendation1-analysis", title: "Recommendation: Value-Tier CGM", section: "analysis-05" },
-  { id: "recommendation2-analysis", title: "Recommendation: Non-Invasive R&D", section: "analysis-05" },
-  { id: "recommendation3-analysis", title: "Recommendation: Ecosystem Integration", section: "analysis-05" },
+  // Section 03: Unique Value & Competitor Analysis (18 slides)
+  { id: "unique-value-divider", title: "Section 03: Unique Value & Competitor Analysis", section: "analysis-03" },
+  { id: "differentiation-strategy", title: "Differentiation Strategy", section: "analysis-03" },
+  { id: "strategy-canvas", title: "Strategy Canvas", section: "analysis-03" },
+  { id: "brand-image", title: "Brand Image", section: "analysis-03" },
+  { id: "future-goals", title: "Future Goals", section: "analysis-03" },
+  { id: "assumptions", title: "Assumptions", section: "analysis-03" },
+  { id: "current-strategy", title: "Current Strategy", section: "analysis-03" },
+  { id: "capabilities-comparison-detailed", title: "Capabilities Comparison", section: "analysis-03" },
+  { id: "competitor-response-analysis", title: "Competitor Response Analysis", section: "analysis-03" },
+  { id: "value-chain-primary", title: "Value Chain: Primary Activities", section: "analysis-03" },
+  { id: "value-chain-support", title: "Value Chain: Support Activities", section: "analysis-03" },
+  { id: "value-chain-takeaways-1", title: "Value Chain Takeaways: Core Differentiators", section: "analysis-03" },
+  { id: "value-chain-takeaways-2", title: "Value Chain Takeaways: Cost & Efficiency", section: "analysis-03" },
+  { id: "value-chain-takeaways-3", title: "Value Chain Takeaways: Future Strategy", section: "analysis-03" },
+  { id: "consumption-chain-1", title: "Consumption Chain (Part 1)", section: "analysis-03" },
+  { id: "consumption-chain-2", title: "Consumption Chain (Part 2)", section: "analysis-03" },
+  { id: "consumption-chain-takeaways-1", title: "Consumption Chain Takeaways: Awareness & Purchase", section: "analysis-03" },
+  { id: "consumption-chain-takeaways-2", title: "Consumption Chain Takeaways: Usage & Post-Purchase", section: "analysis-03" },
+  // Section 04: Resources & Capabilities (5 slides)
+  { id: "resources-capabilities-divider", title: "Section 04: Resources & Capabilities", section: "analysis-04" },
+  { id: "resources-detailed", title: "Resources", section: "analysis-04" },
+  { id: "capabilities-comprehensive", title: "Capabilities", section: "analysis-04" },
+  { id: "limitations-resources", title: "Limitations of Resources", section: "analysis-04" },
+  { id: "limitations-capabilities", title: "Limitations of Capabilities", section: "analysis-04" },
+  // Section 05: Imitation Barriers (4 slides)
+  { id: "imitation-barriers-divider", title: "Section 05: Imitation Barriers", section: "analysis-05" },
+  { id: "imitation-barriers-created", title: "Imitation Barriers Created", section: "analysis-05" },
+  { id: "imitation-barriers-faced", title: "Imitation Barriers Faced", section: "analysis-05" },
+  { id: "imitation-barriers-insights", title: "Imitation Barriers Key Insights", section: "analysis-05" },
+  // Section 06: SWOT Analysis (5 slides)
+  { id: "swot-divider", title: "Section 06: SWOT Analysis", section: "analysis-06" },
+  { id: "swot-strengths", title: "SWOT: Strengths", section: "analysis-06" },
+  { id: "swot-weaknesses", title: "SWOT: Weaknesses", section: "analysis-06" },
+  { id: "swot-opportunities", title: "SWOT: Opportunities", section: "analysis-06" },
+  { id: "swot-threats", title: "SWOT: Threats", section: "analysis-06" },
+  // Section 07: Recommendations (3 slides)
+  { id: "recommendations-divider", title: "Section 07: Recommendations", section: "analysis-07" },
+  { id: "issue-1-detailed", title: "Recommendation #1: Expand Market Reach", section: "analysis-07" },
+  { id: "issue-2-detailed", title: "Recommendation #2: Innovate on Convenience", section: "analysis-07" },
 ]
 
 // Combined slides (for backwards compatibility)

@@ -33,14 +33,54 @@ import {
   FiveForcesInsightsSlide,
   EpicPestAnalysisSlide,
   MarketSummarySlide,
+  // Section 03: Unique Value & Competitor Analysis
+  DifferentiationStrategySlide,
+  StrategyCanvasSlide,
+  BrandImageSlide,
+  CompetitorResponseDividerSlide,
+  FutureGoalsSlide,
+  AssumptionsSlide,
+  CurrentStrategySlide,
+  CapabilitiesComparisonDetailedSlide,
+  CompetitorResponseAnalysisSlide,
+  ValueChainPrimarySlide,
+  ValueChainSupportSlide,
+  ValueChainTakeaways1Slide,
+  ValueChainTakeaways2Slide,
+  ValueChainTakeaways3Slide,
+  ConsumptionChain1Slide,
+  ConsumptionChain2Slide,
+  ConsumptionChainTakeaways1Slide,
+  ConsumptionChainTakeaways2Slide,
+  // Section 04: Resources & Capabilities
+  ResourcesDetailedSlide,
+  CapabilitiesComprehensiveSlide,
+  LimitationsResourcesSlide,
+  LimitationsCapabilitiesSlide,
+  // Section 05: Imitation Barriers
+  ImitationBarriersCreatedSlide,
+  ImitationBarriersFacedSlide,
+  ImitationBarriersInsightsSlide,
+  // Section 06: SWOT Analysis
+  SwotDividerSlide,
+  SwotStrengthsSlide,
+  SwotWeaknessesSlide,
+  SwotOpportunitiesSlide,
+  SwotThreatsSlide,
+  // Section 07: Recommendations
+  RecommendationsDividerSlide,
+  Issue1DetailedSlide,
+  Issue2DetailedSlide,
 } from "@/components/slides"
 
 const analysisSections = [
   { id: "analysis-01", label: "Company", startSlide: 0, endSlide: 6 },
   { id: "analysis-02", label: "Industry", startSlide: 7, endSlide: 28 },
-  { id: "analysis-03", label: "Core", startSlide: 29, endSlide: 33 },
-  { id: "analysis-04", label: "Issues", startSlide: 34, endSlide: 36 },
-  { id: "analysis-05", label: "Recommendations", startSlide: 37, endSlide: 40 },
+  { id: "analysis-03", label: "Unique Value", startSlide: 29, endSlide: 47 },
+  { id: "analysis-04", label: "Resources", startSlide: 48, endSlide: 52 },
+  { id: "analysis-05", label: "Barriers", startSlide: 53, endSlide: 56 },
+  { id: "analysis-06", label: "SWOT", startSlide: 57, endSlide: 61 },
+  { id: "analysis-07", label: "Recommendations", startSlide: 62, endSlide: 65 },
 ]
 
 export default function AnalysisDeck() {
@@ -132,13 +172,81 @@ export default function AnalysisDeck() {
         return <EpicPestAnalysisSlide />
       case "market-summary":
         return <MarketSummarySlide />
-      // Section 03-05: Placeholder for future slides
-      case "analysis-divider-03":
-        return <AnalysisSectionDivider sectionNumber="03" title="Core Competencies Analysis" />
-      case "analysis-divider-04":
-        return <AnalysisSectionDivider sectionNumber="04" title="Strategic Issues Analysis" />
-      case "analysis-divider-05":
-        return <AnalysisSectionDivider sectionNumber="05" title="Recommendations Analysis" />
+      // Section 03: Unique Value & Competitor Analysis
+      case "unique-value-divider":
+        return <AnalysisSectionDivider sectionNumber="03" title="Unique Value & Competitor Analysis" />
+      case "differentiation-strategy":
+        return <DifferentiationStrategySlide />
+      case "strategy-canvas":
+        return <StrategyCanvasSlide />
+      case "brand-image":
+        return <BrandImageSlide />
+      case "future-goals":
+        return <FutureGoalsSlide />
+      case "assumptions":
+        return <AssumptionsSlide />
+      case "current-strategy":
+        return <CurrentStrategySlide />
+      case "capabilities-comparison-detailed":
+        return <CapabilitiesComparisonDetailedSlide />
+      case "competitor-response-analysis":
+        return <CompetitorResponseAnalysisSlide />
+      case "value-chain-primary":
+        return <ValueChainPrimarySlide />
+      case "value-chain-support":
+        return <ValueChainSupportSlide />
+      case "value-chain-takeaways-1":
+        return <ValueChainTakeaways1Slide />
+      case "value-chain-takeaways-2":
+        return <ValueChainTakeaways2Slide />
+      case "value-chain-takeaways-3":
+        return <ValueChainTakeaways3Slide />
+      case "consumption-chain-1":
+        return <ConsumptionChain1Slide />
+      case "consumption-chain-2":
+        return <ConsumptionChain2Slide />
+      case "consumption-chain-takeaways-1":
+        return <ConsumptionChainTakeaways1Slide />
+      case "consumption-chain-takeaways-2":
+        return <ConsumptionChainTakeaways2Slide />
+      // Section 04: Resources & Capabilities
+      case "resources-capabilities-divider":
+        return <AnalysisSectionDivider sectionNumber="04" title="Resources & Capabilities" />
+      case "resources-detailed":
+        return <ResourcesDetailedSlide />
+      case "capabilities-comprehensive":
+        return <CapabilitiesComprehensiveSlide />
+      case "limitations-resources":
+        return <LimitationsResourcesSlide />
+      case "limitations-capabilities":
+        return <LimitationsCapabilitiesSlide />
+      // Section 05: Imitation Barriers
+      case "imitation-barriers-divider":
+        return <AnalysisSectionDivider sectionNumber="05" title="Imitation Barriers" />
+      case "imitation-barriers-created":
+        return <ImitationBarriersCreatedSlide />
+      case "imitation-barriers-faced":
+        return <ImitationBarriersFacedSlide />
+      case "imitation-barriers-insights":
+        return <ImitationBarriersInsightsSlide />
+      // Section 06: SWOT Analysis
+      case "swot-divider":
+        return <AnalysisSectionDivider sectionNumber="06" title="SWOT Analysis" />
+      case "swot-strengths":
+        return <SwotStrengthsSlide />
+      case "swot-weaknesses":
+        return <SwotWeaknessesSlide />
+      case "swot-opportunities":
+        return <SwotOpportunitiesSlide />
+      case "swot-threats":
+        return <SwotThreatsSlide />
+      // Section 07: Recommendations
+      case "recommendations-divider":
+        return <AnalysisSectionDivider sectionNumber="07" title="Recommendations" />
+      case "issue-1-detailed":
+        return <Issue1DetailedSlide />
+      case "issue-2-detailed":
+        return <Issue2DetailedSlide />
       default:
         return <div className="flex items-center justify-center h-full text-muted-foreground">Slide: {slide.id}</div>
     }

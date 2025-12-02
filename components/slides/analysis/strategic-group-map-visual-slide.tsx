@@ -12,16 +12,16 @@ interface CompanyBubble {
 
 export function StrategicGroupMapVisualSlide() {
   const companies: CompanyBubble[] = [
-    { name: "Abbott", tech: 68, access: 88, size: 70, color: COLORS.blue },
-    { name: "Dexcom", tech: 88, access: 72, size: 55, color: COLORS.amber },
-    { name: "Medtronic", tech: 55, access: 58, size: 45, color: COLORS.coral },
-    { name: "Senseonics", tech: 42, access: 35, size: 20, color: "#4db6ac" },
+    { name: "Abbott", tech: 68, access: 88, size: 70, color: COLORS.abbott },
+    { name: "Dexcom", tech: 88, access: 72, size: 55, color: COLORS.dexcom },
+    { name: "Medtronic", tech: 55, access: 58, size: 45, color: COLORS.medtronic },
+    { name: "Senseonics", tech: 42, access: 35, size: 20, color: COLORS.senseonics },
   ]
 
   // Chart dimensions
   const chartWidth = 600
-  const chartHeight = 450
-  const padding = { top: 30, right: 30, bottom: 60, left: 70 }
+  const chartHeight = 350
+  const padding = { top: 25, right: 25, bottom: 50, left: 60 }
   const plotWidth = chartWidth - padding.left - padding.right
   const plotHeight = chartHeight - padding.top - padding.bottom
 
@@ -33,8 +33,8 @@ export function StrategicGroupMapVisualSlide() {
   const ticks = [0, 20, 40, 60, 80, 100]
 
   return (
-    <div className="p-12 pb-28 max-w-6xl mx-auto">
-      <div className="mb-8">
+    <div className="p-8 pb-20 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Competitive Analysis
         </span>
@@ -42,9 +42,9 @@ export function StrategicGroupMapVisualSlide() {
         <p className="text-muted-foreground mt-2">Competitive positioning on technology and accessibility dimensions</p>
       </div>
 
-      <div className="flex gap-8">
+      <div className="flex gap-3">
         <div className="flex-1 animate-fade-up stagger-1">
-          <div className="p-6 rounded-lg bg-card border border-border">
+          <div className="p-4 rounded-lg bg-card border border-border">
             <svg width="100%" height="100%" viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="overflow-visible">
               {/* Grid lines */}
               {ticks.map((tick) => (
@@ -205,13 +205,13 @@ export function StrategicGroupMapVisualSlide() {
           </div>
         </div>
 
-        <div className="w-80 space-y-4 animate-fade-up stagger-2">
-          <div className="p-4 rounded-lg bg-card border border-border">
-            <h4 className="font-semibold text-primary mb-2">X-Axis: Technology Integration</h4>
+        <div className="w-72 space-y-2 animate-fade-up stagger-2">
+          <div className="p-3 rounded-lg bg-card border border-border">
+            <h4 className="font-semibold text-primary mb-1 text-sm">X-Axis: Technology Integration</h4>
             <p className="text-xs text-muted-foreground">App quality, data sharing, device compatibility</p>
           </div>
-          <div className="p-4 rounded-lg bg-card border border-border">
-            <h4 className="font-semibold text-primary mb-2">Y-Axis: User Accessibility</h4>
+          <div className="p-3 rounded-lg bg-card border border-border">
+            <h4 className="font-semibold text-primary mb-1 text-sm">Y-Axis: User Accessibility</h4>
             <p className="text-xs text-muted-foreground">Ease, affordability, intuitive design</p>
           </div>
         </div>
