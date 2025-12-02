@@ -45,6 +45,30 @@ export default function PresentationDeck() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
 
+  // Allow URL param to set slide (for PDF export)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const slideParam = params.get("slide")
+    if (slideParam) {
+      const slideIndex = parseInt(slideParam, 10)
+      if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < presentationSlides.length) {
+        setCurrentSlide(slideIndex)
+      }
+    }
+  }, [])
+
+  // Expose goToSlide for iframe access (PDF export)
+  useEffect(() => {
+    (window as any).__goToSlide = (index: number) => {
+      if (index >= 0 && index < presentationSlides.length) {
+        setCurrentSlide(index)
+      }
+    }
+    return () => {
+      delete (window as any).__goToSlide
+    }
+  }, [])
+
   const goToSlide = (index: number) => {
     if (index === currentSlide || isTransitioning) return
     setIsTransitioning(true)
@@ -127,10 +151,6 @@ export default function PresentationDeck() {
 
   const showAgenda = currentSlide > 1 && currentSlide < presentationSlides.length - 1
 
-  const handlePrint = () => {
-    window.print()
-  }
-
   return (
     <div className="h-screen w-screen bg-background overflow-hidden relative flex flex-col">
       {/* Dexcom Logo - hide on first slide */}
@@ -156,7 +176,6 @@ export default function PresentationDeck() {
         goToSlide={goToSlide}
         nextSlide={nextSlide}
         prevSlide={prevSlide}
-        onPrint={handlePrint}
       />
     </div>
   )

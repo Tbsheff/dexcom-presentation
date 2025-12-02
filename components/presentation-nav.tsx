@@ -16,12 +16,11 @@ interface PresentationNavProps {
   goToSlide: (index: number) => void
   nextSlide: () => void
   prevSlide: () => void
-  onPrint?: () => void
 }
 
-export function PresentationNav({ currentSlide, totalSlides, slides, goToSlide, nextSlide, prevSlide, onPrint }: PresentationNavProps) {
+export function PresentationNav({ currentSlide, totalSlides, slides, goToSlide, nextSlide, prevSlide }: PresentationNavProps) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent no-print">
+    <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent">
       <div className="max-w-6xl mx-auto h-full flex items-center justify-between px-8">
         <div className="flex items-center gap-4">
           <Link
@@ -63,19 +62,17 @@ export function PresentationNav({ currentSlide, totalSlides, slides, goToSlide, 
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <span className="text-xs text-muted-foreground truncate max-w-32">
             {slides ? slides[currentSlide]?.title : ""}
           </span>
-          {onPrint && (
-            <button
-              onClick={onPrint}
-              className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
-              title="Print / Save as PDF"
-            >
-              <Printer className="w-4 h-4" />
-            </button>
-          )}
+          <Link
+            href="/presentation/print"
+            className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+            title="Save as PDF"
+          >
+            <Printer className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </div>
