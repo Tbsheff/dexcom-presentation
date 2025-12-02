@@ -29,7 +29,7 @@ export function StrategicIssuesSlide() {
       solutions: [
         { title: "Develop 21-30 Day Sensor", desc: "Beyond 14-day standard" },
         { title: "Reduce Patient Fatigue", desc: "Fewer replacements" },
-        { title: "Maintain Accuracy Lead", desc: "Best-in-class MARD" },
+        { title: "Maintain Accuracy Lead", desc: "Best-in-class accuracy" },
       ],
       swotRef: "Leverages R&D capability (S) + tech advancement (O)",
     },

@@ -327,7 +327,7 @@ export const marketDrivers = [
 // Market Summary (Slide 21)
 export const marketSummary = {
   strengths: [
-    "Industry-leading sensor accuracy and reliability (MARD <9%)",
+    "Industry-leading sensor accuracy and reliability",
     "Strong brand equity and clinical reputation among endocrinologists",
     "Premium market positioning with demonstrated superior outcomes",
     "Robust R&D capabilities driving continuous innovation",
@@ -359,7 +359,7 @@ export const marketSummary = {
 // Core Competencies Data (Section 03)
 export const coreCompetencies = {
   technicalCapabilities: [
-    { capability: "Sensor Accuracy", strength: "Industry-leading MARD <9%", impact: "Clinical trust & adoption" },
+    { capability: "Sensor Accuracy", strength: "Industry-leading accuracy", impact: "Clinical trust & adoption" },
     { capability: "Miniaturization", strength: "Smallest form factor in market", impact: "Patient comfort & adherence" },
     { capability: "Algorithm Development", strength: "Predictive glucose monitoring", impact: "Proactive diabetes management" },
     { capability: "Manufacturing Scale", strength: "Vertical integration & automation", impact: "Cost efficiency & reliability" },
@@ -479,7 +479,8 @@ export const recommendations = [
   },
 ]
 
-export const slides = [
+// Main Presentation Slides
+export const presentationSlides = [
   { id: "title", title: "DEXCOM", section: "intro" },
   { id: "agenda", title: "Agenda", section: "intro" },
   { id: "diabetes", title: "Understanding Diabetes", section: "intro" },
@@ -504,51 +505,57 @@ export const slides = [
   { id: "issue1", title: "Strategic Issue #1", section: "recommendations" },
   { id: "issue2", title: "Strategic Issue #2", section: "recommendations" },
   { id: "thanks", title: "Thank You", section: "outro" },
-  // Analysis Section - Appended after main presentation
-  // Section 01: Company Overview Analysis
-  { id: "analysis-divider-01", title: "Section 01: Company Overview Analysis", section: "analysis" },
-  { id: "profitability-analysis", title: "Profitability Metrics", section: "analysis" },
-  { id: "operating-efficiency-analysis", title: "Operating Efficiency", section: "analysis" },
-  { id: "financial-risk-analysis", title: "Financial Risk", section: "analysis" },
-  { id: "financial-trends-analysis", title: "Financial Trends", section: "analysis" },
-  { id: "expense-analysis", title: "Expense Allocation", section: "analysis" },
-  { id: "revenue-sources-analysis", title: "Revenue Sources", section: "analysis" },
-  // Section 02: Industry Analysis (21 comprehensive slides)
-  { id: "analysis-divider-02", title: "Section 02: Industry Analysis", section: "analysis" },
-  { id: "industry-definition-intro", title: "Industry Definition", section: "analysis" },
-  { id: "industry-definition-framework-1", title: "Industry Framework (Part 1)", section: "analysis" },
-  { id: "industry-definition-framework-2", title: "Industry Framework (Part 2)", section: "analysis" },
-  { id: "vrio-value", title: "VRIO: Value", section: "analysis" },
-  { id: "vrio-rarity", title: "VRIO: Rarity", section: "analysis" },
-  { id: "vrio-inimitable", title: "VRIO: Inimitable", section: "analysis" },
-  { id: "vrio-organized", title: "VRIO: Organized", section: "analysis" },
-  { id: "key-competitors-overview", title: "Key Competitors", section: "analysis" },
-  { id: "strategic-group-map-visual", title: "Strategic Group Map", section: "analysis" },
-  { id: "strategic-group-map-positioning", title: "Strategic Positioning", section: "analysis" },
-  { id: "strategic-group-map-data", title: "Capability Comparison", section: "analysis" },
-  { id: "financial-comparison-revenue", title: "Revenue Comparison", section: "analysis" },
-  { id: "financial-comparison-margins", title: "Operating Margins", section: "analysis" },
-  { id: "five-forces-rivalry", title: "Five Forces: Competitive Rivalry", section: "analysis" },
-  { id: "five-forces-supplier", title: "Five Forces: Supplier Power", section: "analysis" },
-  { id: "five-forces-buyer", title: "Five Forces: Buyer Power", section: "analysis" },
-  { id: "five-forces-substitution", title: "Five Forces: Threat of Substitution", section: "analysis" },
-  { id: "five-forces-new-entry", title: "Five Forces: Threat of New Entry", section: "analysis" },
-  { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis" },
-  { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis" },
-  { id: "market-summary", title: "Market Summary", section: "analysis" },
-  // Section 03: Core Competencies Analysis
-  { id: "analysis-divider-03", title: "Section 03: Core Competencies Analysis", section: "analysis" },
-  { id: "technical-capabilities-analysis", title: "Technical Capabilities", section: "analysis" },
-  { id: "organizational-capabilities-analysis", title: "Organizational Capabilities", section: "analysis" },
-  { id: "strategic-resources-analysis", title: "Strategic Resources", section: "analysis" },
-  { id: "vrin-analysis", title: "VRIN Analysis", section: "analysis" },
-  // Section 04: Strategic Issues Analysis
-  { id: "analysis-divider-04", title: "Section 04: Strategic Issues Analysis", section: "analysis" },
-  { id: "issue1-deep-dive", title: "Issue #1: Market Share Erosion", section: "analysis" },
-  { id: "issue2-deep-dive", title: "Issue #2: Non-Invasive Competition", section: "analysis" },
-  // Section 05: Recommendations Analysis
-  { id: "analysis-divider-05", title: "Section 05: Recommendations Analysis", section: "analysis" },
-  { id: "recommendation1-analysis", title: "Recommendation: Value-Tier CGM", section: "analysis" },
-  { id: "recommendation2-analysis", title: "Recommendation: Non-Invasive R&D", section: "analysis" },
-  { id: "recommendation3-analysis", title: "Recommendation: Ecosystem Integration", section: "analysis" },
 ]
+
+// Analysis Deep Dive Slides
+export const analysisSlides = [
+  // Section 01: Company Overview Analysis
+  { id: "analysis-divider-01", title: "Section 01: Company Overview Analysis", section: "analysis-01" },
+  { id: "profitability-analysis", title: "Profitability Metrics", section: "analysis-01" },
+  { id: "operating-efficiency-analysis", title: "Operating Efficiency", section: "analysis-01" },
+  { id: "financial-risk-analysis", title: "Financial Risk", section: "analysis-01" },
+  { id: "financial-trends-analysis", title: "Financial Trends", section: "analysis-01" },
+  { id: "expense-analysis", title: "Expense Allocation", section: "analysis-01" },
+  { id: "revenue-sources-analysis", title: "Revenue Sources", section: "analysis-01" },
+  // Section 02: Industry Analysis
+  { id: "analysis-divider-02", title: "Section 02: Industry Analysis", section: "analysis-02" },
+  { id: "industry-definition-intro", title: "Industry Definition", section: "analysis-02" },
+  { id: "industry-definition-framework-1", title: "Industry Framework (Part 1)", section: "analysis-02" },
+  { id: "industry-definition-framework-2", title: "Industry Framework (Part 2)", section: "analysis-02" },
+  { id: "vrio-value", title: "VRIO: Value", section: "analysis-02" },
+  { id: "vrio-rarity", title: "VRIO: Rarity", section: "analysis-02" },
+  { id: "vrio-inimitable", title: "VRIO: Inimitable", section: "analysis-02" },
+  { id: "vrio-organized", title: "VRIO: Organized", section: "analysis-02" },
+  { id: "key-competitors-overview", title: "Key Competitors", section: "analysis-02" },
+  { id: "strategic-group-map-visual", title: "Strategic Group Map", section: "analysis-02" },
+  { id: "strategic-group-map-positioning", title: "Strategic Positioning", section: "analysis-02" },
+  { id: "strategic-group-map-data", title: "Capability Comparison", section: "analysis-02" },
+  { id: "financial-comparison-revenue", title: "Revenue Comparison", section: "analysis-02" },
+  { id: "financial-comparison-margins", title: "Operating Margins", section: "analysis-02" },
+  { id: "five-forces-rivalry", title: "Five Forces: Competitive Rivalry", section: "analysis-02" },
+  { id: "five-forces-supplier", title: "Five Forces: Supplier Power", section: "analysis-02" },
+  { id: "five-forces-buyer", title: "Five Forces: Buyer Power", section: "analysis-02" },
+  { id: "five-forces-substitution", title: "Five Forces: Threat of Substitution", section: "analysis-02" },
+  { id: "five-forces-new-entry", title: "Five Forces: Threat of New Entry", section: "analysis-02" },
+  { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis-02" },
+  { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis-02" },
+  { id: "market-summary", title: "Market Summary", section: "analysis-02" },
+  // Section 03: Core Competencies Analysis
+  { id: "analysis-divider-03", title: "Section 03: Core Competencies Analysis", section: "analysis-03" },
+  { id: "technical-capabilities-analysis", title: "Technical Capabilities", section: "analysis-03" },
+  { id: "organizational-capabilities-analysis", title: "Organizational Capabilities", section: "analysis-03" },
+  { id: "strategic-resources-analysis", title: "Strategic Resources", section: "analysis-03" },
+  { id: "vrin-analysis", title: "VRIN Analysis", section: "analysis-03" },
+  // Section 04: Strategic Issues Analysis
+  { id: "analysis-divider-04", title: "Section 04: Strategic Issues Analysis", section: "analysis-04" },
+  { id: "issue1-deep-dive", title: "Issue #1: Market Share Erosion", section: "analysis-04" },
+  { id: "issue2-deep-dive", title: "Issue #2: Non-Invasive Competition", section: "analysis-04" },
+  // Section 05: Recommendations Analysis
+  { id: "analysis-divider-05", title: "Section 05: Recommendations Analysis", section: "analysis-05" },
+  { id: "recommendation1-analysis", title: "Recommendation: Value-Tier CGM", section: "analysis-05" },
+  { id: "recommendation2-analysis", title: "Recommendation: Non-Invasive R&D", section: "analysis-05" },
+  { id: "recommendation3-analysis", title: "Recommendation: Ecosystem Integration", section: "analysis-05" },
+]
+
+// Combined slides (for backwards compatibility)
+export const slides = [...presentationSlides, ...analysisSlides]

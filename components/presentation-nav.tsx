@@ -1,20 +1,34 @@
 "use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { slides } from "@/lib/presentation-data"
+import { ChevronLeft, ChevronRight, Home } from "lucide-react"
+import Link from "next/link"
+
+interface Slide {
+  id: string
+  title: string
+  section: string
+}
 
 interface PresentationNavProps {
   currentSlide: number
+  totalSlides: number
+  slides?: Slide[]
   goToSlide: (index: number) => void
   nextSlide: () => void
   prevSlide: () => void
 }
 
-export function PresentationNav({ currentSlide, goToSlide, nextSlide, prevSlide }: PresentationNavProps) {
+export function PresentationNav({ currentSlide, totalSlides, slides, goToSlide, nextSlide, prevSlide }: PresentationNavProps) {
   return (
     <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent">
       <div className="max-w-6xl mx-auto h-full flex items-center justify-between px-8">
         <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+          >
+            <Home className="w-5 h-5" />
+          </Link>
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
@@ -24,7 +38,7 @@ export function PresentationNav({ currentSlide, goToSlide, nextSlide, prevSlide 
           </button>
           <button
             onClick={nextSlide}
-            disabled={currentSlide === slides.length - 1}
+            disabled={currentSlide === totalSlides - 1}
             className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
@@ -33,10 +47,10 @@ export function PresentationNav({ currentSlide, goToSlide, nextSlide, prevSlide 
 
         <div className="flex items-center gap-3">
           <span className="text-xs text-muted-foreground font-mono">
-            {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+            {String(currentSlide + 1).padStart(2, "0")} / {String(totalSlides).padStart(2, "0")}
           </span>
           <div className="flex gap-1">
-            {slides.map((_, idx) => (
+            {Array.from({ length: totalSlides }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goToSlide(idx)}
@@ -48,7 +62,9 @@ export function PresentationNav({ currentSlide, goToSlide, nextSlide, prevSlide 
           </div>
         </div>
 
-        <div className="text-xs text-muted-foreground">{slides[currentSlide].title}</div>
+        <div className="text-xs text-muted-foreground">
+          {slides ? slides[currentSlide]?.title : ""}
+        </div>
       </div>
     </div>
   )

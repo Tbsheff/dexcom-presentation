@@ -10,7 +10,7 @@ export function WhyDexcomSlide() {
       title: "Product Features",
       stat: "30 min",
       statLabel: "warmup time",
-      items: ["No fingerstick calibration", "8.2% MARD accuracy", "10-day sensor wear"],
+      items: ["No fingerstick calibration", "Industry-leading accuracy", "10-day sensor wear"],
       color: "#58A618",
     },
     {
@@ -64,7 +64,7 @@ export function WhyDexcomSlide() {
                   >
                     <Icon className="w-5 h-5" style={{ color: pillar.color }} />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground">{pillar.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground">{pillar.title}</h3>
                 </div>
 
                 <div className="mb-5 pb-5 border-b border-border">
