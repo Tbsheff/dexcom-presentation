@@ -13,8 +13,8 @@ export function FiveForcesSubstitutionSlide() {
   }
 
   return (
-    <div className="p-12 pb-28 max-w-6xl mx-auto">
-      <div className="mb-8">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Porter's Five Forces
         </span>
@@ -22,23 +22,23 @@ export function FiveForcesSubstitutionSlide() {
         <p className="text-muted-foreground mt-2">Risk from alternative glucose monitoring methods</p>
       </div>
 
-      <div className="flex gap-8">
-        <div className="flex-1 space-y-4">
+      <div className="flex gap-4">
+        <div className="flex-1 space-y-3">
           {substitution.points.map((point, idx) => (
             <div
               key={idx}
-              className={`animate-fade-up stagger-${idx + 1} p-5 rounded-lg bg-card border-l-4 border-l-purple-500`}
+              className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border-l-4 border-l-purple-500`}
             >
               <p className="text-foreground leading-relaxed">{point}</p>
             </div>
           ))}
 
           {/* Emphasis Box */}
-          <div className="animate-fade-up stagger-4 p-6 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-500/5 border-2 border-purple-500">
-            <div className="flex items-start gap-4">
-              <AlertTriangle className="w-10 h-10 text-purple-500 flex-shrink-0" />
+          <div className="animate-fade-up stagger-4 p-4 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-500/5 border-2 border-purple-500">
+            <div className="flex items-start gap-3">
+              <AlertTriangle className="w-8 h-8 text-purple-500 flex-shrink-0" />
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-2">
+                <h3 className="text-xl font-bold text-foreground mb-2">
                   Critical Future Threat: Non-Invasive Technologies
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -52,8 +52,8 @@ export function FiveForcesSubstitutionSlide() {
           </div>
         </div>
 
-        <div className="w-80 space-y-6">
-          <div className="animate-fade-up stagger-1 p-6 rounded-lg bg-card border border-border sticky top-16">
+        <div className="w-80 space-y-4">
+          <div className="animate-fade-up stagger-1 p-4 rounded-lg bg-card border border-border sticky top-16">
             <div className="flex items-center gap-3 mb-4">
               <RefreshCw className="w-8 h-8 text-purple-500" />
               <div>

@@ -10,8 +10,8 @@ export function ProfitabilityAnalysisSlide() {
   ]
 
   return (
-    <div className="p-16 max-w-6xl mx-auto">
-      <div className="mb-12">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
@@ -21,12 +21,12 @@ export function ProfitabilityAnalysisSlide() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-2 gap-4 mb-4">
         {metrics.map((metric, idx) => (
-          <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-8 rounded-lg bg-card border border-border`}>
+          <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border border-border`}>
             <span className="text-xs uppercase tracking-wider text-muted-foreground">{metric.label}</span>
-            <p className="text-5xl font-bold text-foreground mt-4">{metric.value}</p>
-            <p className="text-sm text-primary font-medium mt-3 flex items-center gap-2">
+            <p className="text-3xl font-bold text-foreground mt-3">{metric.value}</p>
+            <p className="text-sm text-primary font-medium mt-2 flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
               {metric.change}
             </p>
@@ -34,9 +34,9 @@ export function ProfitabilityAnalysisSlide() {
         ))}
       </div>
 
-      <div className="animate-fade-up stagger-5 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+      <div className="animate-fade-up stagger-5 p-4 rounded-lg bg-card border-l-4 border-l-primary">
         <h3 className="font-bold text-foreground mb-3">Key Insights</h3>
-        <ul className="space-y-2.5 text-sm text-muted-foreground">
+        <ul className="space-y-2 text-sm text-muted-foreground">
           <li className="flex items-start gap-2">
             <span className="text-primary mt-1">•</span>
             <span>

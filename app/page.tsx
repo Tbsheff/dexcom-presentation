@@ -57,6 +57,7 @@ import {
   FiveForcesInsightsSlide,
   EpicPestAnalysisSlide,
   MarketSummarySlide,
+  MarketSummaryConclusion,
 } from "@/components/slides"
 
 export default function DexcomPresentation() {
@@ -196,6 +197,8 @@ export default function DexcomPresentation() {
         return <EpicPestAnalysisSlide />
       case "market-summary":
         return <MarketSummarySlide />
+      case "market-summary-conclusion":
+        return <MarketSummaryConclusion />
       default:
         return null
     }

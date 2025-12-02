@@ -530,6 +530,7 @@ export const slides = [
   { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis" },
   { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis" },
   { id: "market-summary", title: "Market Summary", section: "analysis" },
+  { id: "market-summary-conclusion", title: "Market Summary: Conclusion", section: "analysis" },
   // Section 03: Core Competencies Analysis
   { id: "analysis-divider-03", title: "Section 03: Core Competencies Analysis", section: "analysis" },
   { id: "technical-capabilities-analysis", title: "Technical Capabilities", section: "analysis" },

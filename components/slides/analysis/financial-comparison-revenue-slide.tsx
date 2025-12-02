@@ -21,8 +21,8 @@ export function FinancialComparisonRevenueSlide() {
   }
 
   return (
-    <div className="p-12 pb-28 max-w-6xl mx-auto">
-      <div className="mb-8">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
+      <div className="mb-6">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Financial Analysis
         </span>
@@ -30,7 +30,7 @@ export function FinancialComparisonRevenueSlide() {
         <p className="text-muted-foreground mt-2">CGM-related revenue by competitor (in billions USD)</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-4">
         <div className="animate-fade-up stagger-1">
           <ResponsiveContainer width="100%" height={400}>
             <BarChart data={revenueData} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
@@ -69,8 +69,8 @@ export function FinancialComparisonRevenueSlide() {
           </ResponsiveContainer>
         </div>
 
-        <div className="space-y-4 animate-fade-up stagger-2">
-          <div className="p-6 rounded-lg bg-card border-2 border-primary">
+        <div className="space-y-3 animate-fade-up stagger-2">
+          <div className="p-4 rounded-lg bg-card border-2 border-primary">
             <div className="flex items-start gap-3">
               <TrendingUp className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
               <div>
@@ -83,7 +83,7 @@ export function FinancialComparisonRevenueSlide() {
             </div>
           </div>
 
-          <div className="p-6 rounded-lg bg-card border border-border">
+          <div className="p-4 rounded-lg bg-card border border-border">
             <h4 className="font-semibold text-foreground mb-2">Dexcom: Strong #2</h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Dexcom's <span className="font-semibold text-foreground">$4.0B</span> revenue demonstrates significant scale,
@@ -91,7 +91,7 @@ export function FinancialComparisonRevenueSlide() {
             </p>
           </div>
 
-          <div className="p-6 rounded-lg bg-card border border-border">
+          <div className="p-4 rounded-lg bg-card border border-border">
             <h4 className="font-semibold text-foreground mb-2">Medtronic & Senseonics</h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Medtronic at <span className="font-semibold text-foreground">$2.8B</span> is a distant third.

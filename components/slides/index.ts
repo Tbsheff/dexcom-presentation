@@ -54,6 +54,7 @@ import { FiveForcesNewEntrySlide } from "./analysis/five-forces-new-entry-slide"
 import { FiveForcesInsightsSlide } from "./analysis/five-forces-insights-slide"
 import { EpicPestAnalysisSlide } from "./analysis/epic-pest-analysis-slide"
 import { MarketSummarySlide } from "./analysis/market-summary-slide"
+import { MarketSummaryConclusion } from "./analysis/market-summary-conclusion-slide"
 
 export {
   TitleSlide,
@@ -110,4 +111,5 @@ export {
   FiveForcesInsightsSlide,
   EpicPestAnalysisSlide,
   MarketSummarySlide,
+  MarketSummaryConclusion,
 }
