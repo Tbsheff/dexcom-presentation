@@ -70,11 +70,8 @@ import {
   // Section 07: Recommendations
   RecommendationsDividerSlide,
   Issue1DetailedSlide,
-  Solution1DetailedSlide,
   Issue2DetailedSlide,
-  Solution2DetailedSlide,
   Issue3DetailedSlide,
-  Solution3DetailedSlide,
 } from "@/components/slides"
 
 const analysisSections = [
@@ -84,7 +81,7 @@ const analysisSections = [
   { id: "analysis-04", label: "Resources", startSlide: 48, endSlide: 52 },
   { id: "analysis-05", label: "Barriers", startSlide: 53, endSlide: 56 },
   { id: "analysis-06", label: "SWOT", startSlide: 57, endSlide: 61 },
-  { id: "analysis-07", label: "Recommendations", startSlide: 62, endSlide: 68 },
+  { id: "analysis-07", label: "Recommendations", startSlide: 62, endSlide: 65 },
 ]
 
 export default function AnalysisDeck() {
@@ -185,8 +182,6 @@ export default function AnalysisDeck() {
         return <StrategyCanvasSlide />
       case "brand-image":
         return <BrandImageSlide />
-      case "competitor-response-divider":
-        return <AnalysisSectionDivider sectionNumber="03" title="Competitor Response" />
       case "future-goals":
         return <FutureGoalsSlide />
       case "assumptions":
@@ -251,16 +246,10 @@ export default function AnalysisDeck() {
         return <AnalysisSectionDivider sectionNumber="07" title="Recommendations" />
       case "issue-1-detailed":
         return <Issue1DetailedSlide />
-      case "solution-1-detailed":
-        return <Solution1DetailedSlide />
       case "issue-2-detailed":
         return <Issue2DetailedSlide />
-      case "solution-2-detailed":
-        return <Solution2DetailedSlide />
       case "issue-3-detailed":
         return <Issue3DetailedSlide />
-      case "solution-3-detailed":
-        return <Solution3DetailedSlide />
       default:
         return <div className="flex items-center justify-center h-full text-muted-foreground">Slide: {slide.id}</div>
     }

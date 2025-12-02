@@ -5,7 +5,7 @@ interface AnalysisSectionDividerProps {
 
 export function AnalysisSectionDivider({ sectionNumber, title }: AnalysisSectionDividerProps) {
   return (
-    <div className="flex flex-col items-center justify-center h-full relative">
+    <div className="flex flex-col items-center justify-center h-full relative pb-24">
       <div className="relative z-10 text-center max-w-4xl">
         <div className="animate-fade-up">
           <span className="text-xs uppercase tracking-[0.35em] text-primary font-semibold">Deep Dive Analysis</span>

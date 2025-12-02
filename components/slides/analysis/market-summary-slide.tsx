@@ -5,7 +5,7 @@ import { Target, TrendingUp, AlertTriangle, Lightbulb } from "lucide-react"
 
 export function MarketSummarySlide() {
   return (
-    <div className="p-10 pb-20 max-w-6xl mx-auto">
+    <div className="p-10 pb-24 max-w-6xl mx-auto">
       <div className="mb-4">
         <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Market Summary

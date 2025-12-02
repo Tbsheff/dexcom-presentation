@@ -64,6 +64,8 @@ export const COLORS = {
   abbott: COMPANY_COLORS.abbott,
   medtronic: COMPANY_COLORS.medtronic,
   senseonics: COMPANY_COLORS.senseonics,
+  coral: "#F97316", // Warm coral for problems/issues
+  sage: "#58A618", // Sage green for solutions (using Dexcom green)
 }
 
 // Financial Analysis Data (Section 01)
@@ -1016,12 +1018,11 @@ export const analysisSlides = [
   { id: "five-forces-insights", title: "Five Forces: Key Insights", section: "analysis-02" },
   { id: "epic-pest-analysis", title: "EPIC PEST Analysis", section: "analysis-02" },
   { id: "market-summary", title: "Market Summary", section: "analysis-02" },
-  // Section 03: Unique Value & Competitor Analysis (19 slides)
+  // Section 03: Unique Value & Competitor Analysis (18 slides)
   { id: "unique-value-divider", title: "Section 03: Unique Value & Competitor Analysis", section: "analysis-03" },
   { id: "differentiation-strategy", title: "Differentiation Strategy", section: "analysis-03" },
   { id: "strategy-canvas", title: "Strategy Canvas", section: "analysis-03" },
   { id: "brand-image", title: "Brand Image", section: "analysis-03" },
-  { id: "competitor-response-divider", title: "Competitor Response", section: "analysis-03" },
   { id: "future-goals", title: "Future Goals", section: "analysis-03" },
   { id: "assumptions", title: "Assumptions", section: "analysis-03" },
   { id: "current-strategy", title: "Current Strategy", section: "analysis-03" },
@@ -1053,14 +1054,11 @@ export const analysisSlides = [
   { id: "swot-weaknesses", title: "SWOT: Weaknesses", section: "analysis-06" },
   { id: "swot-opportunities", title: "SWOT: Opportunities", section: "analysis-06" },
   { id: "swot-threats", title: "SWOT: Threats", section: "analysis-06" },
-  // Section 07: Recommendations (7 slides)
+  // Section 07: Recommendations (4 slides)
   { id: "recommendations-divider", title: "Section 07: Recommendations", section: "analysis-07" },
-  { id: "issue-1-detailed", title: "Issue #1: Limited Market", section: "analysis-07" },
-  { id: "solution-1-detailed", title: "Solution #1: Market to Athletes", section: "analysis-07" },
-  { id: "issue-2-detailed", title: "Issue #2: Competitors Replicating", section: "analysis-07" },
-  { id: "solution-2-detailed", title: "Solution #2: Longer-lasting Product", section: "analysis-07" },
-  { id: "issue-3-detailed", title: "Issue #3: Physician Loyalty Erosion", section: "analysis-07" },
-  { id: "solution-3-detailed", title: "Solution #3: Medical Conferences & Samples", section: "analysis-07" },
+  { id: "issue-1-detailed", title: "Recommendation #1: Expand Market Reach", section: "analysis-07" },
+  { id: "issue-2-detailed", title: "Recommendation #2: Innovate on Convenience", section: "analysis-07" },
+  { id: "issue-3-detailed", title: "Recommendation #3: Rebuild Physician Network", section: "analysis-07" },
 ]
 
 // Combined slides (for backwards compatibility)
