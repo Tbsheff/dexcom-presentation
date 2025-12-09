@@ -3,8 +3,10 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts"
 import { growthData, COLORS } from "@/lib/presentation-data"
 import { SlideHeader, SlideLabel, SlideTitle, SlideSubtitle, Card, CardContent } from "@/components/ui"
+import { useExportMode } from "@/lib/export-context"
 
 export function GrowthComparisonSlide() {
+  const isExport = useExportMode()
   const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number; name: string; color: string }>; label?: string }) => {
     if (active && payload && payload.length) {
       return (
@@ -38,10 +40,10 @@ export function GrowthComparisonSlide() {
               <YAxis stroke="hsl(var(--muted-foreground))" tickLine={false} axisLine={false} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} tickFormatter={(value) => `${value}%`} domain={[0, 50]} />
               <Tooltip content={<CustomTooltip />} />
               <Legend wrapperStyle={{ paddingTop: "10px" }} formatter={(value) => <span style={{ color: "hsl(var(--foreground))", fontSize: 12 }}>{value}</span>} />
-              <Line type="monotone" dataKey="Dexcom" stroke={COLORS.dexcom} strokeWidth={3} dot={{ fill: COLORS.dexcom, r: 5, strokeWidth: 2, stroke: "white" }} activeDot={{ r: 7 }} />
-              <Line type="monotone" dataKey="Abbott" stroke={COLORS.abbott} strokeWidth={2} dot={{ fill: COLORS.abbott, r: 4, strokeWidth: 2, stroke: "white" }} />
-              <Line type="monotone" dataKey="Medtronic" stroke={COLORS.medtronic} strokeWidth={2} dot={{ fill: COLORS.medtronic, r: 4, strokeWidth: 2, stroke: "white" }} />
-              <Line type="monotone" dataKey="Senseonics" stroke={COLORS.senseonics} strokeWidth={2} dot={{ fill: COLORS.senseonics, r: 4, strokeWidth: 2, stroke: "white" }} />
+              <Line type="monotone" dataKey="Dexcom" stroke={COLORS.dexcom} strokeWidth={3} dot={{ fill: COLORS.dexcom, r: 5, strokeWidth: 2, stroke: "white" }} activeDot={{ r: 7 }} isAnimationActive={!isExport} />
+              <Line type="monotone" dataKey="Abbott" stroke={COLORS.abbott} strokeWidth={2} dot={{ fill: COLORS.abbott, r: 4, strokeWidth: 2, stroke: "white" }} isAnimationActive={!isExport} />
+              <Line type="monotone" dataKey="Medtronic" stroke={COLORS.medtronic} strokeWidth={2} dot={{ fill: COLORS.medtronic, r: 4, strokeWidth: 2, stroke: "white" }} isAnimationActive={!isExport} />
+              <Line type="monotone" dataKey="Senseonics" stroke={COLORS.senseonics} strokeWidth={2} dot={{ fill: COLORS.senseonics, r: 4, strokeWidth: 2, stroke: "white" }} isAnimationActive={!isExport} />
             </LineChart>
           </ResponsiveContainer>
         </CardContent>

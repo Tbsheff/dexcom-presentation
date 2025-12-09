@@ -3,8 +3,10 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts"
 import { revenueData, COMPANY_COLORS } from "@/lib/presentation-data"
 import { SlideHeader, SlideLabel, SlideTitle, SlideSubtitle, Card, CardContent, StatCard } from "@/components/ui"
+import { useExportMode } from "@/lib/export-context"
 
 export function RevenueComparisonSlide() {
+  const isExport = useExportMode()
   return (
     <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <SlideHeader>
@@ -22,10 +24,10 @@ export function RevenueComparisonSlide() {
               <YAxis stroke="hsl(var(--muted-foreground))" tickLine={false} axisLine={false} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} tickFormatter={(value) => `$${value}B`} domain={[0, 8]} />
               <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)", boxShadow: "var(--shadow-md)" }} labelStyle={{ color: "hsl(var(--foreground))", fontWeight: 500 }} formatter={(value: number) => [`$${value}B`, ""]} />
               <Legend wrapperStyle={{ paddingTop: "10px" }} formatter={(value) => <span style={{ color: "hsl(var(--foreground))", fontSize: 12 }}>{value}</span>} />
-              <Bar dataKey="Dexcom" fill={COMPANY_COLORS.dexcom} radius={[4, 4, 0, 0]} name="Dexcom" />
-              <Bar dataKey="Abbott" fill={COMPANY_COLORS.abbott} radius={[4, 4, 0, 0]} name="Abbott" />
-              <Bar dataKey="Medtronic" fill={COMPANY_COLORS.medtronic} radius={[4, 4, 0, 0]} name="Medtronic" />
-              <Bar dataKey="Senseonics" fill={COMPANY_COLORS.senseonics} radius={[4, 4, 0, 0]} name="Senseonics" />
+              <Bar dataKey="Dexcom" fill={COMPANY_COLORS.dexcom} radius={[4, 4, 0, 0]} name="Dexcom" isAnimationActive={!isExport} />
+              <Bar dataKey="Abbott" fill={COMPANY_COLORS.abbott} radius={[4, 4, 0, 0]} name="Abbott" isAnimationActive={!isExport} />
+              <Bar dataKey="Medtronic" fill={COMPANY_COLORS.medtronic} radius={[4, 4, 0, 0]} name="Medtronic" isAnimationActive={!isExport} />
+              <Bar dataKey="Senseonics" fill={COMPANY_COLORS.senseonics} radius={[4, 4, 0, 0]} name="Senseonics" isAnimationActive={!isExport} />
             </BarChart>
           </ResponsiveContainer>
         </CardContent>

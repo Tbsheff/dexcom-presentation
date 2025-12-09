@@ -2,16 +2,19 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Presentation, BarChart3, Download, Loader2 } from "lucide-react"
+import { Presentation, BarChart3, Download, Loader2, Monitor, Server } from "lucide-react"
 import { presentationSlides, analysisSlides } from "@/lib/presentation-data"
 
-export default function Home() {
-  const [isGenerating, setIsGenerating] = useState(false)
+type ExportMethod = "server" | "canvas" | null
 
+export default function Home() {
+  const [exportMethod, setExportMethod] = useState<ExportMethod>(null)
   const [exportProgress, setExportProgress] = useState("")
 
-  const handleExport = async () => {
-    setIsGenerating(true)
+  const isGenerating = exportMethod !== null
+
+  const handleServerExport = async () => {
+    setExportMethod("server")
     setExportProgress("Loading slides...")
     try {
       const { exportToPdf } = await import("@/lib/export-pdf")
@@ -22,7 +25,26 @@ export default function Home() {
       console.error("Export failed:", error)
       alert("Failed to export PDF. Please try again.")
     } finally {
-      setIsGenerating(false)
+      setExportMethod(null)
+      setExportProgress("")
+    }
+  }
+
+  const handleCanvasExport = async () => {
+    setExportMethod("canvas")
+    setExportProgress("Initializing...")
+    try {
+      const { exportWithCanvas } = await import("@/lib/export-canvas")
+      await exportWithCanvas({
+        onProgress: (current, total, message) => {
+          setExportProgress(message || `Slide ${current} of ${total}...`)
+        },
+      })
+    } catch (error) {
+      console.error("Canvas export failed:", error)
+      alert("Failed to export PDF. Please try again.")
+    } finally {
+      setExportMethod(null)
       setExportProgress("")
     }
   }
@@ -75,24 +97,35 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={handleExport}
-            disabled={isGenerating}
-            className="flex items-center gap-3 px-6 py-3 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                <span>{exportProgress || "Generating PDF..."}</span>
-              </>
-            ) : (
-              <>
-                <Download className="w-5 h-5" />
-                <span>Export Presentation to PDF</span>
-              </>
-            )}
-          </button>
+        <div className="mt-8 flex flex-col items-center gap-4">
+          {isGenerating ? (
+            <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-border bg-card">
+              <Loader2 className="w-5 h-5 animate-spin" />
+              <span>{exportProgress || "Generating PDF..."}</span>
+            </div>
+          ) : (
+            <div className="flex gap-4">
+              <button
+                onClick={handleServerExport}
+                disabled={isGenerating}
+                className="flex items-center gap-3 px-6 py-3 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Server className="w-5 h-5" />
+                <span>Export (Server)</span>
+              </button>
+              <button
+                onClick={handleCanvasExport}
+                disabled={isGenerating}
+                className="flex items-center gap-3 px-6 py-3 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Monitor className="w-5 h-5" />
+                <span>Export (Browser)</span>
+              </button>
+            </div>
+          )}
+          <span className="text-sm text-muted-foreground">
+            {presentationSlides.length + analysisSlides.length} slides total
+          </span>
         </div>
       </div>
     </div>

@@ -25,26 +25,26 @@ export function CapabilitiesComprehensiveSlide() {
   ]
 
   return (
-    <div className="p-8 pb-20 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <div className="mb-8">
+        <span className="text-xl uppercase tracking-[0.3em] text-primary font-medium">
           Section 04 · Capabilities
         </span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Capabilities</h2>
-        <p className="text-muted-foreground mt-1 text-xs">Organizational strengths that enable execution and growth</p>
+        <h2 className="text-5xl font-bold mt-4 tracking-tight text-foreground">Capabilities</h2>
+        <p className="text-muted-foreground mt-4 text-xl">Organizational strengths that enable execution and growth</p>
       </div>
 
-      <div className="space-y-2.5">
+      <div className="space-y-5.5">
         {capabilities.map((capability, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-3 rounded-lg bg-card border-2 border-border hover:border-primary/50 transition-colors`}
+            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border-2 border-border hover:border-primary/50 transition-colors`}
           >
-            <div className="flex items-start gap-2.5">
+            <div className="flex items-start gap-6">
               <capability.icon className={`w-5 h-5 ${capability.color} flex-shrink-0 mt-0.5`} />
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-0.5">{capability.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{capability.description}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-0.5">{capability.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-2xl">{capability.description}</p>
               </div>
             </div>
           </div>

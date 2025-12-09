@@ -12,8 +12,10 @@ import {
 } from "recharts"
 import { differentiationRadar, COLORS } from "@/lib/presentation-data"
 import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent } from "@/components/ui"
+import { useExportMode } from "@/lib/export-context"
 
 export function DifferentiationSlide() {
+  const isExport = useExportMode()
   const features = [
     { title: "Accuracy Leadership", stat: "Best-in-class", desc: "Most accurate readings physicians trust" },
     { title: "Integration Network", stat: "3 pump partners", desc: "Tandem, Omnipod, Beta Bionics + health apps" },
@@ -82,6 +84,7 @@ export function DifferentiationSlide() {
                     fill={COLORS.dexcom}
                     fillOpacity={0.45}
                     strokeWidth={3}
+                    isAnimationActive={!isExport}
                   />
                   <Radar
                     name="Abbott"
@@ -90,6 +93,7 @@ export function DifferentiationSlide() {
                     fill="none"
                     strokeWidth={2}
                     strokeDasharray="6 4"
+                    isAnimationActive={!isExport}
                   />
                   <Radar
                     name="Medtronic"
@@ -98,6 +102,7 @@ export function DifferentiationSlide() {
                     fill="none"
                     strokeWidth={2}
                     strokeDasharray="3 3"
+                    isAnimationActive={!isExport}
                   />
                   <Radar
                     name="Senseonics"
@@ -106,6 +111,7 @@ export function DifferentiationSlide() {
                     fill="none"
                     strokeWidth={2}
                     strokeDasharray="8 3"
+                    isAnimationActive={!isExport}
                   />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend
