@@ -7,7 +7,7 @@ export function ImitationSlide() {
       desc: "Proprietary sensor technology & algorithms",
     },
     {
-      title: "Ecosystem Lock-in",
+      title: "Integration Partnerships",
       desc: "Deep integrations with Tandem, Omnipod, health apps",
     },
     {
