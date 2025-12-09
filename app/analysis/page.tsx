@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect, useLayoutEffect } from "react"
+import { useState, useEffect, useLayoutEffect, useCallback } from "react"
 import { analysisSlides } from "@/lib/presentation-data"
 import { PresentationNav } from "@/components/presentation-nav"
 import { RunningAgenda } from "@/components/running-agenda"
 import { ExportProvider } from "@/lib/export-context"
+import { Maximize2, X } from "lucide-react"
 import {
   AnalysisSectionDivider,
   ProfitabilityAnalysisSlide,
@@ -89,6 +90,7 @@ export default function AnalysisDeck() {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [isExportMode, setIsExportMode] = useState(false)
   const [isReady, setIsReady] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
   // Read URL params before first paint using useLayoutEffect
   useLayoutEffect(() => {
@@ -133,14 +135,65 @@ export default function AnalysisDeck() {
   const nextSlide = () => goToSlide(Math.min(currentSlide + 1, analysisSlides.length - 1))
   const prevSlide = () => goToSlide(Math.max(currentSlide - 1, 0))
 
+  // Fullscreen API handlers
+  const enterFullscreen = useCallback(async () => {
+    try {
+      await document.documentElement.requestFullscreen()
+      setIsFullscreen(true)
+    } catch (err) {
+      console.error("Fullscreen request failed:", err)
+    }
+  }, [])
+
+  const exitFullscreen = useCallback(async () => {
+    try {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen()
+      }
+      setIsFullscreen(false)
+    } catch (err) {
+      console.error("Exit fullscreen failed:", err)
+    }
+  }, [])
+
+  const toggleFullscreen = useCallback(() => {
+    if (isFullscreen) {
+      exitFullscreen()
+    } else {
+      enterFullscreen()
+    }
+  }, [isFullscreen, enterFullscreen, exitFullscreen])
+
+  // Sync state with browser fullscreen changes (e.g., user presses Escape)
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+    document.addEventListener("fullscreenchange", handleFullscreenChange)
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange)
+  }, [])
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " ") nextSlide()
-      if (e.key === "ArrowLeft") prevSlide()
+      if (e.key === "ArrowRight" || e.key === " ") {
+        e.preventDefault()
+        nextSlide()
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault()
+        prevSlide()
+      }
+      if (e.key === "f" || e.key === "F") {
+        e.preventDefault()
+        toggleFullscreen()
+      }
+      if (e.key === "Escape" && isFullscreen) {
+        setIsFullscreen(false)
+      }
     }
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [currentSlide])
+  }, [currentSlide, isFullscreen, toggleFullscreen])
 
   const renderSlide = () => {
     const slide = analysisSlides[currentSlide]
@@ -302,7 +355,7 @@ export default function AnalysisDeck() {
           {renderSlide()}
         </main>
 
-        {!isExportMode && (
+        {!isExportMode && !isFullscreen && (
           <PresentationNav
             currentSlide={currentSlide}
             totalSlides={analysisSlides.length}
@@ -311,6 +364,28 @@ export default function AnalysisDeck() {
             nextSlide={nextSlide}
             prevSlide={prevSlide}
           />
+        )}
+
+        {/* Fullscreen toggle button */}
+        {!isExportMode && (
+          <button
+            onClick={toggleFullscreen}
+            className={`fixed z-50 p-2 rounded-lg transition-all ${
+              isFullscreen
+                ? "bottom-4 right-4 bg-black/50 hover:bg-black/70 text-white opacity-0 hover:opacity-100"
+                : "bottom-20 right-4 bg-secondary/50 hover:bg-secondary"
+            }`}
+            title={isFullscreen ? "Exit fullscreen (F or Esc)" : "Enter fullscreen (F)"}
+          >
+            {isFullscreen ? <X className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+          </button>
+        )}
+
+        {/* Fullscreen slide counter - subtle overlay */}
+        {isFullscreen && (
+          <div className="fixed bottom-4 left-4 text-white/30 text-sm font-mono opacity-0 hover:opacity-100 transition-opacity">
+            {currentSlide + 1} / {analysisSlides.length}
+          </div>
         )}
       </div>
     </ExportProvider>
