@@ -2,220 +2,254 @@
 
 import { COLORS } from "@/lib/presentation-data"
 
-interface CompanyBubble {
+interface Company {
   name: string
   tech: number
   access: number
-  size: number
   color: string
+  position: string
+  revenue: number
 }
 
 export function StrategicGroupMapVisualSlide() {
-  const companies: CompanyBubble[] = [
-    { name: "Abbott", tech: 68, access: 88, size: 70, color: COLORS.abbott },
-    { name: "Dexcom", tech: 88, access: 72, size: 55, color: COLORS.dexcom },
-    { name: "Medtronic", tech: 55, access: 58, size: 45, color: COLORS.medtronic },
-    { name: "Senseonics", tech: 42, access: 35, size: 20, color: COLORS.senseonics },
+  const companies: Company[] = [
+    { name: "Abbott", tech: 65, access: 88, color: COLORS.abbott, position: "Mass Market Leader", revenue: 6.8 },
+    { name: "Dexcom", tech: 88, access: 72, color: COLORS.dexcom, position: "Premium Innovator", revenue: 4.03 },
+    { name: "Medtronic", tech: 52, access: 55, color: COLORS.medtronic, position: "Integrated Systems", revenue: 2.49 },
+    { name: "Senseonics", tech: 40, access: 32, color: COLORS.senseonics, position: "Niche Implantable", revenue: 0.03 },
   ]
 
-  // Chart dimensions
-  const chartWidth = 600
-  const chartHeight = 350
-  const padding = { top: 25, right: 25, bottom: 50, left: 60 }
-  const plotWidth = chartWidth - padding.left - padding.right
-  const plotHeight = chartHeight - padding.top - padding.bottom
+  const chartSize = 500
+  const padding = 60
 
-  // Scale functions (domain 0-100 to pixel coordinates)
-  const xScale = (value: number) => padding.left + (value / 100) * plotWidth
-  const yScale = (value: number) => padding.top + plotHeight - (value / 100) * plotHeight
-
-  // Axis ticks
-  const ticks = [0, 20, 40, 60, 80, 100]
+  const scale = (value: number) => padding + ((value / 100) * (chartSize - padding * 2))
+  const yScale = (value: number) => chartSize - scale(value) + padding
 
   return (
-    <div className="p-8 pb-20 max-w-6xl mx-auto">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
+        <span className="text-base uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Competitive Analysis
         </span>
         <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Strategic Group Map</h2>
-        <p className="text-muted-foreground mt-2">Competitive positioning on technology and accessibility dimensions</p>
       </div>
 
-      <div className="flex gap-3">
-        <div className="flex-1 animate-fade-up stagger-1">
-          <div className="p-4 rounded-lg bg-card border border-border">
-            <svg width="100%" height="100%" viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="overflow-visible">
-              {/* Grid lines */}
-              {ticks.map((tick) => (
-                <g key={tick}>
-                  {/* Vertical grid lines */}
-                  <line
-                    x1={xScale(tick)}
-                    y1={padding.top}
-                    x2={xScale(tick)}
-                    y2={chartHeight - padding.bottom}
-                    stroke="currentColor"
-                    className="text-border"
-                    strokeWidth={1}
-                    strokeDasharray={tick === 0 ? "0" : "4,4"}
-                  />
-                  {/* Horizontal grid lines */}
-                  <line
-                    x1={padding.left}
-                    y1={yScale(tick)}
-                    x2={chartWidth - padding.right}
-                    y2={yScale(tick)}
-                    stroke="currentColor"
-                    className="text-border"
-                    strokeWidth={1}
-                    strokeDasharray={tick === 0 ? "0" : "4,4"}
-                  />
-                </g>
-              ))}
+      {/* Main content */}
+      <div className="flex-1 flex gap-8 min-h-0">
+        {/* Chart container */}
+        <div className="flex-1 relative">
 
-              {/* X-axis */}
-              <line
-                x1={padding.left}
-                y1={chartHeight - padding.bottom}
-                x2={chartWidth - padding.right}
-                y2={chartHeight - padding.bottom}
-                stroke="currentColor"
-                className="text-foreground"
-                strokeWidth={2}
-              />
-              {/* X-axis ticks and labels */}
-              {ticks.map((tick) => (
-                <g key={`x-${tick}`}>
-                  <line
-                    x1={xScale(tick)}
-                    y1={chartHeight - padding.bottom}
-                    x2={xScale(tick)}
-                    y2={chartHeight - padding.bottom + 6}
-                    stroke="currentColor"
-                    className="text-foreground"
-                    strokeWidth={2}
-                  />
-                  <text
-                    x={xScale(tick)}
-                    y={chartHeight - padding.bottom + 20}
-                    textAnchor="middle"
-                    fill="currentColor"
-                    className="text-muted-foreground"
-                    fontSize={11}
-                  >
-                    {tick}
-                  </text>
-                </g>
+          {/* Chart */}
+          <svg
+            viewBox={`0 0 ${chartSize} ${chartSize}`}
+            className="w-full h-full"
+            style={{ filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.03))' }}
+          >
+            <defs>
+              <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f1f5f9" />
+                <stop offset="100%" stopColor="#e2e8f0" />
+              </linearGradient>
+              {companies.map((company) => (
+                <filter key={`shadow-${company.name}`} id={`shadow-${company.name}`} x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor={company.color} floodOpacity="0.3" />
+                </filter>
               ))}
-              {/* X-axis label */}
-              <text
-                x={padding.left + plotWidth / 2}
-                y={chartHeight - 10}
-                textAnchor="middle"
-                fill="currentColor"
-                className="text-foreground"
-                fontSize={12}
-                fontWeight={500}
-              >
-                Technology Integration & Connectivity
-              </text>
+            </defs>
 
-              {/* Y-axis */}
-              <line
-                x1={padding.left}
-                y1={padding.top}
-                x2={padding.left}
-                y2={chartHeight - padding.bottom}
-                stroke="currentColor"
-                className="text-foreground"
-                strokeWidth={2}
-              />
-              {/* Y-axis ticks and labels */}
-              {ticks.map((tick) => (
-                <g key={`y-${tick}`}>
-                  <line
-                    x1={padding.left - 6}
-                    y1={yScale(tick)}
-                    x2={padding.left}
-                    y2={yScale(tick)}
-                    stroke="currentColor"
-                    className="text-foreground"
-                    strokeWidth={2}
-                  />
-                  <text
-                    x={padding.left - 12}
-                    y={yScale(tick) + 4}
-                    textAnchor="end"
-                    fill="currentColor"
-                    className="text-muted-foreground"
-                    fontSize={11}
-                  >
-                    {tick}
-                  </text>
-                </g>
-              ))}
-              {/* Y-axis label */}
-              <text
-                x={15}
-                y={padding.top + plotHeight / 2}
-                textAnchor="middle"
-                fill="currentColor"
-                className="text-foreground"
-                fontSize={12}
-                fontWeight={500}
-                transform={`rotate(-90, 15, ${padding.top + plotHeight / 2})`}
-              >
-                User Accessibility & Experience
-              </text>
+            {/* Background */}
+            <rect x={padding} y={padding} width={chartSize - padding * 2} height={chartSize - padding * 2} fill="#fafafa" rx="4" />
 
-              {/* Company bubbles */}
-              {companies.map((company, idx) => {
-                const cx = xScale(company.tech)
-                const cy = yScale(company.access)
-                const isSmallBubble = company.size < 25
-                return (
-                  <g key={company.name} className="cursor-pointer" style={{ animationDelay: `${idx * 100}ms` }}>
+            {/* Grid lines */}
+            {[25, 50, 75].map((tick) => (
+              <g key={tick}>
+                <line
+                  x1={scale(tick)}
+                  y1={padding}
+                  x2={scale(tick)}
+                  y2={chartSize - padding}
+                  stroke="#e2e8f0"
+                  strokeWidth={1}
+                />
+                <line
+                  x1={padding}
+                  y1={yScale(tick)}
+                  x2={chartSize - padding}
+                  y2={yScale(tick)}
+                  stroke="#e2e8f0"
+                  strokeWidth={1}
+                />
+              </g>
+            ))}
+
+            {/* Center lines (50%) - emphasized */}
+            <line
+              x1={scale(50)}
+              y1={padding}
+              x2={scale(50)}
+              y2={chartSize - padding}
+              stroke="#cbd5e1"
+              strokeWidth={1.5}
+              strokeDasharray="4,4"
+            />
+            <line
+              x1={padding}
+              y1={yScale(50)}
+              x2={chartSize - padding}
+              y2={yScale(50)}
+              stroke="#cbd5e1"
+              strokeWidth={1.5}
+              strokeDasharray="4,4"
+            />
+
+            {/* Axes */}
+            <line x1={padding} y1={chartSize - padding} x2={chartSize - padding} y2={chartSize - padding} stroke="#64748b" strokeWidth={2} />
+            <line x1={padding} y1={padding} x2={padding} y2={chartSize - padding} stroke="#64748b" strokeWidth={2} />
+
+            {/* Axis labels */}
+            <text x={chartSize / 2} y={chartSize - 12} textAnchor="middle" className="fill-slate-500 text-[11px] font-medium">
+              Technology Integration
+            </text>
+            <text x={12} y={chartSize / 2} textAnchor="middle" className="fill-slate-500 text-[11px] font-medium" transform={`rotate(-90, 12, ${chartSize / 2})`}>
+              User Accessibility
+            </text>
+
+            {/* Arrow indicators */}
+            <polygon points={`${chartSize - padding + 8},${chartSize - padding} ${chartSize - padding},${chartSize - padding - 4} ${chartSize - padding},${chartSize - padding + 4}`} fill="#64748b" />
+            <polygon points={`${padding},${padding - 8} ${padding - 4},${padding} ${padding + 4},${padding}`} fill="#64748b" />
+
+            {/* Company bubbles */}
+            {companies.map((company, idx) => {
+              const cx = scale(company.tech)
+              const cy = yScale(company.access)
+              // Scale bubble size by revenue (sqrt for area-proportional sizing)
+              const minSize = 18
+              const maxSize = 48
+              const maxRevenue = 6.8
+              const baseSize = company.revenue > 0.1
+                ? minSize + (Math.sqrt(company.revenue / maxRevenue) * (maxSize - minSize))
+                : minSize
+              const isLeader = company.name === "Dexcom"
+
+              return (
+                <g
+                  key={company.name}
+                  className="transition-transform duration-300"
+                  style={{
+                    animation: `fadeInScale 0.5s ease-out ${idx * 0.1}s both`,
+                  }}
+                >
+                  {/* Glow ring for Dexcom */}
+                  {isLeader && (
                     <circle
                       cx={cx}
                       cy={cy}
-                      r={company.size}
-                      fill={company.color}
-                      fillOpacity={0.9}
-                      stroke="#fff"
+                      r={baseSize + 8}
+                      fill="none"
+                      stroke={company.color}
                       strokeWidth={2}
-                      className="transition-all duration-300 hover:fill-opacity-100"
+                      strokeDasharray="4,4"
+                      opacity={0.4}
                     />
-                    <text
-                      x={cx}
-                      y={isSmallBubble ? cy + company.size + 15 : cy}
-                      textAnchor="middle"
-                      dominantBaseline={isSmallBubble ? "hanging" : "middle"}
-                      fill={isSmallBubble ? "currentColor" : "#fff"}
-                      className={isSmallBubble ? "text-foreground pointer-events-none" : "pointer-events-none"}
-                      fontSize={company.name.length > 8 ? 11 : 13}
-                      fontWeight={600}
-                    >
-                      {company.name}
-                    </text>
-                  </g>
-                )
-              })}
-            </svg>
-          </div>
+                  )}
+
+                  {/* Main bubble */}
+                  <circle
+                    cx={cx}
+                    cy={cy}
+                    r={baseSize}
+                    fill={company.color}
+                    filter={`url(#shadow-${company.name})`}
+                    className="transition-all duration-300"
+                  />
+
+                  {/* Company name */}
+                  <text
+                    x={cx}
+                    y={company.name === "Senseonics" ? cy + baseSize + 14 : cy + 1}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className={`text-[11px] font-semibold tracking-wide ${company.name === "Senseonics" ? "fill-slate-600" : "fill-white"}`}
+                    style={{ textShadow: company.name === "Senseonics" ? "none" : '0 1px 2px rgba(0,0,0,0.2)' }}
+                  >
+                    {company.name}
+                  </text>
+                </g>
+              )
+            })}
+          </svg>
         </div>
 
-        <div className="w-72 space-y-2 animate-fade-up stagger-2">
-          <div className="p-3 rounded-lg bg-card border border-border">
-            <h4 className="font-semibold text-primary mb-1 text-sm">X-Axis: Technology Integration</h4>
-            <p className="text-xs text-muted-foreground">App quality, data sharing, device compatibility</p>
-          </div>
-          <div className="p-3 rounded-lg bg-card border border-border">
-            <h4 className="font-semibold text-primary mb-1 text-sm">Y-Axis: User Accessibility</h4>
-            <p className="text-xs text-muted-foreground">Ease, affordability, intuitive design</p>
-          </div>
+        {/* Legend panel */}
+        <div className="w-56 shrink-0 flex flex-col gap-2">
+          {companies.map((company, idx) => (
+            <div
+              key={company.name}
+              className="group relative bg-white rounded-lg border border-slate-100 p-3 transition-all duration-300 hover:border-slate-200 hover:shadow-lg"
+              style={{
+                animation: `slideInRight 0.4s ease-out ${idx * 0.08}s both`,
+                borderLeft: `3px solid ${company.color}`,
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-3 h-3 rounded-full shrink-0 ring-2 ring-offset-2"
+                  style={{ backgroundColor: company.color, ringColor: `${company.color}30` }}
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-slate-800 text-sm">{company.name}</div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">{company.position}</div>
+                </div>
+              </div>
+
+              {/* Stats bar */}
+              <div className="mt-3 flex gap-4 text-[10px]">
+                <div className="flex-1">
+                  <div className="text-slate-400 mb-1">Tech</div>
+                  <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{ width: `${company.tech}%`, backgroundColor: company.color }}
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="text-slate-400 mb-1">Access</div>
+                  <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{ width: `${company.access}%`, backgroundColor: company.color }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </div>
   )
 }

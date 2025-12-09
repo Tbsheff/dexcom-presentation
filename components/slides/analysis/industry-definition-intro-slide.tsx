@@ -6,7 +6,7 @@ export function IndustryDefinitionIntroSlide() {
   return (
     <div className="h-full flex items-center justify-center p-16 bg-gradient-to-br from-background to-muted/20">
       <div className="max-w-5xl mx-auto text-center">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium mb-8 block">
+        <span className="text-xl uppercase tracking-[0.3em] text-primary font-medium mb-8 block">
           Section 02 · Industry Analysis
         </span>
 

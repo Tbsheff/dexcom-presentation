@@ -26,7 +26,7 @@ export function RunningAgenda({ currentSlide, goToSlide, sections }: RunningAgen
   const currentSection = getCurrentSection()
 
   return (
-    <div className="flex items-center justify-center gap-2 py-4">
+    <div className="flex items-center justify-center gap-2 py-4 pl-32">
       {sections.map((section, idx) => {
         const isActive = section.id === currentSection
         const isPast = currentSlide > section.endSlide

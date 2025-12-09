@@ -13,53 +13,53 @@ export function FiveForcesInsightsSlide() {
   ]
 
   return (
-    <div className="p-6 pb-16 max-w-6xl mx-auto">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
       <div className="mb-6">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-primary font-medium">
+        <span className="text-base uppercase tracking-[0.3em] text-primary font-medium">
           Section 02 · Porter's Five Forces
         </span>
         <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Key Insights</h2>
       </div>
 
       {/* Forces Summary Grid */}
-      <div className="grid grid-cols-5 gap-1.5 mb-1.5">
+      <div className="grid grid-cols-5 gap-4 mb-6">
         {forcesSummary.map((force, idx) => {
           const Icon = force.icon
           return (
             <div
               key={idx}
-              className={`animate-fade-up stagger-${idx + 1} p-2 rounded-lg ${force.bgColor} border-2 ${force.borderColor}`}
+              className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg ${force.bgColor} border-2 ${force.borderColor}`}
             >
-              <Icon className={`w-5 h-5 ${force.color} mb-1`} />
-              <h4 className="text-xs font-semibold text-foreground mb-0.5">{force.name}</h4>
-              <span className={`text-[10px] font-bold ${force.color}`}>{force.rating}</span>
+              <Icon className={`w-6 h-6 ${force.color} mb-2`} />
+              <h4 className="text-lg font-semibold text-foreground mb-1">{force.name}</h4>
+              <span className={`text-xl font-bold ${force.color}`}>{force.rating}</span>
             </div>
           )
         })}
       </div>
 
       {/* All Key Insights */}
-      <div className="space-y-1">
+      <div className="flex-1 space-y-3">
         {fiveForcesDetailed.keyInsights.map((insight, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 6} p-2 rounded-lg bg-card border-l-4 border-l-primary`}
+            className={`animate-fade-up stagger-${idx + 6} p-4 rounded-lg bg-card border-l-4 border-l-primary`}
           >
-            <div className="flex items-start gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-foreground text-sm leading-tight">{insight}</p>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <p className="text-foreground text-xl">{insight}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Overall Assessment */}
-      <div className="animate-fade-up stagger-11 p-2 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary mt-1.5">
-        <div className="flex items-start gap-2">
-          <Lightbulb className="w-6 h-6 text-primary flex-shrink-0" />
+      <div className="animate-fade-up stagger-11 p-5 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary mt-6">
+        <div className="flex items-start gap-4">
+          <Lightbulb className="w-7 h-7 text-primary flex-shrink-0" />
           <div>
-            <h3 className="text-sm font-bold text-foreground mb-0.5">Industry Attractiveness: Moderate</h3>
-            <p className="text-muted-foreground text-xs leading-tight">
+            <h3 className="text-xl font-bold text-foreground mb-2">Industry Attractiveness: Moderate</h3>
+            <p className="text-muted-foreground text-lg leading-relaxed">
               The CGM industry presents a <span className="text-primary font-semibold">mixed competitive landscape</span>.
               While high barriers to entry and strong growth potential are favorable, intense rivalry and moderate-to-high
               buyer power create challenges. Success requires continuous innovation, strong clinical evidence, and effective

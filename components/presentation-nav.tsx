@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronLeft, ChevronRight, Home, Printer } from "lucide-react"
+import { ChevronLeft, ChevronRight, Home } from "lucide-react"
 import Link from "next/link"
 
 interface Slide {
@@ -62,18 +62,9 @@ export function PresentationNav({ currentSlide, totalSlides, slides, goToSlide, 
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-muted-foreground truncate max-w-32">
-            {slides ? slides[currentSlide]?.title : ""}
-          </span>
-          <Link
-            href="/presentation/print"
-            className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
-            title="Save as PDF"
-          >
-            <Printer className="w-4 h-4" />
-          </Link>
-        </div>
+        <span className="text-xs text-muted-foreground truncate max-w-32">
+          {slides ? slides[currentSlide]?.title : ""}
+        </span>
       </div>
     </div>
   )

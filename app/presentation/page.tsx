@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useLayoutEffect } from "react"
 import { presentationSlides } from "@/lib/presentation-data"
 import { PresentationNav } from "@/components/presentation-nav"
 import { RunningAgenda } from "@/components/running-agenda"
+import { ExportProvider } from "@/lib/export-context"
 import {
   TitleSlide,
   AgendaSlide,
@@ -44,17 +45,26 @@ const presentationSections = [
 export default function PresentationDeck() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isExportMode, setIsExportMode] = useState(false)
+  const [isReady, setIsReady] = useState(false)
 
-  // Allow URL param to set slide (for PDF export)
-  useEffect(() => {
+  // Read URL params before first paint using useLayoutEffect
+  useLayoutEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const slideParam = params.get("slide")
+    const exportParam = params.get("export")
     if (slideParam) {
       const slideIndex = parseInt(slideParam, 10)
       if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < presentationSlides.length) {
         setCurrentSlide(slideIndex)
       }
     }
+    if (exportParam === "true") {
+      setIsExportMode(true)
+    }
+    setIsReady(true)
+    // Signal to Puppeteer that React is ready
+    ;(window as any).__EXPORT_READY__ = true
   }, [])
 
   // Expose goToSlide for iframe access (PDF export)
@@ -151,32 +161,41 @@ export default function PresentationDeck() {
 
   const showAgenda = currentSlide > 1 && currentSlide < presentationSlides.length - 1
 
-  return (
-    <div className="h-screen w-screen bg-background overflow-hidden relative flex flex-col">
-      {/* Dexcom Logo - hide on first slide */}
-      {currentSlide > 1 && (
-        <img
-          src="/images/dexcom-logo.png"
-          alt="Dexcom"
-          className="absolute -top-8 left-3 h-32 z-50"
-        />
-      )}
-      {showAgenda && <RunningAgenda currentSlide={currentSlide} goToSlide={goToSlide} sections={presentationSections} />}
-      <main
-        className={`flex-1 min-h-0 transition-opacity duration-150 ${isTransitioning ? "opacity-0" : "opacity-100"}`}
-        key={currentSlide}
-      >
-        {renderSlide()}
-      </main>
+  // Don't render until URL params are read - prevents charts from animating
+  if (!isReady) {
+    return <div className="h-screen w-screen bg-background" />
+  }
 
-      <PresentationNav
-        currentSlide={currentSlide}
-        totalSlides={presentationSlides.length}
-        slides={presentationSlides}
-        goToSlide={goToSlide}
-        nextSlide={nextSlide}
-        prevSlide={prevSlide}
-      />
-    </div>
+  return (
+    <ExportProvider isExport={isExportMode}>
+      <div className="h-screen w-screen bg-background overflow-hidden relative flex flex-col">
+        {/* Dexcom Logo - hide on first slide */}
+        {currentSlide > 1 && (
+          <img
+            src="/images/dexcom-logo.png"
+            alt="Dexcom"
+            className="absolute -top-8 left-3 h-32 z-50"
+          />
+        )}
+        {showAgenda && <RunningAgenda currentSlide={currentSlide} goToSlide={goToSlide} sections={presentationSections} />}
+        <main
+          className={`flex-1 min-h-0 transition-opacity duration-150 ${isTransitioning ? "opacity-0" : "opacity-100"}`}
+          key={currentSlide}
+        >
+          {renderSlide()}
+        </main>
+
+        {!isExportMode && (
+          <PresentationNav
+            currentSlide={currentSlide}
+            totalSlides={presentationSlides.length}
+            slides={presentationSlides}
+            goToSlide={goToSlide}
+            nextSlide={nextSlide}
+            prevSlide={prevSlide}
+          />
+        )}
+      </div>
+    </ExportProvider>
   )
 }

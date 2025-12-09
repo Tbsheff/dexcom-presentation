@@ -10,23 +10,23 @@ export function ProfitabilityAnalysisSlide() {
   ]
 
   return (
-    <div className="p-10 pb-24 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <div className="mb-8">
+        <span className="text-xl uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
-        <h2 className="text-5xl font-bold mt-1 tracking-tight text-foreground">Profitability Metrics (2024)</h2>
-        <p className="text-muted-foreground mt-1 text-sm">
+        <h2 className="text-5xl font-bold mt-4 tracking-tight text-foreground">Profitability Metrics (2024)</h2>
+        <p className="text-muted-foreground mt-4 text-2xl">
           Comprehensive view of Dexcom's profitability performance and operational efficiency
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 mb-2.5">
+      <div className="flex-1 grid grid-cols-2 gap-6 content-start">
         {metrics.map((metric, idx) => (
-          <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-2.5 rounded-lg bg-card border border-border`}>
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{metric.label}</span>
-            <p className="text-xl font-bold text-foreground mt-2">{metric.value}</p>
-            <p className="text-xs text-primary font-medium mt-1.5 flex items-center gap-1.5">
+          <div key={idx} className={`animate-fade-up stagger-${idx + 1} p-5 rounded-lg bg-card border border-border`}>
+            <span className="text-2xl uppercase tracking-wider text-muted-foreground">{metric.label}</span>
+            <p className="text-xl font-bold text-foreground mt-4">{metric.value}</p>
+            <p className="text-xl text-primary font-medium mt-3 flex items-center gap-1.5">
               <TrendingUp className="w-3 h-3" />
               {metric.change}
             </p>
@@ -34,26 +34,26 @@ export function ProfitabilityAnalysisSlide() {
         ))}
       </div>
 
-      <div className="animate-fade-up stagger-5 p-3 rounded-lg bg-card border-l-4 border-l-primary">
-        <h3 className="font-bold text-foreground mb-2 text-sm">Key Insights</h3>
-        <ul className="space-y-1.5 text-xs text-muted-foreground">
-          <li className="flex items-start gap-2">
+      <div className="animate-fade-up stagger-5 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+        <h3 className="font-bold text-foreground mb-5 text-2xl">Key Insights</h3>
+        <ul className="space-y-6 text-xl text-muted-foreground">
+          <li className="flex items-start gap-5">
             <span className="text-primary mt-0.5">•</span>
             <span>
               Strong revenue growth of 11% YoY demonstrates continued market expansion and product adoption
             </span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-5">
             <span className="text-primary mt-0.5">•</span>
             <span>EBITDA margin of 27% indicates healthy operational efficiency and pricing power</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-5">
             <span className="text-primary mt-0.5">•</span>
             <span>
               Net margin improvement reflects maturing business model with better cost management and economies of scale
             </span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-5">
             <span className="text-primary mt-0.5">•</span>
             <span>
               Operating margin of 14.9% positions Dexcom favorably within the medical device industry benchmarks

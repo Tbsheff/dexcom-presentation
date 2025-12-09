@@ -25,22 +25,22 @@ export function ResourcesDetailedSlide() {
   ]
 
   return (
-    <div className="p-10 pb-24 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <div className="mb-8">
+        <span className="text-xl uppercase tracking-[0.3em] text-primary font-medium">
           Section 04 · Resources
         </span>
-        <h2 className="text-5xl font-bold mt-1 tracking-tight text-foreground">Resources</h2>
-        <p className="text-muted-foreground mt-1 text-sm">Strategic assets that power Dexcom's competitive advantage</p>
+        <h2 className="text-5xl font-bold mt-4 tracking-tight text-foreground">Resources</h2>
+        <p className="text-muted-foreground mt-4 text-2xl">Strategic assets that power Dexcom's competitive advantage</p>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-6 flex-1">
         {resources.map((resource, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-4 rounded-lg bg-card border-2 border-border hover:border-primary/50 transition-colors`}
+            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border-2 border-border hover:border-primary/50 transition-colors`}
           >
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-6">
               <resource.icon className={`w-6 h-6 ${resource.color} flex-shrink-0 mt-0.5`} />
               <div>
                 <h3 className="text-2xl font-bold text-foreground mb-1">{resource.title}</h3>

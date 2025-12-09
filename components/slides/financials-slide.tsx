@@ -3,8 +3,10 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList } from "recharts"
 import { revenueData, COLORS } from "@/lib/presentation-data"
 import { SlideHeader, SlideLabel, SlideTitle, Card, CardContent, StatCard } from "@/components/ui"
+import { useExportMode } from "@/lib/export-context"
 
 export function FinancialsSlide() {
+  const isExport = useExportMode()
   const metrics = [
     { label: "Revenue", value: "$4.03B", subtext: "+11% YoY" },
     { label: "EBITDA", value: "$1.1B", subtext: "27% margin" },
@@ -71,7 +73,7 @@ export function FinancialsSlide() {
                 labelStyle={{ color: "hsl(var(--foreground))", fontWeight: 500 }}
                 formatter={(value: number) => [`$${value}B`, "Revenue"]}
               />
-              <Bar dataKey="revenue" fill={COLORS.dexcom} radius={[4, 4, 0, 0]} name="Revenue">
+              <Bar dataKey="revenue" fill={COLORS.dexcom} radius={[4, 4, 0, 0]} name="Revenue" isAnimationActive={!isExport}>
                 <LabelList dataKey="label" position="top" fill="hsl(var(--foreground))" fontSize={11} fontWeight={500} />
               </Bar>
             </BarChart>

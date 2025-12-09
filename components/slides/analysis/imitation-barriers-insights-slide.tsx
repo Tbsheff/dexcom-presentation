@@ -11,24 +11,24 @@ export function ImitationBarriersInsightsSlide() {
   ]
 
   return (
-    <div className="p-8 pb-20 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <div className="mb-8">
+        <span className="text-xl uppercase tracking-[0.3em] text-primary font-medium">
           Section 05 · Key Insights
         </span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Imitation Barriers: Key Insights</h2>
-        <p className="text-muted-foreground mt-1 text-xs">Strategic takeaways from barrier analysis</p>
+        <h2 className="text-5xl font-bold mt-4 tracking-tight text-foreground">Imitation Barriers: Key Insights</h2>
+        <p className="text-muted-foreground mt-4 text-xl">Strategic takeaways from barrier analysis</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-2 gap-6">
         {insights.map((insight, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-3 rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 hover:border-primary/40 transition-colors`}
+            className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 hover:border-primary/40 transition-colors`}
           >
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-5">
               <Lightbulb className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-foreground leading-snug font-medium text-sm">{insight}</p>
+              <p className="text-foreground leading-snug font-medium text-2xl">{insight}</p>
             </div>
           </div>
         ))}

@@ -5,26 +5,26 @@ import { TrendingUp } from "lucide-react"
 
 export function ValueChainTakeaways2Slide() {
   return (
-    <div className="p-6 pb-20 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-primary font-medium">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <div className="mb-8">
+        <span className="text-2xl uppercase tracking-[0.3em] text-primary font-medium">
           Section 03 · Value Chain Analysis
         </span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Takeaways from the Value Chain</h2>
-        <p className="text-base font-semibold text-green-500 mt-0.5">{valueChainTakeaways2.category}</p>
+        <h2 className="text-5xl font-bold mt-4 tracking-tight text-foreground">Takeaways from the Value Chain</h2>
+        <p className="text-xl font-semibold text-green-500 mt-0.5">{valueChainTakeaways2.category}</p>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-5 flex-1">
         {valueChainTakeaways2.takeaways.map((takeaway, idx) => (
           <div
             key={idx}
-            className={`animate-fade-up stagger-${idx + 1} p-2.5 rounded-lg bg-card border-2 border-green-500`}
+            className={`animate-fade-up stagger-${idx + 1} p-5 rounded-lg bg-card border-2 border-green-500`}
           >
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-5">
               <TrendingUp className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-base font-bold text-foreground mb-1">{takeaway.title}</h3>
-                <p className="text-sm text-muted-foreground leading-snug">{takeaway.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">{takeaway.title}</h3>
+                <p className="text-2xl text-muted-foreground leading-snug">{takeaway.description}</p>
               </div>
             </div>
           </div>

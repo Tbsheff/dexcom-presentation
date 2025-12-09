@@ -2,8 +2,10 @@
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts"
 import { revenueSourcesData, COLORS, COMPANY_COLORS } from "@/lib/presentation-data"
+import { useExportMode } from "@/lib/export-context"
 
 export function RevenueSourcesAnalysisSlide() {
+  const isExport = useExportMode()
   const totalRevenue = revenueSourcesData.reduce((acc, item) => acc + item.amount, 0)
 
   const dataWithPercentages = revenueSourcesData.map((item) => ({
@@ -15,20 +17,20 @@ export function RevenueSourcesAnalysisSlide() {
   const chartColors = [COMPANY_COLORS.dexcom, "#1F2937"]
 
   return (
-    <div className="p-10 pb-24 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-primary font-medium">
+    <div className="px-12 pt-8 pb-20 h-full flex flex-col">
+      <div className="mb-8">
+        <span className="text-xl uppercase tracking-[0.3em] text-primary font-medium">
           Section 01 · Financial Analysis
         </span>
-        <h2 className="text-5xl font-bold mt-2 tracking-tight text-foreground">Revenue Sources</h2>
-        <p className="text-muted-foreground mt-1 text-sm">
+        <h2 className="text-5xl font-bold mt-4 tracking-tight text-foreground">Revenue Sources</h2>
+        <p className="text-muted-foreground mt-4 text-2xl">
           Dexcom has two main revenue streams with heavy concentration in recurring sensor revenue
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <div className="animate-fade-up p-3 rounded-lg bg-card border border-border">
-          <h3 className="font-semibold text-foreground mb-3 text-center text-sm">Revenue Breakdown ($ Billions)</h3>
+      <div className="grid grid-cols-2 gap-6">
+        <div className="animate-fade-up p-6 rounded-lg bg-card border border-border">
+          <h3 className="font-semibold text-foreground mb-8 text-center text-2xl">Revenue Breakdown ($ Billions)</h3>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={dataWithPercentages} layout="vertical" margin={{ top: 5, right: 60, bottom: 5, left: 150 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" horizontal={false} />
@@ -61,7 +63,7 @@ export function RevenueSourcesAnalysisSlide() {
                   "Revenue",
                 ]}
               />
-              <Bar dataKey="amount" radius={[0, 4, 4, 0]}>
+              <Bar dataKey="amount" radius={[0, 4, 4, 0]} isAnimationActive={!isExport}>
                 {dataWithPercentages.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={chartColors[index % chartColors.length]} />
                 ))}
@@ -70,19 +72,19 @@ export function RevenueSourcesAnalysisSlide() {
           </ResponsiveContainer>
         </div>
 
-        <div className="space-y-2.5">
+        <div className="space-y-5.5">
           {dataWithPercentages.map((item, idx) => (
             <div
               key={idx}
-              className={`animate-fade-up stagger-${idx + 1} p-3 rounded-lg bg-card border border-border`}
+              className={`animate-fade-up stagger-${idx + 1} p-6 rounded-lg bg-card border border-border`}
               style={{ borderLeftWidth: "4px", borderLeftColor: chartColors[idx] }}
             >
-              <h4 className="font-bold text-foreground mb-1 text-sm">{item.category}</h4>
+              <h4 className="font-bold text-foreground mb-1 text-2xl">{item.category}</h4>
               <p className="text-xl font-bold mb-1" style={{ color: chartColors[idx] }}>
                 ${item.amount.toFixed(2)}B
               </p>
-              <p className="text-xs text-muted-foreground mb-2">{item.percentage}% of total revenue</p>
-              <p className="text-[11px] text-muted-foreground leading-snug">
+              <p className="text-xl text-muted-foreground mb-5">{item.percentage}% of total revenue</p>
+              <p className="text-xl text-muted-foreground leading-snug">
                 {idx === 0
                   ? "Recurring revenue from consumable sensors worn continuously by users"
                   : "One-time hardware sales (receivers, transmitters) with lower margin"}
@@ -92,11 +94,11 @@ export function RevenueSourcesAnalysisSlide() {
         </div>
       </div>
 
-      <div className="animate-fade-up stagger-3 mt-3 p-3 rounded-lg bg-card border-l-4 border-l-primary">
-        <h3 className="font-bold text-foreground mb-2 text-sm">Revenue Model Analysis</h3>
-        <div className="grid grid-cols-2 gap-3 text-xs text-muted-foreground">
+      <div className="animate-fade-up stagger-3 mt-3 p-6 rounded-lg bg-card border-l-4 border-l-primary">
+        <h3 className="font-bold text-foreground mb-5 text-2xl">Revenue Model Analysis</h3>
+        <div className="grid grid-cols-2 gap-6 text-xl text-muted-foreground">
           <div>
-            <p className="font-semibold text-foreground mb-1.5 text-xs">Strengths</p>
+            <p className="font-semibold text-foreground mb-1.5 text-xl">Strengths</p>
             <ul className="space-y-1">
               <li className="flex items-start gap-1.5">
                 <span className="text-primary mt-0.5">•</span>
@@ -113,7 +115,7 @@ export function RevenueSourcesAnalysisSlide() {
             </ul>
           </div>
           <div>
-            <p className="font-semibold text-foreground mb-1.5 text-xs">Strategic Implications</p>
+            <p className="font-semibold text-foreground mb-1.5 text-xl">Strategic Implications</p>
             <ul className="space-y-1">
               <li className="flex items-start gap-1.5">
                 <span className="text-primary mt-0.5">•</span>
